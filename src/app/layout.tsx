@@ -9,15 +9,16 @@ const inter = Inter({
 
 const siteUrl = "https://bugarnusantarajaya.com";
 const siteName = "CV Bugar Nusantara Jaya";
+const siteTitle = "CV Bugar Nusantara Jaya | Holding Company & Venture Builder";
 const siteDescription =
   "CV Bugar Nusantara Jaya adalah holding company yang membangun dan mengembangkan ekosistem bisnis di sektor Fitness, Wellness, Sport, dan Education di Indonesia.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: siteName,
+  title: siteTitle,
   description: siteDescription,
   openGraph: {
-    title: siteName,
+    title: siteTitle,
     description: siteDescription,
     url: siteUrl,
     siteName,
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteName,
+    title: siteTitle,
     description: siteDescription,
     images: ["/logo-bnj.png"],
   },
@@ -46,8 +47,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={inter.className}>
-      <body className="min-h-screen bg-white antialiased">{children}</body>
+    <html lang="id" className={`${inter.className} scroll-smooth`}>
+      <body className="min-h-screen overflow-x-hidden bg-white antialiased">
+        {children}
+      </body>
     </html>
   );
 }

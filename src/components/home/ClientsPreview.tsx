@@ -13,18 +13,24 @@ import ojkLogo from "../../../public/images/Klien-Otoritas-Jasa-Keuangan.png";
 import abumasLogo from "../../../public/images/Klien-Abumas-Group.png";
 import sampoernaLogo from "../../../public/images/Klien-Sampoerna-Academy.png";
 
+const logoSizeClasses = {
+  default: "h-8 sm:h-10 lg:h-12",
+  large: "h-10 sm:h-12 lg:h-14",
+  xlarge: "h-12 sm:h-14 lg:h-16",
+} as const;
+
 const clients = [
-  { name: "Telkom Indonesia", logo: telkomLogo, emphasize: true },
-  { name: "Telin", logo: telinLogo },
-  { name: "AIA Insurance", logo: aiaLogo, emphasize: true },
-  { name: "Wuling Motors", logo: wulingLogo },
-  { name: "Pfizer", logo: pfizerLogo, emphasize: true },
-  { name: "TransTV", logo: transTvLogo },
-  { name: "SNJ", logo: snjLogo },
-  { name: "OJK", logo: ojkLogo, emphasize: true },
-  { name: "Abumas Group", logo: abumasLogo, emphasize: true },
-  { name: "Sampoerna Academy", logo: sampoernaLogo, emphasize: true },
-];
+  { name: "Telkom Indonesia", logo: telkomLogo, size: "large" },
+  { name: "Telin", logo: telinLogo, size: "default" },
+  { name: "AIA Insurance", logo: aiaLogo, size: "large" },
+  { name: "Wuling Motors", logo: wulingLogo, size: "default" },
+  { name: "Pfizer", logo: pfizerLogo, size: "xlarge" },
+  { name: "TransTV", logo: transTvLogo, size: "default" },
+  { name: "SNJ", logo: snjLogo, size: "default" },
+  { name: "OJK", logo: ojkLogo, size: "xlarge" },
+  { name: "Abumas Group", logo: abumasLogo, size: "xlarge" },
+  { name: "Sampoerna Academy", logo: sampoernaLogo, size: "large" },
+] satisfies { name: string; logo: typeof telkomLogo; size: keyof typeof logoSizeClasses }[];
 
 const marqueeClients = [...clients, ...clients];
 
@@ -53,11 +59,7 @@ export default function ClientsPreview() {
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  className={`w-auto object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 ${
-                    client.emphasize
-                      ? "h-10 sm:h-12 lg:h-14"
-                      : "h-8 sm:h-10 lg:h-12"
-                  }`}
+                  className={`w-auto object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 ${logoSizeClasses[client.size]}`}
                 />
               </div>
             ))}

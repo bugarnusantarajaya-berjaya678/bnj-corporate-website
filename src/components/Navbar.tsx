@@ -8,6 +8,7 @@ import {
   ChevronDown,
   Dumbbell,
   GraduationCap,
+  HeartPulse,
   Menu,
   Rocket,
   Search,
@@ -22,6 +23,12 @@ const ecosystemItems = [
     href: "/ekosistem-bisnis/efm",
     description: "Pengelolaan fitness, wellness, dan fasilitas olahraga",
     icon: Dumbbell,
+  },
+  {
+    title: "BNJ Digital Labs",
+    href: "/ekosistem-bisnis/digital-labs",
+    description: "Produk digital kesehatan & kebugaran, menuju BNJ Vitality Intelligence",
+    icon: HeartPulse,
   },
   {
     title: "Brand Incubation & Business Acceleration",

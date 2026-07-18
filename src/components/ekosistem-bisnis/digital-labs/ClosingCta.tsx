@@ -1,0 +1,61 @@
+import Link from "next/link";
+import Reveal from "@/components/Reveal";
+
+export default function ClosingCta() {
+  return (
+    <section className="relative isolate overflow-hidden bg-[#03428E] py-14 sm:py-16 md:py-24 lg:py-32">
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[3px] bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
+      />
+      <svg
+        aria-hidden
+        width="360"
+        height="360"
+        viewBox="0 0 360 360"
+        fill="none"
+        className="pointer-events-none absolute -bottom-24 -right-20 z-0"
+      >
+        <circle cx="180" cy="180" r="170" stroke="#fff" strokeOpacity="0.08" strokeWidth="1.5" />
+        <circle cx="180" cy="180" r="120" stroke="#fff" strokeOpacity="0.08" strokeWidth="1.5" />
+        <circle cx="180" cy="180" r="70" stroke="#fff" strokeOpacity="0.08" strokeWidth="1.5" />
+      </svg>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+        <Reveal className="flex flex-wrap items-center justify-between gap-6">
+          <div className="max-w-xl border-l-[5px] border-[#6AA84F] pl-6">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#9FC9E8]">
+              Kemitraan Digital Health
+            </p>
+            <h2 className="mt-3.5 text-2xl font-bold leading-tight text-white sm:text-3xl">
+              Tertarik menjajaki kemitraan digital health dengan BNJ?
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-white/85">
+              Kami terbuka untuk kemitraan dengan rumah sakit, klinik, dan
+              penyedia layanan kesehatan yang ingin memperluas jangkauan
+              melalui solusi digital.
+            </p>
+            <p className="mt-2.5 text-xs leading-relaxed text-[#9FC9E8]/75">
+              Mendukung proses konsultasi, terapi, dan pemulihan pasien
+              melalui program digital yang terstruktur.
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <Link
+              href="/kontak"
+              className="inline-flex items-center justify-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-[#03428E] transition-colors duration-200 hover:bg-white/90"
+            >
+              Hubungi Kami
+            </Link>
+            <a
+              href="#produk-digital"
+              className="inline-flex items-center justify-center rounded-lg border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
+            >
+              Lihat Program Kami
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

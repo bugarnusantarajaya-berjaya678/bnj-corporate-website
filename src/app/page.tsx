@@ -1,8 +1,9 @@
 import Hero from "@/components/home/Hero";
-import AtAGlance from "@/components/home/AtAGlance";
 import Pillars from "@/components/home/Pillars";
 import WhyPartner from "@/components/home/WhyPartner";
 import ClientsPreview from "@/components/home/ClientsPreview";
+import CompanyVideo from "@/components/home/CompanyVideo";
+import AtAGlance from "@/components/home/AtAGlance";
 import ClosingCta from "@/components/home/ClosingCta";
 import SectionDivider from "@/components/SectionDivider";
 
@@ -22,13 +23,14 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       <Hero />
-      <AtAGlance />
-      <SectionDivider align="right" />
       <Pillars />
-      <SectionDivider align="left" />
+      <SectionDivider />
       <WhyPartner />
-      <SectionDivider align="right" />
+      <SectionDivider />
       <ClientsPreview />
+      <CompanyVideo />
+      <SectionDivider />
+      <AtAGlance />
       <ClosingCta />
     </>
   );

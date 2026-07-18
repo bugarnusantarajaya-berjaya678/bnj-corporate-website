@@ -1,91 +1,83 @@
-"use client";
-
-import { Award, ClipboardCheck, Network, TrendingUp, UserCheck } from "lucide-react";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, ClipboardCheck, Layers, Network, TrendingUp } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const reasons = [
   {
-    icon: Award,
-    title: "Proven Operational Experience Since 2017",
-    description:
-      "Pengalaman operasional lebih dari delapan tahun dalam pengelolaan fitness, wellness, sport facility, dan program kesehatan korporasi.",
-  },
-  {
-    icon: UserCheck,
-    title: "Integrated Talent Pipeline",
-    description:
-      "Sistem pengembangan dan penyediaan instruktur profesional yang terstandarisasi untuk mendukung kebutuhan ekspansi dan operasional mitra.",
-  },
-  {
     icon: ClipboardCheck,
+    accent: "border-t-[#03428E]",
     title: "System-Based Management",
     description:
       "Pengelolaan operasional berbasis SOP, KPI, pelaporan, dan kontrol mutu yang terukur.",
   },
   {
     icon: Network,
+    accent: "border-t-[#6AA84F]",
     title: "Strategic Partnership Network",
     description:
       "Jaringan kolaborasi yang mencakup sektor pendidikan, korporasi, properti, dan wellness ecosystem.",
   },
   {
     icon: TrendingUp,
+    accent: "border-t-[#0095DA]",
     title: "Scalable Growth Model",
     description:
       "Model bisnis yang dirancang untuk bertumbuh secara berkelanjutan melalui sistem, talenta, dan kemitraan strategis.",
+  },
+  {
+    icon: Layers,
+    accent: "border-t-[#03428E]",
+    title: "Ecosystem-Driven Growth",
+    description:
+      "BNJ tidak hanya menyediakan layanan, tetapi membangun ekosistem yang menghubungkan operasional, talenta, teknologi, pendidikan, dan peluang bisnis.",
   },
 ];
 
 export default function WhyPartner() {
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32">
+    <section className="bg-white pt-12 pb-16 sm:pt-14 sm:pb-20 lg:pt-[72px] lg:pb-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Why Partner With BNJ
+            Keunggulan Kami
           </p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-            Mengapa Organisasi Terkemuka Bermitra dengan BNJ?
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+            Kenapa Partner Memilih BNJ
           </h2>
         </Reveal>
-        <ul className="mt-12 divide-y divide-neutral-200 border-t border-neutral-200">
+
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map((reason, index) => (
-            <motion.li
-              key={reason.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
-              className="group flex gap-5 py-8"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{
-                  duration: 0.35,
-                  delay: index * 0.1 + 0.1,
-                  ease: "easeOut",
-                }}
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#03428E]/8"
+            <Reveal key={reason.title} delay={index * 0.1}>
+              <div
+                className={`h-full border border-t-[3px] border-neutral-200 bg-white p-7 ${reason.accent}`}
               >
-                <reason.icon
-                  className="h-7 w-7 text-[#03428E] transition-transform duration-200 group-hover:scale-110 sm:h-8 sm:w-8"
-                  strokeWidth={1.5}
-                />
-              </motion.div>
-              <div>
-                <h3 className="text-base font-bold text-neutral-900 sm:text-lg">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#03428E]/8">
+                  <reason.icon
+                    className="h-6 w-6 text-[#03428E]"
+                    strokeWidth={1.5}
+                  />
+                </div>
+                <h3 className="text-base font-bold text-neutral-900">
                   {reason.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed text-neutral-600 sm:text-base">
+                <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
                   {reason.description}
                 </p>
               </div>
-            </motion.li>
+            </Reveal>
           ))}
-        </ul>
+        </div>
+
+        <div className="mt-10">
+          <Link
+            href="/tentang-kami#kenapa-partner"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#03428E]"
+          >
+            Lihat Semua Keunggulan
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
       </div>
     </section>
   );

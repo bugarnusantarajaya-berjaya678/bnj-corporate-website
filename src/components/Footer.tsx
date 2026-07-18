@@ -5,6 +5,7 @@ import logo from "../../public/logo-bnj.png";
 
 const ecosystemLinks = [
   { title: "Essential Fitness Management", href: "/ekosistem-bisnis/efm" },
+  { title: "BNJ Digital Labs", href: "/ekosistem-bisnis/digital-labs" },
   {
     title: "Brand Incubation & Business Acceleration",
     href: "/ekosistem-bisnis/brand-incubation",

@@ -1,72 +1,55 @@
-import {
-  Building2,
-  ClipboardList,
-  GraduationCap,
-  Handshake,
-} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import officeImage from "../../../public/images/about-office.png.png";
 import Reveal from "@/components/Reveal";
-import AnimatedCounter from "@/components/AnimatedCounter";
-
-const stats = [
-  { value: 8, suffix: "+", label: "Tahun Pengalaman Operasional" },
-  { value: 200, suffix: "+", label: "Personal Training Clients" },
-  { value: 10, suffix: "+", label: "Mitra Korporat & Institusi" },
-];
-
-const points = [
-  { icon: Building2, text: "Holding Company & Venture Builder" },
-  {
-    icon: Handshake,
-    text: "Corporate, Property & Educational Partnerships",
-  },
-  { icon: ClipboardList, text: "System-Based Operations & Reporting" },
-  {
-    icon: GraduationCap,
-    text: "Active Educational Partnership Through ECA Aspire",
-  },
-];
 
 export default function AtAGlance() {
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32">
+    <section className="bg-white py-14 sm:py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            BNJ at a Glance
+            Tentang BNJ
           </p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-            Fondasi Bisnis yang Terbangun Sejak 2017
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+            Fondasi Bisnis yang Bertumbuh Sejak 2017
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {stats.map((stat, index) => (
-            <Reveal key={stat.label} delay={index * 0.1}>
-              <div className="flex h-full flex-col border border-neutral-200 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#03428E]">
-                <p className="text-5xl font-bold text-[#03428E] sm:text-6xl">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="mt-3 text-sm font-medium leading-snug text-neutral-600 sm:text-base">
-                  {stat.label}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal
+          delay={0.1}
+          className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl sm:aspect-[16/7]"
+        >
+          <Image
+            src={officeImage}
+            alt="Kantor CV Bugar Nusantara Jaya"
+            fill
+            sizes="(min-width: 1024px) 1280px, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.55)_0%,rgba(3,41,89,0)_45%)]" />
+        </Reveal>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {points.map((point, index) => (
-            <Reveal key={point.text} delay={(index % 2) * 0.1}>
-              <div className="group flex h-full items-start gap-4 border border-neutral-200 p-6 transition-colors duration-200 hover:border-[#03428E]">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-neutral-300 text-neutral-500 transition-all duration-200 group-hover:rotate-6 group-hover:scale-110 group-hover:border-[#03428E]/40 group-hover:text-[#03428E]">
-                  <point.icon className="h-5 w-5" strokeWidth={1.5} />
-                </div>
-                <p className="pt-2 text-sm font-medium leading-snug text-neutral-800 sm:text-base">
-                  {point.text}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-6">
+          <blockquote className="max-w-2xl border-l-[5px] border-[#6AA84F] pl-6">
+            <p className="text-[17px] font-medium italic leading-relaxed text-neutral-900">
+              &quot;Kami percaya bahwa pertumbuhan yang berkelanjutan dibangun
+              melalui kemitraan yang sehat, tata kelola yang akuntabel, dan
+              komitmen jangka panjang.&quot;
+            </p>
+            <p className="mt-4 text-sm font-bold text-neutral-900">
+              Bagoes Soeharto{" "}
+              <span className="font-normal text-neutral-500">
+                — Founder &amp; President Director
+              </span>
+            </p>
+          </blockquote>
+          <Link
+            href="/tentang-kami"
+            className="inline-flex shrink-0 items-center justify-center rounded-lg bg-[#03428E] px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#032f66]"
+          >
+            Selengkapnya Tentang Kami
+          </Link>
         </div>
       </div>
     </section>

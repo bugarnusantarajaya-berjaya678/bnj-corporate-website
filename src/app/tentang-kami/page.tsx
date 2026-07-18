@@ -19,15 +19,15 @@ export default function TentangKamiPage() {
     <>
       <Foreword />
       <FoundationStatement />
-      <SectionDivider align="right" />
+      <SectionDivider />
       <VisionMissionValues />
-      <SectionDivider align="left" />
+      <SectionDivider />
       <Milestone />
-      <SectionDivider align="right" />
+      <SectionDivider />
       <GrowthRoadmap />
-      <SectionDivider align="left" />
+      <SectionDivider />
       <Leadership />
-      <SectionDivider align="right" />
+      <SectionDivider />
       <OrgStructure />
     </>
   );

@@ -122,7 +122,8 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 ## 9. Footer
 
 - Background: solid Corporate Blue, menyatu dengan CTA penutup sebagai satu "closing block".
-- Dipisahkan dari CTA hanya dengan garis putih tipis — tidak perlu warna berbeda.
+- Dipisahkan dari CTA dengan garis putih tipis 1px, opacity 20-30%, full-width — posisi tepat di batas bawah CTA / atas Footer.
+- Wajib ada di SETIAP halaman yang punya CTA penutup + Footer (bukan cuma Home) — cek item ini di Design Parity Audit setiap kali halaman baru dibangun.
 
 ## 10. Navbar / Header (persist saat scroll)
 

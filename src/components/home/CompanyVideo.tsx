@@ -2,7 +2,7 @@ import Reveal from "@/components/Reveal";
 
 export default function CompanyVideo() {
   return (
-    <section className="bg-white pt-12 pb-16 sm:pt-14 sm:pb-20 lg:pt-[72px] lg:pb-24">
+    <section className="bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(64px,9vw,128px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">

@@ -61,14 +61,17 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section id="pilar-bisnis" className="bg-white py-16 md:py-24 lg:py-32">
+    <section
+      id="pilar-bisnis"
+      className="bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(64px,9vw,128px)]"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             Ekosistem Bisnis
           </p>
           <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-            Empat Pilar yang Saling Terintegrasi
+            5 Ekosistem Bisnis Saling Terintegrasi
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 sm:text-lg">
             Setiap pilar bisnis BNJ dibangun untuk saling mendukung,
@@ -82,7 +85,7 @@ export default function Pillars() {
             <Reveal
               key={pillar.title}
               delay={(index % 5) * 0.08}
-              className="w-full max-w-[380px] flex-1 basis-[280px]"
+              className="w-full max-w-[380px] basis-full md:basis-1/2 lg:basis-1/4"
             >
               <TiltCard className="h-full [transform-style:preserve-3d]">
                 <Link

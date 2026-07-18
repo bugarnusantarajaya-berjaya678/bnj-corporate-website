@@ -35,7 +35,7 @@ const reasons = [
 
 export default function WhyPartner() {
   return (
-    <section className="bg-white pt-12 pb-16 sm:pt-14 sm:pb-20 lg:pt-[72px] lg:pb-24">
+    <section className="bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(64px,9vw,128px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
@@ -46,7 +46,7 @@ export default function WhyPartner() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {reasons.map((reason, index) => (
             <Reveal key={reason.title} delay={index * 0.1}>
               <div

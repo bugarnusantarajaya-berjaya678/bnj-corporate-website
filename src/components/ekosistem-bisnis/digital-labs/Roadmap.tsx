@@ -10,7 +10,7 @@ const roadmap = [
   },
   {
     status: "Rencana Lanjutan",
-    year: "2027–2028",
+    year: "2027",
     description:
       "Pengembangan BNJ Vitality Intelligence — platform terintegrasi untuk kebutuhan korporat.",
     active: false,
@@ -25,8 +25,11 @@ export default function Roadmap() {
 
         <Reveal className="mt-16">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Roadmap Pengembangan
+            Arah Pengembangan
           </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+            Roadmap Ekspansi BNJ Vitality Intelligence
+          </h2>
 
           <div className="mt-12 grid max-w-2xl grid-cols-2 gap-6">
             {roadmap.map((phase) => (

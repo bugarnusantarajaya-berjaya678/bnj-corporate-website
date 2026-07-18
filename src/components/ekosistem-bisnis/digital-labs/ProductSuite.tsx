@@ -154,9 +154,14 @@ export default function ProductSuite() {
           </Reveal>
         </div>
 
-        <p className="mt-12 text-[11px] font-bold uppercase tracking-[0.15em] text-[#03428E]">
-          4 Layanan Produk Digital
-        </p>
+        <div className="mt-12">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
+            Produk Digital
+          </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+            4 Layanan Inti Kesehatan Digital
+          </h2>
+        </div>
         <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product, index) => (
             <Reveal
@@ -193,9 +198,14 @@ export default function ProductSuite() {
           ))}
         </div>
 
-        <p className="mt-12 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6AA84F]">
-          6 Spesialisasi Layanan
-        </p>
+        <div className="mt-12">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
+            Spesialisasi Layanan
+          </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+            6 Program Spesialisasi Kesehatan
+          </h2>
+        </div>
         <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {specializations.map((spec, index) => (
             <Reveal

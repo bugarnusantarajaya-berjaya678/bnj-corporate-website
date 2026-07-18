@@ -18,29 +18,41 @@ import {
 // TODO: ganti dengan bnj-vitality-konsep.jpg begitu asetnya tersedia di public/images/ —
 // sementara pakai foto produk digital yang sudah ada sebagai placeholder konteks platform.
 import introPhoto from "../../../../public/images/Digital Product — E-BookPDF Mockup (Vertical).png";
+// TODO: keempat foto di bawah ini juga placeholder sementara — dc.html referensi tidak
+// pernah punya foto asli untuk 4 kartu ini (semua "Upload manual", belum diisi siapa pun).
+// Ganti dengan mockup dashboard/network map/modular/AI monitoring yang sesungguhnya begitu
+// BNJ Vitality Intelligence benar-benar dibangun.
+import dashboardPhoto from "../../../../public/images/Digital Product — E-BookPDF Mockup (Horizontal).png";
+import networkPhoto from "../../../../public/images/konsultasi-online-pc.jpg.png";
+import modularPhoto from "../../../../public/images/Digital Product — Video Tutorial Collection (Horizontal).png";
+import aiPhoto from "../../../../public/images/Konsultasi Online via HPSmartphone (Vertical).png";
 import Reveal from "@/components/Reveal";
 
 const features = [
   {
     icon: LayoutDashboard,
+    image: dashboardPhoto,
     title: "Satu Dashboard, Semua Insight Kesehatan Karyawan",
     description:
       "Data kesehatan dan aktivitas diubah menjadi rekomendasi nyata, bukan sekadar angka.",
   },
   {
     icon: Network,
+    image: networkPhoto,
     title: "Terhubung ke Jaringan Mitra Terverifikasi",
     description:
       "Karyawan maupun perusahaan dapat memilih penyedia layanan sesuai kebutuhan, dari rumah sakit, klinik, terapis, klub olahraga, hingga personal trainer, dalam satu jaringan mitra BNJ.",
   },
   {
     icon: Puzzle,
+    image: modularPhoto,
     title: "Dibangun Fleksibel untuk Skala Apapun",
     description:
       "Dirancang untuk dapat diadopsi oleh perusahaan, penyedia layanan kesehatan, maupun mitra industri lain, apapun ukuran dan model kemitraannya.",
   },
   {
     icon: BrainCircuit,
+    image: aiPhoto,
     title: "Dipantau dengan Teknologi Berbasis AI",
     description:
       "Mendukung pemantauan dan pengambilan keputusan kesehatan yang lebih presisi, dikembangkan bersama pakar AI dan ahli teknologi.",
@@ -158,35 +170,58 @@ export default function VitalityIntelligence() {
           </Reveal>
         </div>
 
-        <p className="mt-16 text-[11px] font-bold uppercase tracking-[0.15em] text-[#03428E]">
-          Fitur Tersedia
-        </p>
+        <div className="mt-16">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
+            Fitur BNJ Vitality Intelligence
+          </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+            4 Fitur Utama Tersedia
+          </h2>
+        </div>
         <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
             <Reveal
               key={feature.title}
               delay={(index % 4) * 0.08}
-              className="h-full border border-t-[3px] border-neutral-200 border-t-[#03428E] p-6"
+              className="flex h-full flex-col overflow-hidden border border-t-[3px] border-neutral-200 border-t-[#03428E]"
             >
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#03428E]/8">
-                <feature.icon
-                  className="h-[22px] w-[22px] text-[#03428E]"
-                  strokeWidth={1.5}
+              <div className="relative aspect-[16/10] w-full">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
                 />
+                <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(3,66,142,0.85)_0%,rgba(3,66,142,0.4)_22%,rgba(3,66,142,0)_45%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.35)_0%,rgba(3,41,89,0)_40%)]" />
               </div>
-              <h3 className="text-[17px] font-bold leading-snug text-neutral-900">
-                {feature.title}
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
-                {feature.description}
-              </p>
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#03428E]/8">
+                  <feature.icon
+                    className="h-[22px] w-[22px] text-[#03428E]"
+                    strokeWidth={1.5}
+                  />
+                </div>
+                <h3 className="text-[17px] font-bold leading-snug text-neutral-900">
+                  {feature.title}
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
+                  {feature.description}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
 
-        <p className="mt-20 text-[11px] font-bold uppercase tracking-[0.15em] text-[#6AA84F]">
-          Keunggulan Utama
-        </p>
+        <div className="mt-20">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
+            Keunggulan Utama BNJ Vitality Intelligence
+          </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+            2 Keunggulan Utama
+          </h2>
+        </div>
         <div className="mt-7 grid grid-cols-1 gap-7 lg:grid-cols-2">
           {premiumCards.map((card, index) => (
             <Reveal

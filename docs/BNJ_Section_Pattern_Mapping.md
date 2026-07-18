@@ -130,6 +130,16 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 - Tombol kontak di navbar: kecil, outline atau text-button, warna Corporate Blue di atas navbar putih.
 - **Bukan** filled/solid — filled button direservasi untuk Hero dan CTA penutup saja, supaya moment konversi utama tidak "tenggelam" karena tombol serupa muncul di semua tempat.
 
+
+## 11. Responsive Behavior (berlaku semua section)
+
+- Breakpoint: mobile <768px, tablet 768-1024px, desktop >1024px
+- Section zigzag (foto+teks, §2): di mobile, foto dan teks stack vertikal (foto di atas, teks di bawah) — bukan side-by-side dipaksa muat.
+- Grid card (§3): desktop 3-4 kolom → tablet 2 kolom → mobile 1 kolom.
+- Navbar: mobile pakai hamburger menu, bukan menu horizontal penuh.
+- Hero: headline & padding menyesuaikan skala mobile di BNJ_Typography_Standard.md.
+- Garis vertikal hijau 5px + angka dekoratif (§2): tetap ada di mobile tapi ukuran angka dekoratif diperkecil supaya tidak menutupi teks di layar sempit.
+
 ---
 
 ## Aturan lintas-section (berlaku di semua tipe di atas)

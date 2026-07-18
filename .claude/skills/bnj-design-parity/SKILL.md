@@ -62,6 +62,13 @@ Setelah pemeriksaan, laporkan dalam bentuk list:
 2. Slot foto yang masih berstatus "sementara/perlu diganti" untuk diaudit ulang nanti
 3. Konfirmasi eksplisit: apakah halaman ini sudah 1:1 sama dengan referensi Claude Design, atau ada bagian yang masih menyimpang dan kenapa
 
+
+### F. Responsive
+- Cek tampilan di 3 lebar: 375px (mobile), 768px (tablet), 1440px (desktop)
+- Tidak ada elemen terpotong/overflow horizontal
+- Navbar berubah jadi hamburger menu di mobile
+- Grid card menyesuaikan jumlah kolom sesuai breakpoint
+
 ## Log Halaman (update manual tiap selesai audit)
 
 | Halaman | Tanggal Audit | Status | Catatan |

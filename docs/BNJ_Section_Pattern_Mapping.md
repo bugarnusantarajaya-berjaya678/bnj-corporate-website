@@ -150,6 +150,8 @@ Contoh: section "4 Fitur Utama Tersedia" dan "2 Keunggulan Utama" di sub-section
 - Deskripsi paragraf dan detail tag pendukung (mis. "Analisis Postur Tubuh", "VO2 Max"): di-blur/pudar mengikuti tingkat blur foto.
 - Border dan struktur card lain (top-accent tri-warna untuk Spotlight Card §3a) tetap dipertahankan — treatment ini menambah lapisan visual "samar", bukan mengganti struktur card yang sudah ada.
 
+**Implementasi teknis:** dikontrol lewat satu boolean flag di kode (bukan halaman/duplikat terpisah) — mis. `const VITALITY_COMING_SOON = true`. Saat BNJ Vitality Intelligence resmi diluncurkan, ubah flag ini jadi `false` untuk otomatis menampilkan versi full-reveal (foto normal, badge lock hilang, semua teks terbaca) tanpa perlu membangun ulang section dari nol.
+
 ---
 
 ## Aturan lintas-section (berlaku di semua tipe di atas)

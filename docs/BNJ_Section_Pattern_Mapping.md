@@ -10,6 +10,8 @@ Dokumen referensi singkat. Dipakai setiap kali membangun atau mereview section b
 - Divider di bagian bawah Hero: garis diagonal tebal \+ aksen tri-warna (Corporate Blue → Growth Green → Digital Blue), urutan warna konsisten kiri-ke-kanan.  
 - **Tidak pakai** garis vertikal hijau atau angka transparan.  
 - **Badge pill kategori** (kotak kecil icon \+ label uppercase, mis. "BNJ DIGITAL LABS", "ESSENTIAL FITNESS MANAGEMENT") — **WAJIB ADA** di atas headline untuk semua halaman pilar/sub-halaman. **Kecuali Home** — Hero Home sengaja tanpa badge pill karena headline-nya sendiri sudah jadi anchor utama tanpa perlu kategori (halaman utama, bukan sub-halaman spesifik).  
+- - **Badge info/meta** (opsional, di bawah paragraph Hero — beda dari badge kategori di atas headline): kotak pill dengan border tipis putih semi-transparan, background putih sangat transparan/blur (frosted glass effect), icon kecil + teks di dalam satu kotak yang sama. Dipakai untuk highlight status singkat (mis. tanggal aktif kemitraan, target pengembangan) — maksimal 2 badge berdampingan. Animasi subtle floating (naik-turun sangat pelan, idle motion terus-menerus, amplitudo ~4-6px, durasi 3-4 detik per siklus) — konsisten dengan gaya animasi halus Home, bukan bounce/elastic.
+- **Layout badge info/meta:** default sejajar 1 baris horizontal (flex-row, gap secukupnya, lebar container mengikuti total lebar kedua badge — tidak dipaksa full-width). Badge HANYA boleh stack vertikal (flex-col) di breakpoint mobile (<768px) sesuai `docs/BNJ_Section_Pattern_Mapping.md` §11 Responsive Behavior — di tablet dan desktop harus tetap 1 baris.
 - Tombol: 1 primary filled saja. Tidak perlu secondary di Hero.
 
 ## 2\. Section teks \+ foto berdampingan (zigzag layout)
@@ -130,6 +132,23 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 
 - Tombol kontak di navbar: kecil, outline atau text-button, warna Corporate Blue di atas navbar putih.  
 - **Bukan** filled/solid — filled button direservasi untuk Hero dan CTA penutup saja, supaya moment konversi utama tidak "tenggelam" karena tombol serupa muncul di semua tempat.
+
+
+## 11. Kondisi Samar / Coming Soon (khusus BNJ Digital Labs — bukan pola umum)
+
+Contoh: section "4 Fitur Utama Tersedia" dan "2 Keunggulan Utama" di sub-section BNJ Vitality Intelligence (halaman BNJ Digital Labs).
+
+**Kapan dipakai:**
+- HANYA untuk section di halaman BNJ Digital Labs yang isinya konsep/fitur produk digital yang belum diluncurkan resmi dan sengaja belum dibuka detailnya ke publik untuk alasan proteksi ide/kompetitif.
+- **Jangan dipakai di halaman lain** tanpa konfirmasi eksplisit dari Bagoes — ini bukan pola default untuk semua "section masa depan/2027-2028" di seluruh website (bandingkan dengan Badge Row §5 dan Roadmap §4 yang tetap terbuka penuh, cuma beda pola visual, bukan disembunyikan).
+- Timeline/badge terkait tetap pakai angka tahun yang jujur (mis. "2026-2027") — yang disamarkan adalah detail konsep/fitur, bukan status aktif-tidaknya inisiatif.
+
+**Struktur visual:**
+- Foto card: greyscale + blur ringan (~4-6px blur), tidak dihapus total — tetap ada bentuk/siluet supaya terlihat "belum dibuka" bukan "rusak/error".
+- Label pill kecil "Detail Segera Hadir" + icon lock, posisi pojok kanan atas tiap card.
+- Judul fitur/keunggulan: tetap terbaca jelas, TIDAK di-blur (ini yang boleh dibuka — nama fitur, bukan cara kerja detailnya).
+- Deskripsi paragraf dan detail tag pendukung (mis. "Analisis Postur Tubuh", "VO2 Max"): di-blur/pudar mengikuti tingkat blur foto.
+- Border dan struktur card lain (top-accent tri-warna untuk Spotlight Card §3a) tetap dipertahankan — treatment ini menambah lapisan visual "samar", bukan mengganti struktur card yang sudah ada.
 
 ---
 

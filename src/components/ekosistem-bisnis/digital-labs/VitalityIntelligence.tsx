@@ -1,32 +1,33 @@
 import Image from "next/image";
 import {
-  BrainCircuit,
-  ClipboardCheck,
+  Activity,
+  CalendarCheck,
+  Columns2,
+  CircleCheck,
+  Cookie,
+  Cpu,
+  Dna,
   LayoutDashboard,
-  ListChecks,
-  Network,
-  PersonStanding,
-  Puzzle,
-  ScanLine,
-  Sparkles,
-  SquareStack,
-  Target,
-  TrendingUp,
-  Utensils,
-  Wind,
+  LineChart,
+  Lock,
+  Mic,
+  LayoutGrid,
+  Share2,
+  Stethoscope,
+  Swords,
 } from "lucide-react";
-// TODO: ganti dengan bnj-vitality-konsep.jpg begitu asetnya tersedia di public/images/ —
-// sementara pakai foto produk digital yang sudah ada sebagai placeholder konteks platform.
-import introPhoto from "../../../../public/images/Digital Product — E-BookPDF Mockup (Vertical).png";
-// TODO: keempat foto di bawah ini juga placeholder sementara — dc.html referensi tidak
-// pernah punya foto asli untuk 4 kartu ini (semua "Upload manual", belum diisi siapa pun).
-// Ganti dengan mockup dashboard/network map/modular/AI monitoring yang sesungguhnya begitu
-// BNJ Vitality Intelligence benar-benar dibangun.
-import dashboardPhoto from "../../../../public/images/Digital Product — E-BookPDF Mockup (Horizontal).png";
-import networkPhoto from "../../../../public/images/konsultasi-online-pc.jpg.png";
-import modularPhoto from "../../../../public/images/Digital Product — Video Tutorial Collection (Horizontal).png";
-import aiPhoto from "../../../../public/images/Konsultasi Online via HPSmartphone (Vertical).png";
+import introPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/BNJ-Vitality-Hero-Section.png";
+import dashboardPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Satu-Dashboard.png";
+import networkPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Jaringan-Mitra.png";
+import modularPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Dibangun-Fleksibel.png";
+import aiPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Teknologi-Berbasis-AI.png";
 import Reveal from "@/components/Reveal";
+
+// Toggle di Claude Design (Tweaks panel: "vitalityComingSoon"). true = foto
+// greyscale+blur, badge "Detail Segera Hadir", deskripsi/tag disamarkan.
+// Ubah ke false saat BNJ Vitality Intelligence resmi diluncurkan untuk
+// otomatis menampilkan versi full-reveal tanpa duplikasi section.
+const VITALITY_COMING_SOON = true;
 
 const features = [
   {
@@ -37,21 +38,21 @@ const features = [
       "Data kesehatan dan aktivitas diubah menjadi rekomendasi nyata, bukan sekadar angka.",
   },
   {
-    icon: Network,
+    icon: Share2,
     image: networkPhoto,
     title: "Terhubung ke Jaringan Mitra Terverifikasi",
     description:
       "Karyawan maupun perusahaan dapat memilih penyedia layanan sesuai kebutuhan, dari rumah sakit, klinik, terapis, klub olahraga, hingga personal trainer, dalam satu jaringan mitra BNJ.",
   },
   {
-    icon: Puzzle,
+    icon: LayoutGrid,
     image: modularPhoto,
     title: "Dibangun Fleksibel untuk Skala Apapun",
     description:
       "Dirancang untuk dapat diadopsi oleh perusahaan, penyedia layanan kesehatan, maupun mitra industri lain, apapun ukuran dan model kemitraannya.",
   },
   {
-    icon: BrainCircuit,
+    icon: Cpu,
     image: aiPhoto,
     title: "Dipantau dengan Teknologi Berbasis AI",
     description:
@@ -61,31 +62,41 @@ const features = [
 
 const premiumCards = [
   {
-    icon: ScanLine,
+    icon: Stethoscope,
     eyebrow: "Screening Kesehatan Multi-Dimensi",
     title: "Satu Titik Akses untuk Semua Hasil Screening Anda",
     description:
       "Terintegrasi dengan hasil screening dari jaringan mitra rumah sakit, klinik, dan fisioterapi BNJ — mencakup Analisis Postur Tubuh, Analisis Komposisi Tubuh, kapasitas VO2 Max, hingga General Check-Up (tes darah, EKG, dan pemeriksaan penunjang lainnya).",
     items: [
-      { icon: PersonStanding, label: "Analisis Postur Tubuh" },
-      { icon: SquareStack, label: "Komposisi Tubuh" },
-      { icon: Wind, label: "VO2 Max" },
-      { icon: ClipboardCheck, label: "General Check-Up" },
+      { icon: Mic, label: "Analisis Postur Tubuh" },
+      { icon: Columns2, label: "Komposisi Tubuh" },
+      { icon: Activity, label: "VO2 Max" },
+      { icon: CalendarCheck, label: "General Check-Up" },
     ],
   },
   {
-    icon: Sparkles,
+    icon: Dna,
     eyebrow: "Kecerdasan Buatan untuk Kesehatan",
     title: "Dari Data Screening Menjadi Panduan Hidup Sehat",
     description:
       "Setiap hasil screening dianalisis kecerdasan buatan untuk menghasilkan rekomendasi latihan, pola makan, dan jenis diet yang dipersonalisasi — lengkap dengan panduan Do & Don'ts, dikembangkan bersama dokter dan expert medis agar hasilnya optimal dan sesuai standar kesehatan global.",
     items: [
-      { icon: Target, label: "Rekomendasi Latihan Personal" },
-      { icon: Utensils, label: "Panduan Diet & Nutrisi" },
-      { icon: ListChecks, label: "Do & Don'ts Kesehatan", span: true },
+      { icon: Swords, label: "Rekomendasi Latihan Personal" },
+      { icon: Cookie, label: "Panduan Diet & Nutrisi" },
+      { icon: CircleCheck, label: "Do & Don'ts Kesehatan", span: true },
     ],
   },
 ];
+
+function ComingSoonBadge() {
+  if (!VITALITY_COMING_SOON) return null;
+  return (
+    <span className="absolute right-3 top-3 z-10 inline-flex items-center gap-1 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold text-[#03428E] shadow-sm">
+      <Lock className="h-3 w-3" strokeWidth={2.5} />
+      Detail Segera Hadir
+    </span>
+  );
+}
 
 export default function VitalityIntelligence() {
   return (
@@ -96,7 +107,7 @@ export default function VitalityIntelligence() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal className="lg:order-1">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+            <div className="relative aspect-[16/11] w-full">
               <Image
                 src={introPhoto}
                 alt="Ilustrasi platform BNJ Vitality Intelligence"
@@ -104,8 +115,6 @@ export default function VitalityIntelligence() {
                 sizes="(min-width: 1024px) 560px, 100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(3,66,142,0.85)_0%,rgba(3,66,142,0.4)_22%,rgba(3,66,142,0)_45%)]" />
-              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.35)_0%,rgba(3,41,89,0)_40%)]" />
             </div>
             <p className="mt-2.5 text-xs italic text-neutral-400">
               Ilustrasi konsep — bukan tampilan produk final
@@ -114,25 +123,25 @@ export default function VitalityIntelligence() {
 
           <Reveal
             delay={0.1}
-            className="relative lg:order-2 lg:border-l-[5px] lg:border-[#6AA84F] lg:pl-6"
+            className="relative border-l-[5px] border-[#6AA84F] pl-6 lg:order-2"
           >
             <span
               aria-hidden
-              className="pointer-events-none absolute -top-10 left-2 hidden select-none text-[150px] font-extrabold leading-none text-neutral-100 lg:block"
+              className="pointer-events-none absolute -top-6 left-2 select-none text-[56px] font-extrabold leading-none text-neutral-100 sm:-top-8 sm:left-3 sm:text-[90px] lg:-top-10 lg:text-[150px]"
             >
               02
             </span>
             <div className="relative z-10 flex flex-wrap items-center gap-3">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#03428E]/8">
-                <TrendingUp className="h-7 w-7 text-[#03428E]" strokeWidth={1.5} />
+                <LineChart className="h-7 w-7 text-[#03428E]" strokeWidth={1.5} />
               </div>
               <h2 className="text-[28px] font-extrabold leading-tight text-[#03428E] sm:text-[32px]">
                 BNJ Vitality Intelligence
               </h2>
             </div>
             <div className="relative z-10 mt-3">
-              <span className="inline-block rounded-full bg-[#8a93a0]/25 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#6b7480]">
-                Target Pengembangan 2027
+              <span className="inline-block rounded-full bg-[rgba(138,147,160,0.28)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#6b7480]">
+                Target Pengembangan 2026-2027
               </span>
             </div>
             <h3 className="relative z-10 mt-5 text-xl font-extrabold leading-tight text-neutral-900">
@@ -178,20 +187,21 @@ export default function VitalityIntelligence() {
             4 Fitur Utama Tersedia
           </h2>
         </div>
-        <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
             <Reveal
               key={feature.title}
               delay={(index % 4) * 0.08}
-              className="flex h-full flex-col overflow-hidden border border-t-[3px] border-neutral-200 border-t-[#03428E]"
+              className="relative flex h-full flex-col overflow-hidden border border-t-[3px] border-neutral-200 border-t-[#03428E]"
             >
+              <ComingSoonBadge />
               <div className="relative aspect-[16/10] w-full">
                 <Image
                   src={feature.image}
                   alt={feature.title}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover"
+                  className={`object-cover ${VITALITY_COMING_SOON ? "grayscale blur-[5px]" : ""}`}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(3,66,142,0.85)_0%,rgba(3,66,142,0.4)_22%,rgba(3,66,142,0)_45%)]" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.35)_0%,rgba(3,41,89,0)_40%)]" />
@@ -206,7 +216,9 @@ export default function VitalityIntelligence() {
                 <h3 className="text-[17px] font-bold leading-snug text-neutral-900">
                   {feature.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
+                <p
+                  className={`mt-2.5 text-sm leading-relaxed text-neutral-600 ${VITALITY_COMING_SOON ? "select-none opacity-70 blur-[5px]" : ""}`}
+                >
                   {feature.description}
                 </p>
               </div>
@@ -227,12 +239,13 @@ export default function VitalityIntelligence() {
             <Reveal
               key={card.title}
               delay={index * 0.1}
-              className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-8 shadow-[0_12px_32px_rgba(3,66,142,0.08)]"
+              className="relative overflow-hidden rounded-[14px] border border-neutral-200 bg-white p-8 shadow-[0_12px_32px_rgba(3,66,142,0.08)]"
             >
               <div
                 aria-hidden
                 className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
               />
+              <ComingSoonBadge />
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#03428E]/8">
                 <card.icon className="h-[30px] w-[30px] text-[#03428E]" strokeWidth={1.5} />
               </div>
@@ -242,11 +255,15 @@ export default function VitalityIntelligence() {
               <h3 className="mt-2.5 text-[22px] font-extrabold leading-tight text-neutral-900">
                 {card.title}
               </h3>
-              <p className="mt-3.5 text-sm leading-relaxed text-neutral-600">
+              <p
+                className={`mt-3.5 text-sm leading-relaxed text-neutral-600 ${VITALITY_COMING_SOON ? "select-none opacity-70 blur-[5px]" : ""}`}
+              >
                 {card.description}
               </p>
 
-              <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-neutral-100 pt-5">
+              <div
+                className={`mt-6 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-neutral-100 pt-5 ${VITALITY_COMING_SOON ? "select-none opacity-70 blur-[5px]" : ""}`}
+              >
                 {card.items.map((item) => (
                   <div
                     key={item.label}

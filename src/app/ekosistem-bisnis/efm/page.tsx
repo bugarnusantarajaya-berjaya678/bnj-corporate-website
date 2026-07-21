@@ -1,24 +1,34 @@
 import type { Metadata } from "next";
+import Hero from "@/components/ekosistem-bisnis/efm/Hero";
+import PrivateProgram from "@/components/ekosistem-bisnis/efm/PrivateProgram";
+import B2BManagement from "@/components/ekosistem-bisnis/efm/B2BManagement";
+import EventManagement from "@/components/ekosistem-bisnis/efm/EventManagement";
+import CommunityHub from "@/components/ekosistem-bisnis/efm/CommunityHub";
+import Milestone from "@/components/ekosistem-bisnis/efm/Milestone";
+import ClientsPreview from "@/components/ekosistem-bisnis/efm/ClientsPreview";
+import ClosingCta from "@/components/ekosistem-bisnis/efm/ClosingCta";
+import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Essential Fitness Management | CV Bugar Nusantara Jaya",
   description:
-    "Halaman Essential Fitness Management CV Bugar Nusantara Jaya sedang dalam pengembangan.",
+    "Essential Fitness Management (EFM) adalah unit bisnis inti BNJ yang mengelola Private Program, B2B Management, Event Management, dan Essential Community Hub sejak 2017.",
 };
 
 export default function EfmPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-6 py-24 text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-        Essential Fitness Management
-      </p>
-      <h1 className="mt-4 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-        Halaman Ini Sedang Dalam Pengembangan
-      </h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-neutral-600">
-        Detail unit bisnis Essential Fitness Management akan segera hadir di
-        halaman ini.
-      </p>
-    </main>
+    <>
+      <Hero />
+      <PrivateProgram />
+      <SectionDivider />
+      <B2BManagement />
+      <SectionDivider />
+      <EventManagement />
+      <SectionDivider />
+      <CommunityHub />
+      <Milestone />
+      <ClientsPreview />
+      <ClosingCta />
+    </>
   );
 }

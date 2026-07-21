@@ -28,6 +28,7 @@ export default function Home() {
       <WhyPartner />
       <SectionDivider />
       <ClientsPreview />
+      <SectionDivider />
       <CompanyVideo />
       <SectionDivider />
       <AtAGlance />

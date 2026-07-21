@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Heart, HeartPulse } from "lucide-react";
-import heroImage from "../../../../public/images/Konsultasi Online via HPSmartphone (Vertical).png";
+import heroImage from "../../../../public/images/Page-BNJ-Digital-Labs/Digital-Labs-Hero-Image-Page.png";
 import Reveal from "@/components/Reveal";
 
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.55)_0%,rgba(3,41,89,0)_38%)]" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[540px] max-w-7xl items-center px-6 pb-24 pt-20 sm:min-h-[620px] sm:pb-32 sm:pt-24 lg:min-h-[700px] lg:px-12 lg:pb-40 lg:pt-28">
+      <div className="relative mx-auto flex min-h-[clamp(560px,72vh,760px)] max-w-7xl items-center px-6 pb-24 pt-20 sm:pb-32 sm:pt-24 lg:px-12 lg:pb-40 lg:pt-28">
         <Reveal className="max-w-xl">
           <div className="mb-6 flex items-center gap-3.5">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-white/15">
@@ -41,17 +41,20 @@ export default function Hero() {
             kesehatan terintegrasi untuk kebutuhan jangka panjang.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3">
-            <div className="flex items-center gap-2.5">
+          <div className="mt-8 flex w-fit flex-col gap-3 md:flex-row md:gap-7">
+            <div className="flex animate-float-badge items-center gap-2.5 rounded-lg border border-white/25 bg-white/[0.12] px-4 py-2.5">
               <Calendar className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
                 Kemitraan Digital Health Aktif 2026
               </span>
             </div>
-            <div className="flex items-center gap-2.5">
+            <div
+              className="flex animate-float-badge items-center gap-2.5 rounded-lg border border-white/25 bg-white/[0.12] px-4 py-2.5"
+              style={{ animationDelay: ".6s" }}
+            >
               <Heart className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
-                Menuju BNJ Vitality Intelligence 2027-2028
+                Menuju BNJ Vitality Intelligence 2026-2027
               </span>
             </div>
           </div>

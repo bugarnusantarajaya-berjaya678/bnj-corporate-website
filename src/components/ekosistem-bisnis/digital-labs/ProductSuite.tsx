@@ -1,23 +1,22 @@
 import Image from "next/image";
 import {
   Activity,
-  Baby,
-  Bone,
+  Clock,
   Book,
   Check,
-  Dumbbell,
-  Grid2X2,
-  HeartPulse,
+  Cpu,
+  MapPin,
   MessageCircle,
   PlayCircle,
+  Swords,
+  User,
   Users,
-  Venus,
 } from "lucide-react";
-import introPhoto from "../../../../public/images/Digital Product — Video Tutorial Collection (Vertical).png";
-import consultPhoto from "../../../../public/images/konsultasi-online-pc.jpg.png";
-import ebookPhoto from "../../../../public/images/Digital Product — E-BookPDF Mockup (Horizontal).png";
-import videoPhoto from "../../../../public/images/Digital Product — Video Tutorial Collection (Horizontal).png";
-import whatsappPhoto from "../../../../public/images/Grup WA Broadcast.png";
+import introPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Produk-Digital-Hero-Section.png";
+import consultPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Konsultasi-Online.png";
+import ebookPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/E-Book-Panduan.png";
+import videoPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Video-Program.png";
+import whatsappPhoto from "../../../../public/images/Page-BNJ-Digital-Labs/Grup-Monitoring-WA.png";
 import Reveal from "@/components/Reveal";
 
 const products = [
@@ -53,7 +52,7 @@ const products = [
 
 const specializations = [
   {
-    icon: Bone,
+    icon: Clock,
     title: "Ortopedi (Osteoarthritis Care)",
     badge: "JointCare",
     description:
@@ -68,14 +67,14 @@ const specializations = [
     products: "Video program, konsultasi online, grup monitoring",
   },
   {
-    icon: Venus,
+    icon: MapPin,
     title: "Kesehatan Wanita",
     description:
       "Program kesehatan khusus perempuan di berbagai tahap kehidupan, didampingi tenaga profesional terkait.",
     products: "E-book, konsultasi online",
   },
   {
-    icon: HeartPulse,
+    icon: Users,
     title: "Kesehatan Lansia",
     badge: "BNJ Golden Years",
     description:
@@ -83,13 +82,13 @@ const specializations = [
     products: "Video program, konsultasi online, grup monitoring",
   },
   {
-    icon: Baby,
+    icon: User,
     title: "Kesehatan Anak",
     description: "Program kesehatan dan tumbuh kembang anak, didampingi expert terkait.",
     products: "E-book, konsultasi online",
   },
   {
-    icon: Dumbbell,
+    icon: Swords,
     title: "Fitness & Sport Program",
     badge: "cth. BNJ Boxing School",
     description:
@@ -103,10 +102,10 @@ export default function ProductSuite() {
     <section id="produk-digital" className="bg-white py-14 sm:py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal className="relative lg:border-r-[5px] lg:border-[#6AA84F] lg:pr-6 lg:text-right">
+          <Reveal className="relative border-l-[5px] border-[#6AA84F] pl-6 lg:border-l-0 lg:border-r-[5px] lg:pl-0 lg:pr-6 lg:text-right">
             <span
               aria-hidden
-              className="pointer-events-none absolute -top-10 right-4 hidden select-none text-[150px] font-extrabold leading-none text-neutral-100 lg:block"
+              className="pointer-events-none absolute -top-6 right-2 select-none text-[56px] font-extrabold leading-none text-neutral-100 sm:-top-8 sm:right-3 sm:text-[90px] lg:-top-10 lg:right-4 lg:text-[150px]"
             >
               01
             </span>
@@ -115,7 +114,7 @@ export default function ProductSuite() {
                 Produk Digital
               </p>
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#03428E]/8">
-                <Grid2X2 className="h-7 w-7 text-[#03428E]" strokeWidth={1.5} />
+                <Cpu className="h-7 w-7 text-[#03428E]" strokeWidth={1.5} />
               </div>
             </div>
             <div className="relative z-10 mt-3">
@@ -137,7 +136,7 @@ export default function ProductSuite() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+            <div className="relative aspect-[16/11] w-full">
               <Image
                 src={introPhoto}
                 alt="Ilustrasi ekosistem produk digital BNJ"
@@ -145,8 +144,6 @@ export default function ProductSuite() {
                 sizes="(min-width: 1024px) 560px, 100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(to_left,rgba(3,66,142,0.85)_0%,rgba(3,66,142,0.4)_22%,rgba(3,66,142,0)_45%)]" />
-              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.35)_0%,rgba(3,41,89,0)_40%)]" />
             </div>
             <p className="mt-2.5 text-xs italic text-neutral-400">
               Ilustrasi konsep — bukan tampilan produk final
@@ -162,7 +159,7 @@ export default function ProductSuite() {
             4 Layanan Inti Kesehatan Digital
           </h2>
         </div>
-        <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product, index) => (
             <Reveal
               key={product.title}
@@ -206,7 +203,7 @@ export default function ProductSuite() {
             6 Program Spesialisasi Kesehatan
           </h2>
         </div>
-        <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {specializations.map((spec, index) => (
             <Reveal
               key={spec.title}

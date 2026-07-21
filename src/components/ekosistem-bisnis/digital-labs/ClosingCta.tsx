@@ -22,7 +22,7 @@ export default function ClosingCta() {
       </svg>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-        <Reveal className="flex flex-wrap items-center justify-between gap-6">
+        <Reveal className="flex flex-col gap-6 md:flex-row md:flex-wrap md:items-center md:justify-between">
           <div className="max-w-xl border-l-[5px] border-[#6AA84F] pl-6">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#9FC9E8]">
               Kemitraan Digital Health
@@ -48,7 +48,7 @@ export default function ClosingCta() {
               Hubungi Kami
             </Link>
             <a
-              href="#produk-digital"
+              href="/ekosistem-bisnis/digital-labs"
               className="inline-flex items-center justify-center rounded-lg border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
             >
               Lihat Program Kami
@@ -56,6 +56,11 @@ export default function ClosingCta() {
           </div>
         </Reveal>
       </div>
+
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-[2px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.55)_50%,rgba(255,255,255,0)_100%)]"
+      />
     </section>
   );
 }

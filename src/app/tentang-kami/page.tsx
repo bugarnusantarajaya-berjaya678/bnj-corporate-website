@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Hero from "@/components/about/Hero";
 import Foreword from "@/components/about/Foreword";
-import FoundationStatement from "@/components/about/FoundationStatement";
 import VisionMissionValues from "@/components/about/VisionMissionValues";
+import AtAGlance from "@/components/about/AtAGlance";
 import Milestone from "@/components/about/Milestone";
 import GrowthRoadmap from "@/components/about/GrowthRoadmap";
-import Leadership from "@/components/about/Leadership";
 import OrgStructure from "@/components/about/OrgStructure";
+import WhyPartner from "@/components/about/WhyPartner";
+import ClosingCta from "@/components/about/ClosingCta";
 import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
@@ -17,18 +19,19 @@ export const metadata: Metadata = {
 export default function TentangKamiPage() {
   return (
     <>
+      <Hero />
       <Foreword />
-      <FoundationStatement />
       <SectionDivider />
       <VisionMissionValues />
       <SectionDivider />
+      <AtAGlance />
       <Milestone />
       <SectionDivider />
       <GrowthRoadmap />
-      <SectionDivider />
-      <Leadership />
-      <SectionDivider />
       <OrgStructure />
+      <SectionDivider />
+      <WhyPartner />
+      <ClosingCta />
     </>
   );
 }

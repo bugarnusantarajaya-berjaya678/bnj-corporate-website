@@ -1,39 +1,47 @@
 import Image from "next/image";
+import photo from "../../../public/images/Foto Bagoes Background Putih.png";
 import Reveal from "@/components/Reveal";
-import WaveDivider from "@/components/WaveDivider";
-import officeImage from "../../../public/images/about-office.png.png";
 
 export default function Foreword() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#03428E] py-20 text-white sm:py-24 lg:py-32">
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={officeImage}
-          alt="Lingkungan kerja CV Bugar Nusantara Jaya"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#03428E] via-[#03428E]/92 to-[#03428E]/25" />
-      </div>
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-12">
-        <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/70">
-            Sambutan dari Founder
-          </p>
-          <div className="mt-6 flex gap-5">
-            <span
-              aria-hidden
-              className="hidden w-1 shrink-0 self-stretch bg-white sm:block"
-            />
-            <div className="space-y-5 text-base leading-relaxed text-white/90 sm:text-lg">
-              <p>
-                Industri fitness, wellness, sport, dan education kini
-                berkembang menjadi sektor yang semakin menuntut standar
-                operasional, kualitas layanan, serta tata kelola yang
-                terukur.
+    <section className="bg-white py-14 sm:py-16 md:py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[17fr_23fr] lg:items-start lg:gap-16">
+          <Reveal>
+            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl lg:max-w-none">
+              <Image
+                src={photo}
+                alt="Bagoes Soeharto, Founder & President Director CV Bugar Nusantara Jaya"
+                fill
+                sizes="(min-width: 1024px) 420px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="mt-6 border-t border-neutral-200 pt-6">
+              <p className="text-[19px] font-extrabold text-neutral-900">
+                Bagoes Soeharto
               </p>
+              <p className="mt-1.5 text-sm text-neutral-500">
+                Founder &amp; President Director, CV Bugar Nusantara Jaya
+              </p>
+              <p className="mt-1.5 text-[13px] italic text-neutral-400">
+                Jakarta, 2026
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal
+            delay={0.1}
+            className="relative border-l-[5px] border-[#6AA84F] pl-7"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+              Pesan dari Pimpinan
+            </p>
+            <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+              Membangun BNJ di Atas Kepercayaan dan Konsistensi
+            </h2>
+            <blockquote className="mt-6 space-y-5 text-lg font-medium italic leading-relaxed text-neutral-900">
+              <p>&ldquo;Salam Sehat dari CV Bugar Nusantara Jaya.</p>
               <p>
                 CV Bugar Nusantara Jaya (BNJ) dibangun untuk mengintegrasikan
                 pengalaman operasional, pengembangan talenta, kemitraan
@@ -46,26 +54,16 @@ export default function Foreword() {
               </p>
               <p>
                 Kami percaya bahwa pertumbuhan yang berkelanjutan dibangun
-                melalui kemitraan yang sehat, tata kelola yang akuntabel,
-                dan komitmen jangka panjang. Dengan landasan tersebut, BNJ
-                terus mengembangkan ekosistem bisnis yang mampu menciptakan
-                nilai bagi seluruh pemangku kepentingan — mulai dari klien,
-                mitra operasional, hingga investor.
+                melalui kemitraan yang sehat, tata kelola yang akuntabel, dan
+                komitmen jangka panjang. Dengan landasan tersebut, BNJ terus
+                mengembangkan ekosistem bisnis yang mampu menciptakan nilai
+                bagi seluruh pemangku kepentingan, mulai dari klien, mitra
+                operasional, hingga investor.&rdquo;
               </p>
-            </div>
-          </div>
-          <div className="mt-10 border-t border-white/20 pt-6">
-            <p className="text-sm text-white/70">Jakarta, 2026</p>
-            <p className="mt-2 text-lg font-bold text-white">
-              Bagoes Soeharto
-            </p>
-            <p className="text-sm text-white/70">
-              Founder &amp; President Director, CV Bugar Nusantara Jaya
-            </p>
-          </div>
-        </Reveal>
+            </blockquote>
+          </Reveal>
+        </div>
       </div>
-      <WaveDivider fill="#ffffff" />
     </section>
   );
 }

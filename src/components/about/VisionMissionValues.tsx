@@ -1,4 +1,4 @@
-import { Dumbbell, GraduationCap, LineChart, Rocket } from "lucide-react";
+import { Dumbbell, GraduationCap, Network, TrendingUp } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const missionPoints = [
@@ -11,11 +11,11 @@ const missionPoints = [
     text: "Membangun ekosistem pengembangan talenta dan kemitraan pendidikan yang menghasilkan tenaga profesional berkualitas sesuai kebutuhan industri.",
   },
   {
-    icon: Rocket,
+    icon: Network,
     text: "Mendorong inovasi melalui transformasi digital, pengembangan sistem operasional, serta kolaborasi strategis untuk menciptakan pertumbuhan bisnis yang berkelanjutan.",
   },
   {
-    icon: LineChart,
+    icon: TrendingUp,
     text: "Mengkurasi, mengembangkan, dan mengelola peluang investasi secara transparan, akuntabel, serta berbasis mitigasi risiko guna menciptakan pertumbuhan nilai jangka panjang.",
   },
 ];
@@ -23,41 +23,48 @@ const missionPoints = [
 const coreValues = [
   {
     letter: "B",
-    title: "BOLD INNOVATION",
+    title: "Bold Innovation",
     description:
       "Berani menghadirkan inovasi, solusi, dan model bisnis yang adaptif untuk menciptakan pertumbuhan yang berkelanjutan.",
   },
   {
     letter: "N",
-    title: "NURTURING PARTNERSHIP",
+    title: "Nurturing Partnership",
     description:
       "Membangun hubungan yang dilandasi kepercayaan, integritas, dan kolaborasi jangka panjang bersama pelanggan, mitra strategis, dan investor.",
   },
   {
     letter: "J",
-    title: "JOURNEY OF EXCELLENCE",
+    title: "Journey of Excellence",
     description:
-      "Fokus bertumbuh melalui peningkatan kualitas sistem, pengembangan talenta, serta budaya perbaikan berkelanjutan demi mencapai standar profesional terbaik.",
+      "Terus bertumbuh melalui peningkatan kualitas sistem, pengembangan talenta, serta budaya perbaikan berkelanjutan demi mencapai standar profesional terbaik.",
   },
 ];
 
 export default function VisionMissionValues() {
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32">
+    <section className="bg-white py-14 sm:py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        {/* Vision */}
         <Reveal>
-          <div className="relative overflow-hidden border border-neutral-200 p-8 sm:p-12">
-            <span
+          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+            Arah dan Nilai Kami
+          </p>
+          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+            Fondasi yang Memandu Setiap Langkah BNJ
+          </h2>
+        </Reveal>
+
+        {/* Visi — single Spotlight card */}
+        <Reveal delay={0.05} className="mt-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+            Visi
+          </p>
+          <div className="relative mt-4 overflow-hidden rounded-2xl border border-neutral-200 p-8 shadow-[0_4px_24px_rgba(3,66,142,0.12)] sm:p-12">
+            <div
               aria-hidden
-              className="pointer-events-none absolute -right-2 -top-6 select-none text-[5.5rem] font-bold leading-none text-neutral-100 sm:text-[7.5rem] lg:text-[9rem]"
-            >
-              VISION
-            </span>
-            <p className="relative text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-              Vision
-            </p>
-            <p className="relative mt-4 max-w-3xl text-xl font-semibold leading-relaxed text-neutral-900 sm:text-2xl">
+              className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
+            />
+            <p className="text-xl font-semibold leading-relaxed text-neutral-900 sm:text-2xl">
               Menjadi Holding Company &amp; Venture Builder terpercaya yang
               membangun ekosistem bisnis berkelanjutan di sektor Fitness,
               Wellness, Sport, dan Education melalui keunggulan operasional,
@@ -67,57 +74,63 @@ export default function VisionMissionValues() {
           </div>
         </Reveal>
 
-        {/* Mission */}
-        <Reveal delay={0.1}>
-          <p className="mt-16 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Mission
-          </p>
-        </Reveal>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {missionPoints.map((point, index) => (
-            <Reveal key={point.text} delay={(index % 2) * 0.1}>
-              <div className="group flex h-full items-start gap-4 border border-neutral-200 p-6 transition-colors duration-200 hover:border-[#03428E]">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-neutral-300 text-neutral-500 transition-all duration-200 group-hover:rotate-6 group-hover:scale-110 group-hover:border-[#03428E]/40 group-hover:text-[#03428E]">
-                  <point.icon className="h-5 w-5" strokeWidth={1.5} />
+        {/* Misi — 4-card flat grid with single top-accent */}
+        <div className="mt-14">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+              Misi
+            </p>
+          </Reveal>
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {missionPoints.map((point, index) => (
+              <Reveal key={point.text} delay={(index % 4) * 0.08}>
+                <div className="h-full border border-t-[3px] border-neutral-200 border-t-[#03428E] p-7">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#03428E]/8">
+                    <point.icon className="h-6 w-6 text-[#03428E]" strokeWidth={1.5} />
+                  </div>
+                  <p className="text-sm leading-relaxed text-neutral-600">
+                    {point.text}
+                  </p>
                 </div>
-                <p className="pt-1 text-sm leading-relaxed text-neutral-700 sm:text-base">
-                  {point.text}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
 
-        {/* Core Values */}
-        <div className="mt-20 text-center">
+        {/* Core Values — Spotlight Card pattern (3 cards, official exception) */}
+        <div className="mt-14">
           <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-              Core Values BNJ
+            <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+              Core Values — B.N.J
             </p>
-            <h3 className="mx-auto mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-              More Than Our Name. It Is the Way We Build Our Business.
-            </h3>
           </Reveal>
-        </div>
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {coreValues.map((value, index) => (
-            <Reveal key={value.letter} delay={index * 0.1}>
-              <div className="group relative h-full overflow-hidden border border-neutral-200 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#03428E]">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute right-2 top-0 select-none text-8xl font-bold leading-none text-neutral-100 transition-colors duration-300 group-hover:text-[#03428E]/10"
-                >
-                  {value.letter}
-                </span>
-                <p className="relative text-lg font-bold tracking-tight text-[#03428E]">
-                  {value.letter} — {value.title}
-                </p>
-                <p className="relative mt-3 text-sm leading-relaxed text-neutral-600">
-                  {value.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {coreValues.map((value, index) => (
+              <Reveal key={value.letter} delay={index * 0.1}>
+                <div className="relative h-full overflow-hidden rounded-2xl border border-neutral-200 p-8 shadow-[0_12px_32px_rgba(3,66,142,0.08)]">
+                  <div
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
+                  />
+                  <span className="block text-[40px] font-extrabold leading-none text-[#03428E]">
+                    {value.letter}
+                  </span>
+                  <h4 className="mt-4 text-[18px] font-semibold leading-[1.2] text-neutral-900 md:text-[22px]">
+                    {value.title}
+                  </h4>
+                  <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
+                    {value.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={0.2}>
+            <p className="mt-10 text-center text-[22px] font-bold italic leading-[1.2] text-[#03428E] md:text-[26px]">
+              &ldquo;More Than Our Name. It Is the Way We Build Our
+              Business.&rdquo;
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>

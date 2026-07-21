@@ -1,32 +1,45 @@
-import { BookOpen, Building2, Network, TrendingUp } from "lucide-react";
+import Image from "next/image";
+import { Book, Building2, Grid2X2, Users } from "lucide-react";
+import bagoesPhoto from "../../../public/images/bagoes-soeharto.png.png";
+import emmaPhoto from "../../../public/images/emma-warokka.png.png";
 import Reveal from "@/components/Reveal";
-import AnimatedCounter from "@/components/AnimatedCounter";
+
+const leaders = [
+  {
+    photo: bagoesPhoto,
+    name: "Bagoes Soeharto",
+    title: "Founder & President Director",
+    bio: "Sarjana Ilmu Keolahragaan (UNJ), berpengalaman di industri Fitness, Wellness, dan Sport. Memimpin pengembangan Essential Fitness Management (EFM) sejak 2017 hingga pendirian CV Bugar Nusantara Jaya.",
+  },
+  {
+    photo: emmaPhoto,
+    name: "Emma Warokka",
+    title: "Co-Founder & Public Relations Director",
+    bio: "Berpengalaman lebih dari 15 tahun dalam komunikasi dan pengembangan kemitraan. Memimpin pengembangan Branding, Public Relations, dan Strategic Alliance CV Bugar Nusantara Jaya, serta berperan aktif dalam perluasan kemitraan dengan institusi pendidikan dan korporasi.",
+  },
+];
 
 const divisions = [
   {
-    number: 1,
-    icon: TrendingUp,
-    title: "Digital Growth",
+    icon: Grid2X2,
+    title: "Digital Growth Division",
     description:
-      "Tim spesialis teknologi dan pemasaran digital yang bertanggung jawab atas pembangunan infrastruktur komersial masa depan — mengelola pembuatan website profesional, arsitektur sistem penjualan (sales funnel), produksi konten video tutorial edukatif bersama para expert, hingga optimalisasi kampanye pemasaran digital berbasis data.",
+      "Tim spesialis teknologi dan pemasaran digital yang bertanggung jawab atas pembangunan infrastruktur komersial masa depan, termasuk website, sales funnel, konten edukatif, dan kampanye pemasaran digital berbasis data.",
   },
   {
-    number: 2,
     icon: Building2,
     title: "Facility Management, Asset Audit & HSE",
     description:
-      "Tim operasional dan facility management di bawah unit Essential Fitness Management (EFM) yang bertanggung jawab langsung terhadap pengelolaan harian fasilitas sport club, properti, dan gym komersial — audit kelayakan aset, preventive maintenance, efisiensi biaya operasional, serta standar keselamatan (Health, Safety, and Environment).",
+      "Tim operasional di bawah EFM yang bertanggung jawab langsung terhadap pengelolaan harian fasilitas sport club, properti, dan gym komersial — audit aset, preventive maintenance, hingga standar keselamatan.",
   },
   {
-    number: 3,
-    icon: BookOpen,
+    icon: Book,
     title: "Curriculum Development & Training Faculty",
     description:
-      "Tim akademik dan pelatih senior bersertifikasi internasional yang mengembangkan program kurikulum kebugaran non-formal terstruktur bagi sekolah mitra (seperti program ECA Aspire), sekaligus menjadi dewan penguji pada Instructor Training Academy internal.",
+      "Tim akademik dan pelatih senior bersertifikasi internasional yang mengembangkan program kurikulum kebugaran non-formal untuk sekolah mitra, sekaligus dewan penguji Instructor Training Academy internal.",
   },
   {
-    number: 4,
-    icon: Network,
+    icon: Users,
     title: "Expert Network",
     description:
       "Legal, Finance, Sport Science, Medical, Education, Technology, Marketing, Operations.",
@@ -35,39 +48,74 @@ const divisions = [
 
 export default function OrgStructure() {
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32">
+    <section className="bg-white pt-14 pb-14 sm:pt-16 sm:pb-16 md:pb-24 lg:pb-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Organizational Structure
+        <div className="h-[2px] w-full bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]" />
+
+        <Reveal className="mt-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+            Struktur Organisasi
           </p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-            Organizational Structure &amp; Expert Network
+          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+            Tim yang Menjalankan Ekosistem Bisnis
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 sm:text-lg">
-            Empat divisi lintas-fungsi beroperasi di bawah kepemimpinan
-            Founder &amp; President Director serta Co-Founder &amp; PR
-            Director, mendukung seluruh unit bisnis dan mitra strategis BNJ.
-          </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <Reveal delay={0.05}>
+          <p className="mt-10 text-center text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+            Pimpinan Perusahaan
+          </p>
+        </Reveal>
+        <div className="mx-auto mt-6 grid max-w-3xl grid-cols-1 gap-7 md:grid-cols-2">
+          {leaders.map((leader, index) => (
+            <Reveal
+              key={leader.name}
+              delay={index * 0.1}
+              className="overflow-hidden rounded-2xl border border-neutral-200 shadow-[0_12px_32px_rgba(3,66,142,0.08)]"
+            >
+              <div className="relative aspect-[4/3.4] w-full">
+                <Image
+                  src={leader.photo}
+                  alt={leader.name}
+                  fill
+                  sizes="(min-width: 768px) 380px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-7">
+                <p className="text-[19px] font-extrabold text-neutral-900">
+                  {leader.name}
+                </p>
+                <p className="mt-1.5 text-[13px] font-semibold text-[#03428E]">
+                  {leader.title}
+                </p>
+                <p className="mt-3.5 text-sm leading-relaxed text-neutral-600">
+                  {leader.bio}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.1}>
+          <p className="mt-14 text-center text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+            4 Divisi Operasional
+          </p>
+        </Reveal>
+        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {divisions.map((division, index) => (
-            <Reveal key={division.title} delay={(index % 2) * 0.08}>
-              <div className="group relative h-full overflow-hidden border border-neutral-200 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#03428E]">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute right-4 top-2 select-none text-6xl font-bold leading-none text-neutral-100"
-                >
-                  <AnimatedCounter value={division.number} duration={1} padZero />
-                </span>
-                <div className="relative flex h-11 w-11 items-center justify-center border border-neutral-300 text-neutral-500 transition-all duration-200 group-hover:scale-110 group-hover:border-[#03428E]/40 group-hover:text-[#03428E]">
-                  <division.icon className="h-5 w-5" strokeWidth={1.5} />
+            <Reveal key={division.title} delay={(index % 4) * 0.08}>
+              <div className="h-full border border-t-[3px] border-neutral-200 border-t-[#03428E] p-7">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#03428E]/8">
+                  <division.icon
+                    className="h-6 w-6 text-[#03428E]"
+                    strokeWidth={1.5}
+                  />
                 </div>
-                <h3 className="relative mt-5 text-lg font-semibold text-neutral-900">
+                <h4 className="text-[18px] font-semibold leading-[1.2] text-neutral-900 md:text-[22px]">
                   {division.title}
-                </h3>
-                <p className="relative mt-3 text-sm leading-relaxed text-neutral-600">
+                </h4>
+                <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
                   {division.description}
                 </p>
               </div>

@@ -30,7 +30,7 @@ export default function AtAGlance() {
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.55)_0%,rgba(3,41,89,0)_45%)]" />
         </Reveal>
 
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-6">
+        <div className="mt-10 flex flex-col gap-6 md:flex-row md:flex-wrap md:items-center md:justify-between">
           <blockquote className="max-w-2xl border-l-[5px] border-[#6AA84F] pl-6">
             <p className="text-[17px] font-medium italic leading-relaxed text-neutral-900">
               &quot;Kami percaya bahwa pertumbuhan yang berkelanjutan dibangun

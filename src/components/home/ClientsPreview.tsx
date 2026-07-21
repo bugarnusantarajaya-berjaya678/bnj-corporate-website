@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import WaveDivider from "@/components/WaveDivider";
 import telkomLogo from "../../../public/images/Klien-Telkom-Indonesia.png";
 import telinLogo from "../../../public/images/Klien-PT-Telekomunikasi-Indonesia-Internasional.webp";
 import aiaLogo from "../../../public/images/Klien-AIA-Insurance.png";
@@ -45,12 +44,16 @@ export default function ClientsPreview() {
               delay={(index % 5) * 0.05}
               className="flex flex-col items-center gap-3.5"
             >
-              <div className="flex h-16 w-full items-center justify-center">
-                <Image
-                  src={client.logo}
-                  alt={client.name}
-                  className="h-full w-auto object-contain"
-                />
+              <div className="flex h-20 w-full items-center justify-center p-5">
+                <div className="relative h-full w-full">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    sizes="150px"
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <span className="inline-block rounded-full bg-neutral-100 px-3.5 py-1 text-center text-xs font-bold uppercase tracking-wide text-neutral-600">
                 {client.name}
@@ -62,7 +65,6 @@ export default function ClientsPreview() {
           dan mitra lainnya
         </p>
       </div>
-      <WaveDivider fill="#03428E" />
     </section>
   );
 }

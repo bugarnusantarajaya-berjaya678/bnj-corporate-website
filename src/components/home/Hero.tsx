@@ -19,7 +19,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.55)_0%,rgba(3,41,89,0)_38%)]" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-center px-6 pb-24 pt-20 sm:min-h-[600px] sm:pb-32 sm:pt-24 lg:min-h-[700px] lg:px-12 lg:pb-40 lg:pt-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] [clip-path:polygon(0_100%,100%_88%,100%_calc(88%_-_5px),0_calc(100%_-_5px))] bg-[linear-gradient(90deg,#03428E_0%,#03428E_33.33%,#6AA84F_33.33%,#6AA84F_66.66%,#0095DA_66.66%,#0095DA_100%)] sm:[clip-path:polygon(0_100%,100%_85%,100%_calc(85%_-_5px),0_calc(100%_-_5px))] lg:[clip-path:polygon(0_100%,100%_82%,100%_calc(82%_-_5px),0_calc(100%_-_5px))]"
+      />
+
+      <div className="relative z-[2] mx-auto flex min-h-[520px] max-w-7xl items-center px-6 pb-24 pt-20 sm:min-h-[600px] sm:pb-32 sm:pt-24 lg:min-h-[700px] lg:px-12 lg:pb-40 lg:pt-28">
         <Reveal className="max-w-xl">
           <h1 className="text-[30px] font-extrabold leading-[1.18] text-white sm:text-4xl lg:text-[46px]">
             Membangun Ekosistem Bisnis Berkelanjutan di Fitness, Wellness,
@@ -54,11 +59,6 @@ export default function Hero() {
           </div>
         </Reveal>
       </div>
-
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-[3px] bg-[linear-gradient(90deg,#03428E_0%,#03428E_33.33%,#6AA84F_33.33%,#6AA84F_66.66%,#0095DA_66.66%,#0095DA_100%)]"
-      />
     </section>
   );
 }

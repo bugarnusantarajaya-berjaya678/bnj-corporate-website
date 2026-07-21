@@ -1,24 +1,30 @@
 import type { Metadata } from "next";
+import Hero from "@/components/ekosistem-bisnis/brand-incubation/Hero";
+import BrandDevelopment from "@/components/ekosistem-bisnis/brand-incubation/BrandDevelopment";
+import BusinessAcceleration from "@/components/ekosistem-bisnis/brand-incubation/BusinessAcceleration";
+import Roadmap from "@/components/ekosistem-bisnis/brand-incubation/Roadmap";
+import ClosingCta from "@/components/ekosistem-bisnis/brand-incubation/ClosingCta";
 
 export const metadata: Metadata = {
   title: "Brand Incubation & Business Acceleration | CV Bugar Nusantara Jaya",
   description:
-    "Halaman Brand Incubation & Business Acceleration CV Bugar Nusantara Jaya sedang dalam pengembangan.",
+    "Brand Incubation & Business Acceleration adalah unit bisnis BNJ yang berfokus pada pengembangan brand digital dan akselerasi pertumbuhan bisnis di sektor kebugaran, wellness, dan olahraga.",
 };
 
 export default function BrandIncubationPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-6 py-24 text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-        Brand Incubation &amp; Business Acceleration
-      </p>
-      <h1 className="mt-4 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-        Halaman Ini Sedang Dalam Pengembangan
-      </h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-neutral-600">
-        Detail unit bisnis Brand Incubation &amp; Business Acceleration akan
-        segera hadir di halaman ini.
-      </p>
-    </main>
+    <>
+      <Hero />
+      <BrandDevelopment />
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div
+          aria-hidden
+          className="h-[3px] w-full bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
+        />
+      </div>
+      <BusinessAcceleration />
+      <Roadmap />
+      <ClosingCta />
+    </>
   );
 }

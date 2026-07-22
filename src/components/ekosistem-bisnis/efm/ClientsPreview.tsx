@@ -10,20 +10,40 @@ import transTvLogo from "../../../../public/images/Page-EFM/efm-logo-trans-tv.pn
 import snjLogo from "../../../../public/images/Page-EFM/efm-logo-snj.png";
 import pfizerLogo from "../../../../public/images/Page-EFM/efm-logo-pfizer.png";
 import kejagungLogo from "../../../../public/images/Page-EFM/efm-logo-kejagung.png";
+import bellyLemonLogo from "../../../../public/images/Page-EFM/efm-logo-belly-lemon.png";
+import ketosharingLogo from "../../../../public/images/Page-EFM/efm-logo-ketosharing.jpg";
+import rootOfLifeLogo from "../../../../public/images/Page-EFM/efm-logo-root-of-life.png";
+import hamptonsParkLogo from "../../../../public/images/Page-EFM/efm-logo-hamptons-park.jpg";
+import goodlifeLogo from "../../../../public/images/Page-EFM/efm-logo-goodlife.png";
+import jagapatiLogo from "../../../../public/images/Page-EFM/efm-logo-jagapati.png";
+import simalungunLogo from "../../../../public/images/Page-EFM/efm-logo-simalungun.png";
+import meikaLogo from "../../../../public/images/Page-EFM/efm-logo-meika.jpg";
+import antasariPlaceLogo from "../../../../public/images/Page-EFM/efm-logo-antasari-place.png";
+import odfLogo from "../../../../public/images/Page-EFM/efm-logo-odf.jpg";
 
-type Client = { name: string; logo: StaticImageData };
+type Client = { name: string; logo: StaticImageData; scale?: number };
 
 const clients: Client[] = [
   { name: "Telkom Indonesia", logo: telkomLogo },
-  { name: "Telin", logo: telinLogo },
-  { name: "AIA Insurance", logo: aiaLogo },
-  { name: "OJK", logo: ojkLogo },
-  { name: "Abumas Group", logo: abumasLogo },
-  { name: "Wuling Motors", logo: wulingLogo },
+  { name: "Telin", logo: telinLogo, scale: 0.81 },
+  { name: "AIA Insurance", logo: aiaLogo, scale: 1.2 },
+  { name: "OJK", logo: ojkLogo, scale: 1.68 },
+  { name: "Abumas Group", logo: abumasLogo, scale: 1.68 },
+  { name: "Wuling Motors", logo: wulingLogo, scale: 1.1 },
   { name: "Trans TV", logo: transTvLogo },
-  { name: "PT Suri Nusantara Jaya", logo: snjLogo },
-  { name: "Pfizer", logo: pfizerLogo },
-  { name: "Kejaksaan Agung", logo: kejagungLogo },
+  { name: "PT Suri Nusantara Jaya", logo: snjLogo, scale: 0.7 },
+  { name: "Pfizer", logo: pfizerLogo, scale: 1.848 },
+  { name: "Kejaksaan Agung", logo: kejagungLogo, scale: 1.4 },
+  { name: "Belly Lemon", logo: bellyLemonLogo, scale: 1.265 },
+  { name: "Ketosharing Community", logo: ketosharingLogo, scale: 1.265 },
+  { name: "Root of Life", logo: rootOfLifeLogo, scale: 2.38 },
+  { name: "Hamptons Park Apartment", logo: hamptonsParkLogo, scale: 1.55 },
+  { name: "Goodlife", logo: goodlifeLogo },
+  { name: "Jagapati.com", logo: jagapatiLogo },
+  { name: "Kabupaten Simalungun", logo: simalungunLogo, scale: 1.4 },
+  { name: "Meika Beauty Lounge", logo: meikaLogo, scale: 1.12 },
+  { name: "Antasari Place Apartment", logo: antasariPlaceLogo, scale: 1.61 },
+  { name: "ODF (One Day Organizer)", logo: odfLogo },
 ];
 
 function LogoTrack({ ariaHidden = false }: { ariaHidden?: boolean }) {
@@ -37,7 +57,10 @@ function LogoTrack({ ariaHidden = false }: { ariaHidden?: boolean }) {
           key={client.name}
           className="flex h-[116px] w-[218px] shrink-0 items-center justify-center p-[22px]"
         >
-          <div className="relative h-full w-full">
+          <div
+            className="relative h-full w-full"
+            style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
+          >
             <Image
               src={client.logo}
               alt={ariaHidden ? "" : client.name}

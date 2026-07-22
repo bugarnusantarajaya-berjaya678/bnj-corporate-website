@@ -120,7 +120,7 @@ export default function Milestone() {
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             Perjalanan Kami
           </p>
-          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px] lg:max-w-none lg:whitespace-nowrap">
             Milestone Essential Fitness Management
           </h2>
 
@@ -140,7 +140,7 @@ export default function Milestone() {
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px]">
                     <Image
                       src={active.photo}
-                      alt={`Momen EFM tahun ${active.year} — ${active.title}`}
+                      alt={`Momen EFM tahun ${active.year}, ${active.title}`}
                       fill
                       sizes="(min-width: 1024px) 460px, 100vw"
                       className="object-cover"

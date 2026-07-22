@@ -107,7 +107,7 @@ export default function B2BManagement() {
             </h3>
             <p className="mt-3.5 text-sm leading-relaxed text-neutral-600">
               Program kebugaran dan kesehatan berkelanjutan untuk karyawan
-              maupun penghuni — mencakup kelas latihan rutin, penanganan
+              maupun penghuni, mencakup kelas latihan rutin, penanganan
               cedera oleh tenaga profesional bersertifikasi, hingga
               pemeriksaan kesehatan berkala bersama mitra klinik dan rumah
               sakit terpercaya.

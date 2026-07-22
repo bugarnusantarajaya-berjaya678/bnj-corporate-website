@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ChevronDown,
@@ -64,13 +65,43 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [ecosystemExpanded, setEcosystemExpanded] = useState(false);
+  const [ecosystemMenuOpen, setEcosystemMenuOpen] = useState(false);
+  const ecosystemMenuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    setEcosystemMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      setEcosystemMenuOpen(false);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!ecosystemMenuOpen) return;
+
+    const onPointerDown = (event: MouseEvent) => {
+      if (!ecosystemMenuRef.current?.contains(event.target as Node)) {
+        setEcosystemMenuOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setEcosystemMenuOpen(false);
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [ecosystemMenuOpen]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -116,20 +147,33 @@ export default function Navbar() {
             Tentang Kami
           </Link>
 
-          <div className="group relative">
+          <div ref={ecosystemMenuRef} className="relative">
             <button
               type="button"
+              onClick={() => setEcosystemMenuOpen((value) => !value)}
+              aria-expanded={ecosystemMenuOpen}
               className="flex items-center gap-1 text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
             >
               Ekosistem Bisnis
-              <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  ecosystemMenuOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
-            <div className="invisible absolute left-1/2 top-full z-50 w-[420px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <div
+              className={`absolute left-1/2 top-full z-50 w-[420px] -translate-x-1/2 pt-3 transition-all duration-200 ${
+                ecosystemMenuOpen
+                  ? "visible opacity-100"
+                  : "invisible opacity-0"
+              }`}
+            >
               <div className="grid grid-cols-1 gap-1 border border-neutral-200 bg-white p-3 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)]">
                 {ecosystemItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={() => setEcosystemMenuOpen(false)}
                     className="flex items-start gap-3 rounded-md p-3 transition-colors duration-200 hover:bg-neutral-50"
                   >
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#03428E]/10 text-[#03428E]">

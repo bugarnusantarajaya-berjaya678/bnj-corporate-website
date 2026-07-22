@@ -12,7 +12,7 @@ const roadmap = [
     status: "Rencana Lanjutan",
     year: "2026-2027",
     description:
-      "Pengembangan BNJ Vitality Intelligence — platform terintegrasi untuk kebutuhan korporat.",
+      "Pengembangan BNJ Vitality Intelligence, platform terintegrasi untuk kebutuhan korporat.",
     active: false,
   },
 ];

@@ -129,7 +129,7 @@ export default function ProductSuite() {
             <p className="relative z-10 mt-3.5 text-[15px] leading-relaxed text-neutral-600">
               BNJ Digital Labs menghadirkan produk digital dalam berbagai
               format, dikembangkan bersama expert dari rumah sakit, klinik,
-              terapis, hingga pelatih olahraga profesional — memudahkan akses
+              terapis, hingga pelatih olahraga profesional, memudahkan akses
               sejak konsultasi awal hingga proses pemulihan atau pengembangan
               performa.
             </p>
@@ -146,7 +146,7 @@ export default function ProductSuite() {
               />
             </div>
             <p className="mt-2.5 text-xs italic text-neutral-400">
-              Ilustrasi konsep — bukan tampilan produk final
+              Ilustrasi konsep, bukan tampilan produk final
             </p>
           </Reveal>
         </div>

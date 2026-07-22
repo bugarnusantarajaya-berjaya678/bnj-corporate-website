@@ -36,7 +36,7 @@ export default function Hero() {
           <p className="mt-5 max-w-lg text-base leading-relaxed text-white/85">
             BNJ Digital Labs menghadirkan portofolio produk digital kesehatan
             &amp; kebugaran bersama expert dari rumah sakit, klinik, terapis,
-            hingga pelatih olahraga — aktif sejak 2026, dan terus
+            hingga pelatih olahraga. Aktif sejak 2026, dan terus
             dikembangkan menuju BNJ Vitality Intelligence, platform intelijen
             kesehatan terintegrasi untuk kebutuhan jangka panjang.
           </p>

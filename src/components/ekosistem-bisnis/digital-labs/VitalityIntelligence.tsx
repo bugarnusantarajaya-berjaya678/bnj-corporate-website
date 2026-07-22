@@ -66,7 +66,7 @@ const premiumCards = [
     eyebrow: "Screening Kesehatan Multi-Dimensi",
     title: "Satu Titik Akses untuk Semua Hasil Screening Anda",
     description:
-      "Terintegrasi dengan hasil screening dari jaringan mitra rumah sakit, klinik, dan fisioterapi BNJ — mencakup Analisis Postur Tubuh, Analisis Komposisi Tubuh, kapasitas VO2 Max, hingga General Check-Up (tes darah, EKG, dan pemeriksaan penunjang lainnya).",
+      "Terintegrasi dengan hasil screening dari jaringan mitra rumah sakit, klinik, dan fisioterapi BNJ, mencakup Analisis Postur Tubuh, Analisis Komposisi Tubuh, kapasitas VO2 Max, hingga General Check-Up (tes darah, EKG, dan pemeriksaan penunjang lainnya).",
     items: [
       { icon: Mic, label: "Analisis Postur Tubuh" },
       { icon: Columns2, label: "Komposisi Tubuh" },
@@ -79,7 +79,7 @@ const premiumCards = [
     eyebrow: "Kecerdasan Buatan untuk Kesehatan",
     title: "Dari Data Screening Menjadi Panduan Hidup Sehat",
     description:
-      "Setiap hasil screening dianalisis kecerdasan buatan untuk menghasilkan rekomendasi latihan, pola makan, dan jenis diet yang dipersonalisasi — lengkap dengan panduan Do & Don'ts, dikembangkan bersama dokter dan expert medis agar hasilnya optimal dan sesuai standar kesehatan global.",
+      "Setiap hasil screening dianalisis kecerdasan buatan untuk menghasilkan rekomendasi latihan, pola makan, dan jenis diet yang dipersonalisasi, lengkap dengan panduan Do & Don'ts, dikembangkan bersama dokter dan expert medis agar hasilnya optimal dan sesuai standar kesehatan global.",
     items: [
       { icon: Swords, label: "Rekomendasi Latihan Personal" },
       { icon: Cookie, label: "Panduan Diet & Nutrisi" },
@@ -117,7 +117,7 @@ export default function VitalityIntelligence() {
               />
             </div>
             <p className="mt-2.5 text-xs italic text-neutral-400">
-              Ilustrasi konsep — bukan tampilan produk final
+              Ilustrasi konsep, bukan tampilan produk final
             </p>
           </Reveal>
 
@@ -152,7 +152,7 @@ export default function VitalityIntelligence() {
               Kesulitan mengukur dampak nyata dari program kesehatan karyawan?
               BNJ tengah menyiapkan platform intelijen kesehatan yang mengubah
               data kesehatan dan kebugaran menjadi insight yang dapat
-              ditindaklanjuti — dirancang untuk beradaptasi dengan kebutuhan
+              ditindaklanjuti, dirancang untuk beradaptasi dengan kebutuhan
               perusahaan, penyedia layanan kesehatan, maupun mitra asuransi.
             </p>
             <p className="relative z-10 mt-3.5 text-[15px] leading-relaxed text-neutral-600">

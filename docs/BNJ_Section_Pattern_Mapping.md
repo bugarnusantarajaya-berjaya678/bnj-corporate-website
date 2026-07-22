@@ -153,6 +153,7 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 
 - Tombol kontak di navbar: kecil, outline atau text-button, warna Corporate Blue di atas navbar putih.
 - **Bukan** filled/solid — filled button direservasi untuk Hero dan CTA penutup saja, supaya moment konversi utama tidak "tenggelam" karena tombol serupa muncul di semua tempat.
+- Dropdown menu (mis. "Ekosistem Bisnis"): harus otomatis tertutup saat user scroll halaman, klik di luar area dropdown, atau berpindah ke link lain — tidak boleh "nyangkut" terbuka sampai diklik ulang manual.
 
 ## 11. Kondisi Samar / Coming Soon (khusus BNJ Digital Labs — bukan pola umum)
 
@@ -183,6 +184,15 @@ Contoh: section "Klien & Mitra Kami" di halaman EFM dan Home.
 - Ukuran container SAMA untuk semua logo di grid meski file asli beda rasio/resolusi — supaya grid rapi tanpa perlu edit file logo asli.
 - Tidak mengubah/merekonstruksi file logo asli (termasuk lambang resmi instansi pemerintah) — hanya styling container. Kalau kualitas file asli rendah, minta versi resolusi lebih tinggi dari partner terkait, bukan generate ulang lewat AI.
 - Kalau section ini pakai efek marquee/scroll otomatis (looping horizontal terus-menerus), logo boleh terpotong di kedua tepi viewport — itu bagian dari efek seamless loop, bukan bug. Kalau statis (tidak bergerak), grid harus mengikuti max-width halaman yang sama dengan section lain, tidak boleh full-bleed edge-to-edge.
+- Ukuran tiap logo boleh disesuaikan manual per logo (tidak seragam 1:1) kalau ada logo yang secara visual terlihat lebih kecil/besar dari yang lain meski container sama besar (mis. logo dengan banyak padding internal alami) — tujuannya supaya keseluruhan grid terlihat seimbang secara visual, bukan cuma seragam secara teknis.
+
+## 13. Copywriting Style (berlaku lintas seluruh website)
+
+**Tanda baca:**
+
+- **Jangan pakai tanda em-dash (—)** di body text manapun — ganti dengan kalimat terpisah (titik), koma, atau kata penghubung natural ("dan", "yang", "sehingga"). Em-dash terlihat sebagai ciri khas tulisan AI dan mengurangi kesan tulisan manusiawi/editorial BNJ.
+- Berlaku untuk SEMUA copy baru dan revisi ke depan, di semua halaman — bukan cuma halaman yang sedang direvisi saat aturan ini dibuat.
+- Saat mengaudit/merevisi halaman apapun, sekalian scan seluruh teks di halaman itu untuk tanda em-dash yang tertinggal dari draft sebelumnya, meski tidak diminta eksplisit.
 
 ---
 

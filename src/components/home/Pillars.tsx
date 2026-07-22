@@ -52,7 +52,7 @@ const pillars = [
   {
     icon: TrendingUp,
     image: pillarInvestmentVentures,
-    title: "Wellness & Sport Investment Ventures",
+    title: "BNJ Investment Ventures",
     description:
       "Alokasi modal & ekspansi bisnis di sektor wellness dan olahraga.",
     href: "/ekosistem-bisnis/investment-ventures",

@@ -44,7 +44,7 @@ const ecosystemItems = [
     icon: GraduationCap,
   },
   {
-    title: "Wellness & Sport Investment Ventures",
+    title: "BNJ Investment Ventures",
     href: "/ekosistem-bisnis/investment-ventures",
     description: "Alokasi modal dan ekspansi bisnis wellness & olahraga",
     icon: TrendingUp,

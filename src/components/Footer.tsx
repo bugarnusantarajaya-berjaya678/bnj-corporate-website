@@ -15,7 +15,7 @@ const ecosystemLinks = [
     href: "/ekosistem-bisnis/educational-alliance",
   },
   {
-    title: "Wellness & Sport Investment Ventures",
+    title: "BNJ Investment Ventures",
     href: "/ekosistem-bisnis/investment-ventures",
   },
 ];

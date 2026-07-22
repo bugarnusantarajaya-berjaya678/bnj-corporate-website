@@ -1,24 +1,30 @@
 import type { Metadata } from "next";
+import Hero from "@/components/ekosistem-bisnis/investment-ventures/Hero";
+import PortfolioMandiri from "@/components/ekosistem-bisnis/investment-ventures/PortfolioMandiri";
+import InvestasiEksternal from "@/components/ekosistem-bisnis/investment-ventures/InvestasiEksternal";
+import Roadmap from "@/components/ekosistem-bisnis/investment-ventures/Roadmap";
+import ClosingCta from "@/components/ekosistem-bisnis/investment-ventures/ClosingCta";
 
 export const metadata: Metadata = {
-  title: "Wellness & Sport Investment Ventures | CV Bugar Nusantara Jaya",
+  title: "BNJ Investment Ventures | CV Bugar Nusantara Jaya",
   description:
-    "Halaman Wellness & Sport Investment Ventures CV Bugar Nusantara Jaya sedang dalam pengembangan.",
+    "BNJ Investment Ventures adalah unit bisnis BNJ yang direncanakan mulai beroperasi 2028, dengan fokus alokasi modal ke sektor Wellness, Fitness, Sport & Health.",
 };
 
 export default function InvestmentVenturesPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-6 py-24 text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-        Wellness &amp; Sport Investment Ventures
-      </p>
-      <h1 className="mt-4 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-        Halaman Ini Sedang Dalam Pengembangan
-      </h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-neutral-600">
-        Detail unit bisnis Wellness &amp; Sport Investment Ventures akan
-        segera hadir di halaman ini.
-      </p>
-    </main>
+    <>
+      <Hero />
+      <PortfolioMandiri />
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div
+          aria-hidden
+          className="h-[3px] w-full bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
+        />
+      </div>
+      <InvestasiEksternal />
+      <Roadmap />
+      <ClosingCta />
+    </>
   );
 }

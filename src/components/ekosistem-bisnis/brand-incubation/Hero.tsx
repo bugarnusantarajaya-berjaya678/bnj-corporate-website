@@ -40,21 +40,21 @@ export default function Hero() {
             </span>
           </div>
           <h1 className="text-[32px] font-bold leading-[1.2] text-white md:text-[48px]">
-            Pengembangan Brand Digital &amp; Akselerasi Bisnis Kebugaran
+            Membangun Fondasi Digital, Mewujudkan Brand Fisik Kebugaran
           </h1>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-white/85">
             Brand Incubation &amp; Business Acceleration adalah unit bisnis
-            BNJ yang berfokus pada pengembangan brand digital dan akselerasi
-            pertumbuhan bisnis di sektor kebugaran, wellness, dan olahraga —
-            mendukung mitra dan brand baru untuk tumbuh lebih cepat melalui
-            strategi digital yang terarah.
+            BNJ yang membangun fondasi strategi digital dan pengembangan
+            brand bagi mitra di sektor kebugaran, wellness, dan olahraga.
+            Ini menjadi langkah awal menuju inkubasi brand fisik seperti
+            studio kebugaran, klub olahraga, dan komunitas olahraga.
           </p>
 
           <div className="mt-8 flex w-fit flex-col gap-3 md:flex-row md:gap-4">
             <div className="flex animate-float-badge items-center gap-2.5 rounded-lg border border-white/25 bg-white/[0.12] px-4 py-2.5">
               <Rocket className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
-                Brand &amp; Startup Kebugaran
+                Inkubasi Brand Fisik Kebugaran
               </span>
             </div>
             <div
@@ -63,7 +63,7 @@ export default function Hero() {
             >
               <TrendingUp className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
-                Program Akselerasi Aktif
+                Fase Persiapan Digital Aktif 2026
               </span>
             </div>
           </div>

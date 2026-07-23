@@ -5,9 +5,11 @@ import { useEffect, useRef, useState } from "react";
 export default function CountUp({
   target,
   className,
+  suffix = "+",
 }: {
   target: number;
   className?: string;
+  suffix?: string;
 }) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -42,7 +44,8 @@ export default function CountUp({
 
   return (
     <span ref={ref} className={className}>
-      {value}+
+      {value}
+      {suffix}
     </span>
   );
 }

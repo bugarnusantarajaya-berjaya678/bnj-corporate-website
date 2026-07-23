@@ -154,26 +154,29 @@ export default function EcaAspire() {
                 </span>
               </div>
               <div className="rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
-                <span className="block text-2xl font-extrabold leading-none text-[#03428E]">
-                  4
-                </span>
+                <CountUp
+                  target={4}
+                  suffix=""
+                  className="block text-2xl font-extrabold leading-none text-[#03428E]"
+                />
                 <span className="mt-1.5 block text-[12.5px] font-semibold text-neutral-600">
                   Kategori Program
                 </span>
               </div>
               <div className="rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
-                <CountUp
-                  target={30}
-                  className="block text-2xl font-extrabold leading-none text-[#03428E]"
-                />
+                <span className="block text-2xl font-extrabold leading-none text-[#03428E]">
+                  30
+                </span>
                 <span className="mt-1.5 block text-[12.5px] font-semibold text-neutral-600">
-                  Target Program di Sampoerna Academy (2027)
+                  Program (Tahun Ajaran 2026/2027)
                 </span>
               </div>
               <div className="rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
-                <span className="block text-2xl font-extrabold leading-none text-[#03428E]">
-                  3
-                </span>
+                <CountUp
+                  target={3}
+                  suffix=""
+                  className="block text-2xl font-extrabold leading-none text-[#03428E]"
+                />
                 <span className="mt-1.5 block text-[12.5px] font-semibold text-neutral-600">
                   Target Sekolah Internasional Baru (2026)
                 </span>

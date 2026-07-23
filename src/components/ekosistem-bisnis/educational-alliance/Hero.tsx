@@ -51,22 +51,22 @@ export default function Hero() {
             lebih luas bersama para ahli dari berbagai disiplin ilmu.
           </p>
 
-          <div className="mt-8 flex w-fit flex-col gap-3 md:flex-row md:flex-nowrap md:gap-5 lg:gap-7">
-            <div className="flex shrink-0 animate-float-badge items-center gap-2.5 rounded-lg border border-white/25 bg-white/[0.12] px-4 py-2.5">
+          <div className="mt-8 flex w-full flex-col gap-3 md:w-fit md:flex-row md:flex-nowrap md:gap-5 lg:gap-7">
+            <div className="flex w-full animate-float-badge items-center gap-2.5 rounded-lg border border-white/25 bg-white/[0.12] px-4 py-2.5 md:w-auto md:shrink-0">
               <GraduationCap
                 className="h-5 w-5 shrink-0 text-white"
                 strokeWidth={2}
               />
-              <span className="whitespace-nowrap text-sm font-semibold text-white">
+              <span className="text-sm font-semibold text-white md:whitespace-nowrap">
                 Kemitraan Institusi Pendidikan Aktif
               </span>
             </div>
             <div
-              className="flex shrink-0 animate-float-badge items-center gap-2.5 rounded-lg border border-white/25 bg-white/[0.12] px-4 py-2.5"
+              className="flex w-full animate-float-badge items-center gap-2.5 rounded-lg border border-white/25 bg-white/[0.12] px-4 py-2.5 md:w-auto md:shrink-0"
               style={{ animationDelay: ".6s" }}
             >
               <Users className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
-              <span className="whitespace-nowrap text-sm font-semibold text-white">
+              <span className="text-sm font-semibold text-white md:whitespace-nowrap">
                 Menuju Jaringan Expert Multi-Disiplin 2027-2028
               </span>
             </div>

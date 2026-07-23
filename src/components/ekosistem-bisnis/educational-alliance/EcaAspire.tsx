@@ -143,8 +143,8 @@ export default function EcaAspire() {
               Terdaftar KBLI 85410
             </p>
 
-            <div className="relative z-10 mt-6 flex flex-wrap gap-4">
-              <div className="min-w-[150px] flex-1 rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
+            <div className="relative z-10 mt-6 grid grid-cols-2 gap-4">
+              <div className="rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
                 <CountUp
                   target={45}
                   className="block text-2xl font-extrabold leading-none text-[#03428E]"
@@ -153,7 +153,7 @@ export default function EcaAspire() {
                   Pilihan Aktivitas ECA
                 </span>
               </div>
-              <div className="min-w-[150px] flex-1 rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
+              <div className="rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
                 <span className="block text-2xl font-extrabold leading-none text-[#03428E]">
                   4
                 </span>
@@ -161,7 +161,7 @@ export default function EcaAspire() {
                   Kategori Program
                 </span>
               </div>
-              <div className="min-w-[150px] flex-1 rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
+              <div className="rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
                 <CountUp
                   target={30}
                   className="block text-2xl font-extrabold leading-none text-[#03428E]"
@@ -170,7 +170,7 @@ export default function EcaAspire() {
                   Target Program di Sampoerna Academy (2027)
                 </span>
               </div>
-              <div className="min-w-[150px] flex-1 rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
+              <div className="rounded-[10px] border border-neutral-200 bg-white px-[18px] py-4 text-right">
                 <span className="block text-2xl font-extrabold leading-none text-[#03428E]">
                   3
                 </span>

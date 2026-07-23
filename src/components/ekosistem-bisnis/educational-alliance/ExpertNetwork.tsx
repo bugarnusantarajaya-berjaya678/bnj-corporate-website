@@ -154,7 +154,7 @@ export default function ExpertNetwork() {
           {outputs.map((output) => (
             <Reveal
               key={output.title}
-              className="rounded-[10px] border border-neutral-200 p-6"
+              className="rounded-[10px] border border-neutral-200 p-6 transition-all duration-200 hover:border-[#03428E] hover:shadow-sm"
             >
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#6AA84F]/8">
                 <output.icon

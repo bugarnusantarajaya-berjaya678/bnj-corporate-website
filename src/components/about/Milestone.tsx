@@ -171,7 +171,7 @@ export default function Milestone() {
               </button>
               <div
                 ref={tabsRef}
-                className="flex flex-1 items-start justify-between gap-1 overflow-x-auto border-b border-neutral-200 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-center sm:gap-2"
+                className="flex flex-1 items-start justify-between gap-1 overflow-x-auto border-b border-neutral-200 pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-center sm:gap-2"
               >
               {milestones.map((m, i) => {
                 const isActive = active === i;
@@ -222,8 +222,8 @@ export default function Milestone() {
               </button>
             </div>
 
-            <div className="mt-8 rounded-3xl bg-white p-2 shadow-[0_14px_40px_rgba(3,66,142,0.18)] sm:p-3">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[16/9] md:aspect-[21/9]">
+            <div className="mt-6 rounded-3xl bg-white p-2 shadow-[0_14px_40px_rgba(3,66,142,0.18)] sm:p-3">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[16/9] md:aspect-[21/8]">
                 <Image
                   src={current.photo}
                   alt={`Momen BNJ tahun ${current.year}, ${current.title}`}

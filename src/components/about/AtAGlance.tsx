@@ -28,7 +28,7 @@ const facts = [
 
 export default function AtAGlance() {
   return (
-    <section className="bg-white py-14 sm:py-16 md:py-24 lg:py-32">
+    <section className="bg-white py-[var(--section-gap-y)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
@@ -41,7 +41,7 @@ export default function AtAGlance() {
 
         <Reveal
           delay={0.1}
-          className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl sm:aspect-[16/7]"
+          className="relative mt-[var(--section-header-gap)] aspect-[16/9] w-full overflow-hidden rounded-2xl sm:aspect-[16/7]"
         >
           <Image
             src={photo}

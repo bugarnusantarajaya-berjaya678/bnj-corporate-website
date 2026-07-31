@@ -65,7 +65,7 @@ export default function WhyPartner() {
   return (
     <section
       id="kenapa-partner"
-      className="bg-white pt-14 pb-14 sm:pt-16 sm:pb-16 md:pt-24 md:pb-24 lg:pt-32 lg:pb-32"
+      className="bg-white py-[var(--section-gap-y)]"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
@@ -77,7 +77,7 @@ export default function WhyPartner() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-[var(--section-header-gap)] grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {reasons.map((reason, index) => (
             <Reveal
               key={reason.title}

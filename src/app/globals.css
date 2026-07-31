@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #03428e;
+  --section-gap-y: clamp(3.5rem, 7vw, 6rem);
+  --section-header-gap: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 @theme inline {

@@ -25,9 +25,11 @@ export default function TentangKamiPage() {
       <VisionMissionValues />
       <SectionDivider />
       <AtAGlance />
+      <SectionDivider />
       <Milestone />
       <SectionDivider />
       <GrowthRoadmap />
+      <SectionDivider />
       <OrgStructure />
       <SectionDivider />
       <WhyPartner />

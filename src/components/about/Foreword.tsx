@@ -1,10 +1,10 @@
 import Image from "next/image";
-import photo from "../../../public/images/Foto Bagoes Background Putih.png";
+import photo from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Pesan-Pimpinan.png";
 import Reveal from "@/components/Reveal";
 
 export default function Foreword() {
   return (
-    <section className="bg-white py-14 sm:py-16 md:py-24 lg:py-32">
+    <section className="bg-white py-[var(--section-gap-y)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[17fr_23fr] lg:items-start lg:gap-16">
           <Reveal>

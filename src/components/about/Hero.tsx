@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Building2, Calendar, ShieldCheck } from "lucide-react";
-import heroImage from "../../../public/images/about-office.png.png";
+import heroImage from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Hero-Section.jpg";
 import Reveal from "@/components/Reveal";
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#03428E] [clip-path:polygon(0_0,100%_0,100%_88%,0_100%)] sm:[clip-path:polygon(0_0,100%_0,100%_85%,0_100%)] lg:[clip-path:polygon(0_0,100%_0,100%_82%,0_100%)]">
+    <section className="relative isolate overflow-hidden bg-[#03428E]">
       <div className="absolute inset-0 -z-10">
         <Image
           src={heroImage}
@@ -20,10 +20,28 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.55)_0%,rgba(3,41,89,0)_38%)]" />
       </div>
 
-      <div
+      <svg
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-[1] [clip-path:polygon(0_100%,100%_88%,100%_calc(88%_-_5px),0_calc(100%_-_5px))] bg-[linear-gradient(90deg,#03428E_0%,#03428E_33.33%,#6AA84F_33.33%,#6AA84F_66.66%,#0095DA_66.66%,#0095DA_100%)] sm:[clip-path:polygon(0_100%,100%_85%,100%_calc(85%_-_5px),0_calc(100%_-_5px))] lg:[clip-path:polygon(0_100%,100%_82%,100%_calc(82%_-_5px),0_calc(100%_-_5px))]"
-      />
+        viewBox="0 0 1440 110"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-x-0 bottom-[-1px] z-[4] block h-14 w-full sm:h-20 lg:h-[104px]"
+      >
+        <defs>
+          <linearGradient id="tkHeroCutLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#03428E" />
+            <stop offset="50%" stopColor="#6AA84F" />
+            <stop offset="100%" stopColor="#0095DA" />
+          </linearGradient>
+        </defs>
+        <path d="M0,44 C 300,-6 1080,72 1440,20 L1440,110 L0,110 Z" fill="#fff" />
+        <path
+          d="M0,44 C 300,-6 1080,72 1440,20"
+          fill="none"
+          stroke="url(#tkHeroCutLine)"
+          strokeWidth="5"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
 
       <div className="relative z-[2] mx-auto flex min-h-[540px] max-w-7xl items-center px-6 pb-24 pt-20 sm:min-h-[620px] sm:pb-32 sm:pt-24 lg:min-h-[700px] lg:px-12 lg:pb-40 lg:pt-28">
         <Reveal className="max-w-xl">

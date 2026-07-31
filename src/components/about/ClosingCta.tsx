@@ -3,11 +3,29 @@ import Reveal from "@/components/Reveal";
 
 export default function ClosingCta() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#03428E] py-14 sm:py-16 md:py-24 lg:py-32">
-      <div
+    <section className="relative isolate overflow-hidden bg-[#03428E] pb-[var(--section-gap-y)] pt-[clamp(6rem,11vw,9.375rem)]">
+      <svg
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[3px] bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
-      />
+        viewBox="0 0 1440 110"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-x-0 top-[-1px] z-[4] block h-14 w-full sm:h-20 lg:h-[104px]"
+      >
+        <defs>
+          <linearGradient id="tkCtaCutLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#6AA84F" />
+            <stop offset="50%" stopColor="#0095DA" />
+            <stop offset="100%" stopColor="#03428E" />
+          </linearGradient>
+        </defs>
+        <path d="M0,66 C 300,116 1080,38 1440,90 L1440,0 L0,0 Z" fill="#fff" />
+        <path
+          d="M0,66 C 300,116 1080,38 1440,90"
+          fill="none"
+          stroke="url(#tkCtaCutLine)"
+          strokeWidth="5"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal className="flex flex-col gap-6 md:flex-row md:flex-wrap md:items-center md:justify-between">

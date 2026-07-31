@@ -1,21 +1,36 @@
-import { Dumbbell, GraduationCap, Network, TrendingUp } from "lucide-react";
+import Image from "next/image";
+import {
+  Dumbbell,
+  GraduationCap,
+  HeartHandshake,
+  Lightbulb,
+  Network,
+  Target,
+  TrendingUp,
+} from "lucide-react";
 import Reveal from "@/components/Reveal";
+import visionPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Vision.png";
+import coreValuesPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Mision.png";
 
 const missionPoints = [
   {
     icon: Dumbbell,
+    title: "Layanan Profesional & Terukur",
     text: "Mengembangkan dan mengelola layanan Fitness, Wellness, dan Sport Management yang profesional, terukur, serta berorientasi pada kualitas layanan dan keberlanjutan operasional.",
   },
   {
     icon: GraduationCap,
+    title: "Ekosistem Talenta & Pendidikan",
     text: "Membangun ekosistem pengembangan talenta dan kemitraan pendidikan yang menghasilkan tenaga profesional berkualitas sesuai kebutuhan industri.",
   },
   {
     icon: Network,
+    title: "Inovasi & Transformasi Digital",
     text: "Mendorong inovasi melalui transformasi digital, pengembangan sistem operasional, serta kolaborasi strategis untuk menciptakan pertumbuhan bisnis yang berkelanjutan.",
   },
   {
     icon: TrendingUp,
+    title: "Investasi Akuntabel & Terkurasi",
     text: "Mengkurasi, mengembangkan, dan mengelola peluang investasi secara transparan, akuntabel, serta berbasis mitigasi risiko guna menciptakan pertumbuhan nilai jangka panjang.",
   },
 ];
@@ -23,27 +38,30 @@ const missionPoints = [
 const coreValues = [
   {
     letter: "B",
+    icon: Lightbulb,
     title: "Bold Innovation",
     description:
-      "Berani menghadirkan inovasi, solusi, dan model bisnis yang adaptif untuk menciptakan pertumbuhan yang berkelanjutan.",
+      "Berani menghadirkan inovasi dan model bisnis yang adaptif untuk pertumbuhan berkelanjutan.",
   },
   {
     letter: "N",
+    icon: HeartHandshake,
     title: "Nurturing Partnership",
     description:
-      "Membangun hubungan yang dilandasi kepercayaan, integritas, dan kolaborasi jangka panjang bersama pelanggan, mitra strategis, dan investor.",
+      "Membangun hubungan berlandaskan kepercayaan, integritas, dan kolaborasi jangka panjang.",
   },
   {
     letter: "J",
+    icon: Target,
     title: "Journey of Excellence",
     description:
-      "Terus bertumbuh melalui peningkatan kualitas sistem, pengembangan talenta, serta budaya perbaikan berkelanjutan demi mencapai standar profesional terbaik.",
+      "Terus bertumbuh melalui peningkatan sistem, talenta, dan budaya perbaikan berkelanjutan.",
   },
 ];
 
 export default function VisionMissionValues() {
   return (
-    <section className="bg-white py-14 sm:py-16 md:py-24 lg:py-32">
+    <section className="bg-white py-[var(--section-gap-y)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
@@ -54,84 +72,129 @@ export default function VisionMissionValues() {
           </h2>
         </Reveal>
 
-        {/* Visi — single Spotlight card */}
-        <Reveal delay={0.05} className="mt-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
-            Visi
-          </p>
-          <div className="relative mt-4 overflow-hidden rounded-2xl border border-neutral-200 p-8 shadow-[0_4px_24px_rgba(3,66,142,0.12)] sm:p-12">
-            <div
-              aria-hidden
-              className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
-            />
-            <p className="text-xl font-semibold leading-relaxed text-neutral-900 sm:text-2xl">
-              Menjadi Holding Company &amp; Venture Builder terpercaya yang
-              membangun ekosistem bisnis berkelanjutan di sektor Fitness,
-              Wellness, Sport, dan Education melalui keunggulan operasional,
-              pengembangan talenta, inovasi berbasis teknologi, serta
-              kemitraan strategis yang menciptakan nilai jangka panjang.
-            </p>
+        {/* Visi + Misi — solid Corporate Blue Spotlight card with photo */}
+        <Reveal delay={0.05} className="mt-[var(--section-header-gap)]">
+          <div className="relative isolate overflow-hidden rounded-3xl bg-[#03428E] shadow-[0_18px_44px_rgba(3,66,142,0.30),0_4px_12px_rgba(3,66,142,0.18)]">
+            <div className="absolute inset-0 sm:left-auto sm:w-[55%] md:w-[60%]">
+              <Image
+                src={visionPhoto}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 640px, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 mix-blend-color bg-[#03428E]" />
+            </div>
+            <div className="absolute inset-0 bg-[#03428E]/60 sm:hidden" />
+            <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#03428E_0%,#03428E_40%,rgba(3,66,142,0.72)_62%,rgba(3,66,142,0.28)_85%,rgba(3,66,142,0.12)_100%)] sm:block" />
+
+            <div className="relative z-[1] p-8 sm:p-12 lg:p-16">
+              <div className="mx-auto max-w-xl text-center">
+                <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
+                  Visi
+                </p>
+                <p className="mt-4 text-base font-semibold leading-relaxed text-white">
+                  Menjadi Holding Company &amp; Venture Builder terpercaya yang
+                  membangun ekosistem bisnis berkelanjutan di sektor Fitness,
+                  Wellness, Sport, dan Education melalui keunggulan
+                  operasional, pengembangan talenta, inovasi berbasis
+                  teknologi, serta kemitraan strategis yang menciptakan nilai
+                  jangka panjang.
+                </p>
+              </div>
+
+              <div className="mx-auto mt-10 max-w-xl text-center sm:mt-16">
+                <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
+                  Misi
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
+                {missionPoints.map((point) => (
+                  <div
+                    key={point.title}
+                    className="rounded-2xl border border-white/70 bg-white/95 p-5 backdrop-blur-sm"
+                  >
+                    <point.icon
+                      className="h-[30px] w-[30px] text-[#03428E]"
+                      strokeWidth={1.5}
+                    />
+                    <h3 className="mt-3.5 text-[15px] font-bold text-neutral-900">
+                      {point.title}
+                    </h3>
+                    <p className="mt-2 text-[13px] leading-relaxed text-neutral-600">
+                      {point.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Reveal>
 
-        {/* Misi — 4-card flat grid with single top-accent */}
-        <div className="mt-14">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
-              Misi
-            </p>
-          </Reveal>
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {missionPoints.map((point, index) => (
-              <Reveal key={point.text} delay={(index % 4) * 0.08}>
-                <div className="h-full border border-t-[3px] border-neutral-200 border-t-[#03428E] p-7">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#03428E]/8">
-                    <point.icon className="h-6 w-6 text-[#03428E]" strokeWidth={1.5} />
-                  </div>
-                  <p className="text-sm leading-relaxed text-neutral-600">
-                    {point.text}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+        {/* Core Values — solid Corporate Blue Spotlight card with photo */}
+        <Reveal delay={0.1} className="mt-5">
+          <div className="relative isolate overflow-hidden rounded-3xl bg-[#03428E] shadow-[0_18px_44px_rgba(3,66,142,0.30),0_4px_12px_rgba(3,66,142,0.18)]">
+            <div className="absolute inset-0 sm:left-auto sm:w-[55%] md:w-[60%]">
+              <Image
+                src={coreValuesPhoto}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 640px, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 mix-blend-color bg-[#03428E]" />
+            </div>
+            <div className="absolute inset-0 bg-[#03428E]/60 sm:hidden" />
+            <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#03428E_0%,#03428E_40%,rgba(3,66,142,0.72)_62%,rgba(3,66,142,0.28)_85%,rgba(3,66,142,0.12)_100%)] sm:block" />
 
-        {/* Core Values — Spotlight Card pattern (3 cards, official exception) */}
-        <div className="mt-14">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
-              Core Values — B.N.J
-            </p>
-          </Reveal>
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {coreValues.map((value, index) => (
-              <Reveal key={value.letter} delay={index * 0.1}>
-                <div className="relative h-full overflow-hidden rounded-2xl border border-neutral-200 p-8 shadow-[0_12px_32px_rgba(3,66,142,0.08)]">
+            <div className="relative z-[1] p-8 sm:p-12 lg:p-16">
+              <div className="mx-auto max-w-xl text-center">
+                <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
+                  Nilai Inti BNJ
+                </p>
+                <h2 className="mt-4 text-[26px] font-bold leading-[1.2] text-white md:text-[32px]">
+                  Core Values B.N.J
+                </h2>
+                <p className="mt-4 text-[15px] leading-relaxed text-white/90">
+                  Tiga nilai ini menjadi dasar setiap keputusan dan cara kerja
+                  BNJ, dari pengelolaan operasional harian hingga pengembangan
+                  kemitraan jangka panjang.
+                </p>
+              </div>
+
+              <div className="mt-10 flex flex-col gap-4 sm:mt-16 sm:flex-row sm:items-stretch">
+                {coreValues.map((value) => (
                   <div
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
-                  />
-                  <span className="block text-[40px] font-extrabold leading-none text-[#03428E]">
-                    {value.letter}
-                  </span>
-                  <h4 className="mt-4 text-[18px] font-semibold leading-[1.2] text-neutral-900 md:text-[22px]">
-                    {value.title}
-                  </h4>
-                  <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
-                    {value.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+                    key={value.letter}
+                    className="flex-1 rounded-2xl border border-white/70 bg-white/95 p-5 backdrop-blur-sm"
+                  >
+                    <span className="block text-[40px] font-extrabold leading-none text-[#6AA84F]">
+                      {value.letter}
+                    </span>
+                    <h3 className="mt-3.5 flex items-center gap-2.5 text-[15px] font-bold text-neutral-900">
+                      <value.icon
+                        className="h-[22px] w-[22px] shrink-0 text-[#03428E]"
+                        strokeWidth={1.5}
+                      />
+                      {value.title}
+                    </h3>
+                    <p className="mt-2 text-[13px] leading-relaxed text-neutral-600">
+                      {value.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <Reveal delay={0.2}>
-            <p className="mt-10 text-center text-[22px] font-bold italic leading-[1.2] text-[#03428E] md:text-[26px]">
-              &ldquo;More Than Our Name. It Is the Way We Build Our
-              Business.&rdquo;
-            </p>
-          </Reveal>
-        </div>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <p className="mt-[var(--section-header-gap)] text-center text-[22px] font-bold italic leading-[1.2] text-[#03428E] md:text-[26px]">
+            &ldquo;More Than Our Name. It Is the Way We Build Our
+            Business.&rdquo;
+          </p>
+        </Reveal>
       </div>
     </section>
   );

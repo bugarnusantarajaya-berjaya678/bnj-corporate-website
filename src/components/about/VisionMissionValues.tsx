@@ -67,7 +67,7 @@ export default function VisionMissionValues() {
           <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
             Arah dan Nilai Kami
           </p>
-          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+          <h2 className="mt-4 text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:whitespace-nowrap md:text-[32px] lg:text-[36px]">
             Fondasi yang Memandu Setiap Langkah BNJ
           </h2>
         </Reveal>
@@ -81,19 +81,19 @@ export default function VisionMissionValues() {
                 alt=""
                 fill
                 sizes="(min-width: 768px) 640px, 100vw"
-                className="object-cover"
+                className="object-cover object-[center_30%]"
               />
               <div className="absolute inset-0 mix-blend-color bg-[#03428E]" />
             </div>
             <div className="absolute inset-0 bg-[#03428E]/60 sm:hidden" />
             <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#03428E_0%,#03428E_40%,rgba(3,66,142,0.72)_62%,rgba(3,66,142,0.28)_85%,rgba(3,66,142,0.12)_100%)] sm:block" />
 
-            <div className="relative z-[1] p-8 sm:p-12 lg:p-16">
+            <div className="relative z-[1] p-6 sm:p-8 lg:p-10">
               <div className="mx-auto max-w-xl text-center">
                 <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
                   Visi
                 </p>
-                <p className="mt-4 text-base font-semibold leading-relaxed text-white">
+                <p className="mt-3.5 text-base font-semibold leading-relaxed text-white">
                   Menjadi Holding Company &amp; Venture Builder terpercaya yang
                   membangun ekosistem bisnis berkelanjutan di sektor Fitness,
                   Wellness, Sport, dan Education melalui keunggulan
@@ -103,26 +103,26 @@ export default function VisionMissionValues() {
                 </p>
               </div>
 
-              <div className="mx-auto mt-10 max-w-xl text-center sm:mt-16">
+              <div className="mx-auto mt-6 max-w-xl text-center sm:mt-8">
                 <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
                   Misi
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-5 grid grid-cols-1 gap-3.5 sm:mt-6 sm:grid-cols-2 lg:grid-cols-4">
                 {missionPoints.map((point) => (
                   <div
                     key={point.title}
-                    className="rounded-2xl border border-white/70 bg-white/95 p-5 backdrop-blur-sm"
+                    className="rounded-2xl border border-white/70 bg-white/95 p-4 backdrop-blur-sm"
                   >
                     <point.icon
-                      className="h-[30px] w-[30px] text-[#03428E]"
+                      className="h-[26px] w-[26px] text-[#03428E]"
                       strokeWidth={1.5}
                     />
-                    <h3 className="mt-3.5 text-[15px] font-bold text-neutral-900">
+                    <h3 className="mt-3 text-[14px] font-bold text-neutral-900">
                       {point.title}
                     </h3>
-                    <p className="mt-2 text-[13px] leading-relaxed text-neutral-600">
+                    <p className="mt-1.5 text-[12.5px] leading-relaxed text-neutral-600">
                       {point.text}
                     </p>
                   </div>
@@ -141,45 +141,45 @@ export default function VisionMissionValues() {
                 alt=""
                 fill
                 sizes="(min-width: 768px) 640px, 100vw"
-                className="object-cover"
+                className="object-cover object-[center_30%]"
               />
               <div className="absolute inset-0 mix-blend-color bg-[#03428E]" />
             </div>
             <div className="absolute inset-0 bg-[#03428E]/60 sm:hidden" />
             <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#03428E_0%,#03428E_40%,rgba(3,66,142,0.72)_62%,rgba(3,66,142,0.28)_85%,rgba(3,66,142,0.12)_100%)] sm:block" />
 
-            <div className="relative z-[1] p-8 sm:p-12 lg:p-16">
+            <div className="relative z-[1] p-6 sm:p-8 lg:p-10">
               <div className="mx-auto max-w-xl text-center">
                 <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
                   Nilai Inti BNJ
                 </p>
-                <h2 className="mt-4 text-[26px] font-bold leading-[1.2] text-white md:text-[32px]">
+                <h2 className="mt-3.5 text-[26px] font-bold leading-[1.2] text-white md:text-[32px]">
                   Core Values B.N.J
                 </h2>
-                <p className="mt-4 text-[15px] leading-relaxed text-white/90">
+                <p className="mt-3.5 text-[15px] leading-relaxed text-white/90">
                   Tiga nilai ini menjadi dasar setiap keputusan dan cara kerja
                   BNJ, dari pengelolaan operasional harian hingga pengembangan
                   kemitraan jangka panjang.
                 </p>
               </div>
 
-              <div className="mt-10 flex flex-col gap-4 sm:mt-16 sm:flex-row sm:items-stretch">
+              <div className="mt-6 flex flex-col gap-3.5 sm:mt-8 sm:flex-row sm:items-stretch">
                 {coreValues.map((value) => (
                   <div
                     key={value.letter}
-                    className="flex-1 rounded-2xl border border-white/70 bg-white/95 p-5 backdrop-blur-sm"
+                    className="flex-1 rounded-2xl border border-white/70 bg-white/95 p-4 backdrop-blur-sm"
                   >
-                    <span className="block text-[40px] font-extrabold leading-none text-[#6AA84F]">
+                    <span className="block text-[36px] font-extrabold leading-none text-[#6AA84F]">
                       {value.letter}
                     </span>
-                    <h3 className="mt-3.5 flex items-center gap-2.5 text-[15px] font-bold text-neutral-900">
+                    <h3 className="mt-3 flex items-center gap-2.5 text-[14px] font-bold text-neutral-900">
                       <value.icon
-                        className="h-[22px] w-[22px] shrink-0 text-[#03428E]"
+                        className="h-[20px] w-[20px] shrink-0 text-[#03428E]"
                         strokeWidth={1.5}
                       />
                       {value.title}
                     </h3>
-                    <p className="mt-2 text-[13px] leading-relaxed text-neutral-600">
+                    <p className="mt-1.5 text-[12.5px] leading-relaxed text-neutral-600">
                       {value.description}
                     </p>
                   </div>

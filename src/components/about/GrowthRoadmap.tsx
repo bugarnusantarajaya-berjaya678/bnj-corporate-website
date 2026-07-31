@@ -17,7 +17,7 @@ export default function GrowthRoadmap() {
           <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
             Roadmap Pertumbuhan
           </p>
-          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+          <h2 className="mt-4 text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:whitespace-nowrap md:text-[32px] lg:text-[36px]">
             Corporate Growth Roadmap 2026–2030
           </h2>
           <p className="mt-3 text-[15px] font-semibold italic text-[#0095DA]">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Building2, Calendar, ShieldCheck } from "lucide-react";
 import heroImage from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Hero-Section.jpg";
 import Reveal from "@/components/Reveal";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function Hero() {
   return (
@@ -68,13 +69,13 @@ export default function Hero() {
             <div className="flex items-center gap-2.5">
               <Calendar className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
-                Berdiri Sejak 2017
+                Berdiri Sejak <AnimatedCounter value={2017} duration={0.9} />
               </span>
             </div>
             <div className="flex items-center gap-2.5">
               <ShieldCheck className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
-                Entitas Legal Sejak 2022
+                Entitas Legal Sejak <AnimatedCounter value={2022} duration={0.9} />
               </span>
             </div>
           </div>

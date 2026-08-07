@@ -1,128 +1,233 @@
-import Image from "next/image";
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Dumbbell,
-  GraduationCap,
-  HeartPulse,
-  Rocket,
-  TrendingUp,
-} from "lucide-react";
-import pillarEfm from "../../../public/images/pillar-efm.png";
-import pillarDigitalLabs from "../../../public/images/pillar-digital-labs.png";
-import pillarBrandIncubation from "../../../public/images/pillar-brand-incubation.png";
-import pillarEducationalAlliance from "../../../public/images/pillar-educational-alliance.png";
-import pillarInvestmentVentures from "../../../public/images/pillar-investment-ventures.png";
-import Reveal from "@/components/Reveal";
-import TiltCard from "@/components/TiltCard";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const pillars = [
   {
-    icon: Dumbbell,
-    image: pillarEfm,
-    title: "Essential Fitness Management",
-    description:
-      "Unit bisnis inti pengelolaan fitness, wellness & fasilitas olahraga, beroperasi sejak 2017.",
     href: "/ekosistem-bisnis/efm",
+    img: "/images/Page-Home/Home-Ekosistem-EFM.png",
+    pos: "50% 45%",
+    label: "EFM",
+    title: "Essential Fitness Management",
+    desc: "Fitness, wellness & fasilitas olahraga sejak 2017.",
+    alt: "Essential Fitness Management",
   },
   {
-    icon: HeartPulse,
-    image: pillarDigitalLabs,
-    title: "BNJ Digital Labs",
-    description:
-      "Kemitraan produk digital untuk layanan kesehatan & rehabilitasi.",
     href: "/ekosistem-bisnis/digital-labs",
+    img: "/images/Page-Home/Home-Ekosistem-Digital-Labs.png",
+    pos: "68% 50%",
+    label: "DIGITAL LABS",
+    title: "BNJ Digital Labs",
+    desc: "Produk digital untuk layanan kesehatan & rehabilitasi.",
+    alt: "BNJ Digital Labs",
   },
   {
-    icon: Rocket,
-    image: pillarBrandIncubation,
-    title: "Brand Incubation & Business Acceleration",
-    description:
-      "Pengembangan brand digital dan akselerasi bisnis kebugaran.",
     href: "/ekosistem-bisnis/brand-incubation",
+    img: "/images/Page-Home/Home-Ekosistem-Bisnis-Brand-Incubation.png",
+    pos: "66% 50%",
+    label: "BRAND INCUBATION",
+    title: "Brand Incubation & Business Acceleration",
+    desc: "Brand digital & akselerasi bisnis kebugaran.",
+    alt: "Brand Incubation & Business Acceleration",
   },
   {
-    icon: GraduationCap,
-    image: pillarEducationalAlliance,
-    title: "Strategic Educational Alliance",
-    description:
-      "Kemitraan pendidikan & pengembangan ekosistem expert multi-disiplin.",
     href: "/ekosistem-bisnis/educational-alliance",
+    img: "/images/Page-Home/Home-Ekosistem-Bisnis-Educational.png",
+    pos: "center 25%",
+    label: "STRATEGIC ALLIANCE",
+    title: "Strategic Educational Alliance",
+    desc: "Kemitraan pendidikan & ekosistem expert multi-disiplin.",
+    alt: "Strategic Educational Alliance",
   },
   {
-    icon: TrendingUp,
-    image: pillarInvestmentVentures,
-    title: "BNJ Investment Ventures",
-    description:
-      "Alokasi modal & ekspansi bisnis di sektor wellness dan olahraga.",
     href: "/ekosistem-bisnis/investment-ventures",
+    img: "/images/Page-Home/Home-Ekosistem-Bisnis-Investment.png",
+    pos: "58% 50%",
+    label: "INVESTMENT VENTURES",
+    title: "BNJ Investment Ventures",
+    desc: "Alokasi modal & ekspansi bisnis wellness dan olahraga.",
+    alt: "BNJ Investment Ventures",
   },
 ];
 
 export default function Pillars() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const sync = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const max = track.scrollWidth - track.clientWidth;
+    const i =
+      max <= 0
+        ? 0
+        : Math.round((track.scrollLeft / max) * (pillars.length - 1));
+    setActive(i);
+    setAtStart(track.scrollLeft <= 2);
+    setAtEnd(track.scrollLeft >= max - 2);
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    sync();
+    let t: ReturnType<typeof setTimeout> | null = null;
+    const onScroll = () => {
+      if (t) return;
+      t = setTimeout(() => {
+        t = null;
+        sync();
+      }, 90);
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", sync);
+    return () => {
+      track.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", sync);
+      if (t) clearTimeout(t);
+    };
+  }, [sync]);
+
+  const step = () => {
+    const track = trackRef.current;
+    if (!track) return 320;
+    const card = track.querySelector<HTMLElement>("[data-pil-card]");
+    return card ? card.getBoundingClientRect().width + 24 : 320;
+  };
+
+  const scrollByStep = (dir: number) => {
+    trackRef.current?.scrollBy({ left: dir * step(), behavior: "smooth" });
+  };
+
+  const goToDot = (n: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const max = track.scrollWidth - track.clientWidth;
+    track.scrollTo({
+      left: (n / (pillars.length - 1)) * max,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       id="pilar-bisnis"
-      className="bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(64px,9vw,128px)]"
+      className="w-full bg-surface-alt px-6 py-[var(--section-py)] lg:px-12"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-2xl">
+          <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             Ekosistem Bisnis
           </p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+          <h2 className="mt-4 text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             5 Ekosistem Bisnis Saling Terintegrasi
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 sm:text-lg">
-            Setiap pilar bisnis BNJ dibangun untuk saling mendukung,
-            menciptakan ekosistem yang berkelanjutan dari operasional,
-            talenta, hingga investasi.
+          <p className="mt-4 text-[clamp(15px,1.2vw,16px)] leading-relaxed text-neutral-600">
+            Setiap pilar bisnis BNJ dibangun untuk saling mendukung, menciptakan
+            ekosistem yang berkelanjutan dari operasional, talenta, hingga
+            investasi.
           </p>
-        </Reveal>
+        </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-6">
-          {pillars.map((pillar, index) => (
-            <Reveal
-              key={pillar.title}
-              delay={(index % 5) * 0.08}
-              className="w-full max-w-[380px] basis-full md:basis-1/2 lg:basis-1/4"
-            >
-              <TiltCard className="h-full [transform-style:preserve-3d]">
-                <Link
-                  href={pillar.href}
-                  className="group flex h-full flex-col overflow-hidden border border-neutral-200 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#03428E] hover:shadow-[0_16px_32px_-12px_rgba(3,66,142,0.35)]"
-                >
-                  <div className="relative h-44 w-full bg-neutral-100">
-                    <Image
-                      src={pillar.image}
-                      alt={pillar.title}
-                      fill
-                      sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col gap-2 bg-white p-6">
-                    <pillar.icon
-                      className="h-6 w-6 text-[#03428E]"
-                      strokeWidth={1.5}
-                    />
-                    <h3 className="mt-1 text-lg font-semibold text-neutral-900">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-neutral-600">
-                      {pillar.description}
+        <div className="eco-carousel relative mt-10 flex items-center gap-[clamp(12px,1.6vw,20px)]">
+          <button
+            type="button"
+            aria-label="Sebelumnya"
+            onClick={() => scrollByStep(-1)}
+            className="eco-prev flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300"
+            style={{ opacity: atStart ? 0.35 : 1 }}
+          >
+            <ChevronLeft className="h-[18px] w-[18px] text-white" />
+          </button>
+
+          <div
+            ref={trackRef}
+            className="eco-track flex min-w-0 flex-1 gap-6 overflow-x-auto scroll-smooth [scroll-snap-type:x_mandatory] [scrollbar-width:none] pb-1"
+          >
+            {pillars.map((p) => (
+              <Link
+                key={p.href}
+                href={p.href}
+                data-pil-card
+                className="eco-card group relative block aspect-[4/3] overflow-hidden rounded-[14px] bg-neutral-100 no-underline [scroll-snap-align:start]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={p.img}
+                  alt={p.alt}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  style={{ objectPosition: p.pos }}
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(180deg,rgba(3,52,112,0)_0%,rgba(3,52,112,.62)_45%,rgba(3,52,112,.92)_100%)]" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-[clamp(16px,1.8vw,22px)]">
+                  <div className="min-w-0">
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/75">
+                      {p.label}
                     </p>
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#03428E]">
-                      Lihat Detail
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                    </span>
+                    <h3 className="mt-1.5 text-[clamp(17px,1.5vw,20px)] font-bold leading-[1.25] text-white">
+                      {p.title}
+                    </h3>
+                    <p className="mt-1.5 truncate text-[13px] leading-[1.4] text-white/85">
+                      {p.desc}
+                    </p>
                   </div>
-                </Link>
-              </TiltCard>
-            </Reveal>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white">
+                    <ArrowRight className="h-4 w-4 text-[#03428E]" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            aria-label="Berikutnya"
+            onClick={() => scrollByStep(1)}
+            className="eco-next flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300"
+            style={{ opacity: atEnd ? 0.35 : 1 }}
+          >
+            <ChevronRight className="h-[18px] w-[18px] text-white" />
+          </button>
+        </div>
+
+        <div className="mt-6 flex items-center justify-center gap-2">
+          {pillars.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Slide ${i + 1}`}
+              onClick={() => goToDot(i)}
+              className="h-2 rounded-full p-0 transition-all duration-300"
+              style={
+                i === active
+                  ? { width: 26, background: "#03428E", border: 0 }
+                  : {
+                      width: 8,
+                      background: "transparent",
+                      border: "1px solid #c4c9d0",
+                    }
+              }
+            />
           ))}
         </div>
       </div>
+
+      <style>{`
+        .eco-track::-webkit-scrollbar{display:none;}
+        .eco-card{flex:0 0 calc((100% - 24px) / 2.35);}
+        @media (max-width:900px){.eco-card{flex:0 0 calc((100% - 24px) / 1.4);}}
+        @media (max-width:640px){
+          .eco-carousel{gap:0;}
+          .eco-card{flex:0 0 100%;}
+          .eco-prev,.eco-next{position:absolute;top:50%;transform:translateY(-50%);z-index:4;box-shadow:0 2px 12px rgba(0,0,0,.3);}
+          .eco-prev{left:10px;}
+          .eco-next{right:10px;}
+        }
+      `}</style>
     </section>
   );
 }

@@ -22,7 +22,7 @@ Contoh: Konsultasi Online, Terapi & Fisioterapi (BNJ Digital Labs); section deta
 - Sisi teks diberi garis vertikal tebal 5px Growth Green (#6AA84F).
 - Angka besar dekoratif transparan (01, 02, 03...) di belakang teks, konsisten dengan pola 4-Pilar homepage.
 - Posisi foto/teks selang-seling antar section berurutan (A: teks-kiri/foto-kanan → B: foto-kiri/teks-kanan). Posisi garis vertikal + angka ikut menyesuaikan sisi teks.
-- Divider antar-section: garis horizontal tipis (2-3px) full-width gradasi tri-warna, bukan diagonal pendek.
+- Pemisahan dari section sebelum/sesudah: TANPA garis (lihat §Divider & Pemisahan Section revisi 2026-08-08) — pakai whitespace + alternating tone.
 
 ## 3. Grid kartu (spesialisasi, pilar, program, dsb.)
 
@@ -53,7 +53,7 @@ Contoh: "B2B Management" (Community Wellness Program + Facility Management, masi
 
 ## 4. Roadmap / Timeline (kondisional — lihat kriteria di bawah)
 
-Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Acceleration, Strategic Educational Alliance, BNJ Digital Labs.
+Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Acceleration, Strategic Educational Alliance, BNJ Digital Labs. Varian solid-blue: "Corporate Growth Roadmap" di halaman Tentang Kami.
 
 **Kapan dipakai (kriteria wajib, bukan template default):**
 
@@ -61,10 +61,20 @@ Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Accelerati
 - **Jangan dipasang** di halaman yang sudah aktif penuh tanpa pergeseran status (mis. EFM).
 - Untuk halaman yang statusnya belum jelas progresinya (mis. Investment Ventures), konfirmasi dulu isi konkret sebelum section ini dibuat — jangan diisi placeholder generik.
 
-**Struktur visual:**
+**Struktur visual (varian default — background putih):**
 
-- Divider tri-warna tipis (2px, gradasi Corporate Blue → Growth Green → Digital Blue) di atas section, sama seperti divider antar-section biasa.
+- TANPA divider garis di atas section (aturan lama "divider tri-warna tipis di atas" sudah dicabut — lihat §Divider & Pemisahan Section revisi 2026-08-08). Pisahkan dari section sebelumnya dengan whitespace + alternating tone.
 - Label kategori uppercase kecil (eyebrow): tidak lagi pakai teks tetap "ROADMAP PENGEMBANGAN" di semua halaman — pilih kata sesuai konteks section (mis. "ARAH PENGEMBANGAN", "ARAH INVESTASI"), maksimal 2 kata, dan hindari mengulang kata kunci yang sudah dipakai di heading besar di bawahnya. Penentuan kata final dilakukan langsung saat editing di Claude Design, fleksibel per halaman.
+- Garis penghubung horizontal antar-titik: MENERUS dari titik pertama sampai titik terakhir (bukan cuma sebagian) — segmen status "sedang berjalan" berwarna Growth Green, segmen "rencana lanjutan" berwarna abu-abu netral solid.
+
+**Varian container solid Corporate Blue (dipakai kalau butuh penekanan visual lebih kuat, mis. "Corporate Growth Roadmap" di Tentang Kami):**
+
+- Background container: solid Corporate Blue (#03428E), rounded-corner besar, aksen strip biru tebal di tepi bawah container.
+- Icon status "sedang berjalan": ring accent Growth Green di sekeliling lingkaran, fill lingkaran bagian dalam putih solid supaya icon line-style tetap kontras.
+- Icon "rencana lanjutan": fill lingkaran putih opacity ~15-20% (frosted/translucent di atas biru), icon line-style putih (bukan abu-abu — abu-abu kehilangan kontras di atas biru solid).
+- Garis penghubung: segmen "sedang berjalan" tetap Growth Green, segmen "rencana lanjutan" jadi putih opacity ~30% (bukan abu-abu).
+- Label "SEDANG BERJALAN": tetap Growth Green (kontras cukup di atas biru). Label "RENCANA LANJUTAN": putih opacity ~60%. Teks tahun: putih solid 100%. Judul milestone: putih solid 100%.
+- Section tetap horizontal single-row — varian ini hanya mengubah warna/kontras, bukan mengubah orientasi atau jumlah titik.
 
 ## 5. Badge Row — Highlight Kualitatif (kondisional)
 
@@ -84,17 +94,18 @@ Contoh: baris badge kecil di bawah paragraph intro pada section "Jaringan Expert
 
 ## 6. Milestone Timeline (kondisional — 2 varian)
 
-Contoh: section "Milestone Essential Fitness Management" — histori tahun-per-tahun (2017-2025) berisi pencapaian nyata perusahaan.
+Contoh: section "Milestone Essential Fitness Management" dan "Milestone CV Bugar Nusantara Jaya" (Tentang Kami) — histori tahun-per-tahun berisi pencapaian nyata perusahaan.
 
 **Beda dengan Roadmap/Timeline (§4):**
 
 - Roadmap (§4) = untuk **masa depan**, horizontal, maksimal 3-4 titik (mis. "2026 vs 2027-2028").
 - Milestone Timeline (§6) = untuk **histori masa lalu yang sudah terjadi**, bisa lebih dari 4 titik (5 titik ke atas) — dipakai kalau perusahaan/unit bisnis punya track record panjang yang layak ditunjukkan.
+- Beda juga dengan Overlay Card Carousel (§14): Milestone menampilkan momen/waktu, Overlay Card Carousel menampilkan orang/entitas.
 
 **Kapan dipakai:**
 
 - Hanya untuk entitas dengan histori tahun-per-tahun yang terdokumentasi nyata (bukan diringkas jadi 2-3 poin generik). Kalau histori cuma 1-2 titik waktu penting, cukup masukkan sebagai bagian dari body text biasa, tidak perlu komponen timeline khusus.
-- Semua entri harus berbasis fakta terverifikasi (nama klien/mitra, tahun, jenis kerjasama) — jangan dirangkum jadi klaim vague tanpa detail.
+- Semua entri harus berbasis fakta terverifikasi (nama klien/mitra, tahun, jenis kerjasama) — jangan dirangkum jadi klaim vague tanpa detail. Kalau ada gap tahun kosong di rangkaian, cek dulu ke pemilik data apakah memang tidak ada aktivitas di tahun itu, atau datanya belum digali — jangan langsung dilewati.
 
 ### Varian A — Histori Vertikal (default)
 
@@ -103,16 +114,15 @@ Contoh: section "Milestone Essential Fitness Management" — histori tahun-per-t
 - Bisa scroll vertikal natural mengikuti panjang halaman — tidak perlu dipadatkan jadi horizontal scroll yang butuh interaksi tambahan.
 - Background section: putih/netral, garis vertikal warna Corporate Blue dengan opacity penuh (bukan gradasi tri-warna seperti Roadmap §4 — ini murni linimasa, bukan progress bar menuju masa depan).
 
-### Varian B — Carousel Horizontal (dipakai di EFM)
+### Varian B — Carousel Horizontal (dipakai di EFM dan Tentang Kami)
 
-- Layout 2 kolom per slide: foto besar kiri, teks kanan (tahun besar bold Corporate Blue, judul milestone, deskripsi 1-2 kalimat).
-- Progress bar scrubber horizontal di bawah slide: satu bar tipis per milestone, bar aktif solid Corporate Blue, bar lain abu-abu (#E3E7EC).
-- Autoplay dengan progress bar terisi bertahap sebagai indikator waktu, tombol pause/play di tengah progress bar.
-- Navigasi manual: panah kiri-kanan di kedua sisi. Card center-aligned dengan max-width (~900-1000px), tidak mepet ke satu sisi.
-- Preview slide berikutnya terpotong sedikit di tepi kanan, memberi sinyal ada konten lanjutan.
+- Strip icon-tab di atas (satu icon bulat + tahun per titik, jumlah sesuai banyaknya milestone), tab aktif diberi ring/underline Corporate Blue, tab lain abu-abu netral.
+- Layout 2 kolom per slide (setelah tab dipilih): foto besar kiri, teks kanan (tahun besar bold Corporate Blue, judul milestone, deskripsi 1-2 kalimat) — atau varian foto full dengan overlay gradient bawah + teks di dalam foto (lihat contoh EFM).
+- Navigasi: klik langsung ke tab tahun yang dituju (bukan cuma panah sekuensial), plus panah kiri-kanan untuk geser tab kalau jumlah tahun melebihi lebar viewport.
+- Card center-aligned dengan max-width (~900-1000px) untuk varian 2-kolom, tidak mepet ke satu sisi.
 - Background section: putih/netral, sama seperti Varian A.
 
-**Kapan pakai varian mana:** Varian A untuk histori singkat/sederhana tanpa kebutuhan foto kuat per momen; Varian B untuk histori panjang (6+ entri) dengan foto pendukung yang kuat per momen, seperti EFM.
+**Kapan pakai varian mana:** Varian A untuk histori singkat/sederhana tanpa kebutuhan foto kuat per momen; Varian B untuk histori panjang (6+ entri) dengan foto pendukung yang kuat per momen, seperti EFM dan Tentang Kami.
 
 ## 7. Stat Card Overlay Photo (kondisional)
 
@@ -125,10 +135,10 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 
 **Struktur visual:**
 
-- Foto dasar (placeholder atau foto asli tim/kantor/aktivitas) dengan sudut membulat halus.
-- 2-3 kartu kecil mengambang (posisi absolute di atas/di luar tepi foto), tiap kartu: icon kecil + angka besar bold Corporate Blue + label kecil abu-abu di bawahnya.
-- Kartu memakai background putih solid dengan border/shadow tipis supaya kebaca jelas di atas foto apapun.
-- Jumlah kartu maksimal 3 — lebih dari itu jadi ramai dan kehilangan fungsi "sekilas info".
+- Foto dasar (placeholder atau foto asli tim/kantor/aktivitas) dengan sudut membulat halus, ditampilkan sebagai tekstur latar pudar (overlay biru sangat muda/opacity rendah) — bukan elemen visual dominan.
+- 1 card putih besar mengambang di atas foto (margin di semua sisi dari tepi foto), berisi seluruh konten data: stat besar + detail card kecil di bawahnya.
+- Tiap kartu kecil: icon kecil + angka besar bold Corporate Blue + label kecil abu-abu di bawahnya.
+- Jumlah stat besar maksimal 3, jumlah detail card kecil maksimal 4 — lebih dari itu jadi ramai dan kehilangan fungsi "sekilas info".
 
 **Yang perlu dicek sebelum dipasang (pelajaran dari kasus BNJ Digital Labs):**
 
@@ -137,11 +147,11 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 
 ## 8. CTA penutup (section terakhir sebelum Footer)
 
-- Background: solid Corporate Blue — ini adalah satu-satunya exception resmi untuk background solid penuh warna.
+- Background: solid Corporate Blue — ini adalah satu-satunya exception resmi untuk background solid penuh warna (selain Footer dan varian solid-blue Roadmap §4).
 - Garis vertikal tebal 5px Growth Green di sisi teks, + label kategori uppercase kecil di atasnya.
 - Dua tombol: primary (fill putih, teks Corporate Blue) + secondary (outline putih transparan).
 - Elemen dekoratif opsional: grafik line-art tipis, opacity sangat rendah (~8%), di sudut kosong — bukan pengisi paksa.
-- Divider di atas section: garis horizontal tipis tri-warna, sama seperti pembatas antar-section biasa.
+- Divider di atas section: ini adalah salah satu dari 2 titik bookend yang BOLEH pakai tri-warna (transisi putih → biru). Flagship tier (Home, Tentang Kami) pakai wave bookend mirror Hero; pillar tier boleh garis/wave tri-warna. Lihat §Divider & Pemisahan Section revisi 2026-08-08.
 
 ## 9. Footer
 
@@ -194,10 +204,68 @@ Contoh: section "Klien & Mitra Kami" di halaman EFM dan Home.
 - Berlaku untuk SEMUA copy baru dan revisi ke depan, di semua halaman — bukan cuma halaman yang sedang direvisi saat aturan ini dibuat.
 - Saat mengaudit/merevisi halaman apapun, sekalian scan seluruh teks di halaman itu untuk tanda em-dash yang tertinggal dari draft sebelumnya, meski tidak diminta eksplisit.
 
+## 14. Overlay Card Carousel (Person & Entity variant)
+
+Contoh: section "Struktur Kepemimpinan" di halaman Tentang Kami.
+
+**Kapan dipakai:** showcase kumpulan orang atau entitas (tim, klien, mitra, produk) dengan foto sebagai elemen utama dan bio/deskripsi singkat yang bisa di-expand per item. Berbeda dari Milestone Timeline §6 (yang menampilkan momen/waktu, bukan orang/entitas) dan dari Logo Klien §12 (logo partner tanpa foto/bio personal).
+
+**Struktur layout:**
+
+- Row horizontal scroll, kartu fixed-width, kartu berikutnya "peek" terpotong di tepi kanan viewport — bukan grid statis, bukan 1-kartu-aktif dengan panah di atas.
+- Tombol navigasi geser (solid Corporate Blue, posisi di luar area foto, tidak overlap) di kedua ujung row, state disabled (opacity ~40%) saat sudah mentok di ujung terkait — dievaluasi ulang di setiap event scroll, bukan cuma saat klik.
+- Dot indicator di bawah row, sync ke posisi scroll aktif (dot aktif solid Corporate Blue lebih besar, dot lain outline abu-abu tipis).
+- Baris teks kecil di bawah dot menjelaskan cara interaksi (mis. "Klik ikon panah pada tiap kartu untuk melihat profil lengkap").
+
+**Struktur kartu — 2 varian konten:**
+
+- **Varian Person** (3 baris teks): label kategori kecil → nama orang → jabatan. Dipakai untuk individu (Pimpinan, staf bernama).
+- **Varian Entity** (2 baris teks): label kategori kecil → nama entitas/divisi saja. TIDAK ADA baris nama-orang/jabatan — dipakai untuk unit/divisi/produk tanpa personal branding (mis. divisi yang kepalanya belum terkonfirmasi/belum direkrut).
+- Foto/placeholder full-bleed mengisi kartu, gradient gelap HANYA di 40-50% bagian bawah kartu (bukan seluruh kartu) — supaya foto tetap jadi elemen utama, gradient murni untuk keterbacaan teks overlay putih.
+- Teks overlay diposisikan di pojok kiri-bawah kartu (di atas area gradient). Tombol bulat putih dengan icon chevron-down (Corporate Blue) di pojok kanan-bawah.
+- Label kategori kecil (11px semi-bold uppercase, putih opacity ~75%) punya varian status: bentuk aktif (mis. "DIVISI") vs bentuk rencana/belum aktif (mis. "RENCANA DIVISI") — konsisten dengan aturan roadmap-honesty di pattern lain (lihat §4, §5).
+
+**Interaksi (wajib fungsional saat implementasi Claude Code, bukan visual statis):**
+
+- Klik chevron pada kartu manapun → detail panel muncul MENEMPEL langsung di bawah kartu tersebut (bukan shared panel di bawah seluruh row) — lebar panel ~1.5x lebar kartu, sisi kiri sejajar kartu, connector kecil mengarah ke tombol chevron kartu terkait.
+- Hanya 1 panel detail terbuka dalam satu waktu — membuka kartu lain otomatis menutup panel sebelumnya.
+- Icon chevron rotate 180° (down↔up) mengikuti state buka/tutup (CSS transform, bukan swap dua icon berbeda).
+- Di Claude Design, cukup buat 2 frame referensi (kondisi tertutup + 1 contoh kondisi terbuka) sebagai acuan visual — logic interaktif sungguhan baru dibangun saat handoff Claude Code.
+
 ---
 
 ## Aturan lintas-section (berlaku di semua tipe di atas)
 
-- Background solid warna penuh (biru/hijau) **hanya boleh** di CTA penutup dan Footer. Section lain tetap putih/netral, warna brand jadi aksen tipis saja (garis, icon, border).
+- Background solid warna penuh (biru/hijau) **hanya boleh** di CTA penutup, Footer, dan varian solid-blue Roadmap (§4). Section lain tetap putih/netral (lihat alternating tone di §Divider & Pemisahan Section), warna brand jadi aksen tipis saja (garis, icon, border, atau gradient fungsional di dalam kartu foto seperti §14 — bukan background section itu sendiri).
 - Satu section = satu pola. Jangan gabungkan garis vertikal hijau dengan label kategori grid, atau sebaliknya — tiap pola berlaku untuk tipe section yang berbeda supaya tetap punya makna, bukan dekorasi acak.
-- Divider antar-section tengah halaman: selalu garis horizontal tipis (2-3px) gradasi tri-warna. Diagonal tebal direservasi khusus untuk bawah Hero.
+- **Pemisahan antar-section: lihat aturan permanen di §Divider & Pemisahan Section (revisi 2026-08-08) di bawah.** Aturan lama "divider antar-section selalu garis tipis tri-warna" sudah TIDAK berlaku.
+
+---
+
+## §Divider & Pemisahan Section (REVISI ATURAN PERMANEN — 2026-08-08)
+
+Berlaku untuk SEMUA halaman ke depan (Home, Strategic Educational Alliance, Portofolio, Kontak, dst), menggantikan semua aturan divider tri-warna antar-section yang tersebar di §2, §4, §8, dan aturan lintas-section di atas.
+
+**Divider/garis tri-warna (Corporate Blue → Growth Green → Digital Blue) HANYA boleh muncul di 2 titik per halaman:**
+
+1. **Bawah Hero** — bentuk diagonal tebal (pillar tier) atau wave (Flagship tier: Home, Tentang Kami). Transisi biru → putih.
+2. **Pre-footer, transisi masuk ke CTA penutup** — untuk Flagship tier berupa wave bookend (mirror vertikal dari Hero); untuk pillar tier boleh garis/wave tri-warna. Transisi putih → biru.
+
+**Semua sambungan section di TENGAH halaman TIDAK boleh pakai garis apapun** (bukan garis tipis tri-warna, bukan diagonal pendek, bukan wave). Pemisahan section dibentuk murni dari:
+
+- **Whitespace** — vertical rhythm via token spacing (lihat §Spacing di bawah).
+- **Alternating background tone** — selang-seling `--surface` (putih murni `#ffffff`) dan `--surface-alt` (off-white bernuansa biru sangat halus `#f6f8fc`), section demi section: putih → off-white → putih → off-white, dst. Section background solid biru (Hero, CTA penutup) tetap exception yang berdiri sendiri, tidak dihitung dalam pola alternating.
+
+Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E → 6AA84F → 0095DA), termasuk versi mirrored (hanya sudut/arah kurva dibalik, urutan warna tetap).
+
+## §Spacing (token wajib)
+
+- Jarak vertikal section (padding-top/bottom) wajib pakai token di `globals.css`:
+  - `--section-py` — standar (clamp 64px mobile → 120px desktop)
+  - `--section-py-emphasis` — section dengan penekanan / transisi ke CTA biru (72 → 140px)
+  - `--section-py-light` — section paling ringan (64 → 96px)
+- Surface tone: token `--surface` / `--surface-alt` (utility Tailwind `bg-surface` / `bg-surface-alt`).
+- Spacing internal (eyebrow → heading → body → konten) tetap boleh pakai `--section-header-gap`. Token lama `--section-gap-y` masih ada untuk halaman yang belum diretrofit, tapi halaman baru pakai `--section-py` dkk.
+- Jangan hardcode nilai spacing/warna baru inline per komponen — selalu lewat token.
+
+> Catatan retrofit: halaman pilar lama (EFM, Digital Labs, dst) masih memakai garis tri-warna antar-section + skala spacing lama. Menyesuaikannya ke aturan ini adalah pekerjaan retrofit terjadwal terpisah, bukan bagian dari build Home. Untuk halaman BARU, ikuti aturan revisi ini sejak awal.

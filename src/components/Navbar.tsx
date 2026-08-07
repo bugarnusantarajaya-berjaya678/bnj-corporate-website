@@ -115,35 +115,43 @@ export default function Navbar() {
     setEcosystemExpanded(false);
   };
 
-  return (
-    <header
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
+  const isHome = pathname === "/";
+  // On Home, the navbar floats transparently over the hero photo until scrolled.
+  const overlay = isHome && !scrolled;
+
+  const headerClass = isHome
+    ? `fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled
+          ? "border-b border-neutral-200 bg-white shadow-[0_2px_16px_-6px_rgba(0,0,0,0.12)]"
+          : "border-b border-transparent bg-transparent"
+      }`
+    : `sticky top-0 z-50 bg-white transition-shadow duration-300 ${
         scrolled
           ? "border-b border-neutral-200 shadow-[0_2px_16px_-6px_rgba(0,0,0,0.12)]"
           : "border-b border-transparent"
-      }`}
-    >
+      }`;
+
+  const navLinkClass = overlay
+    ? "text-sm font-medium text-white/90 transition-colors duration-200 hover:text-white"
+    : "text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]";
+
+  return (
+    <header className={headerClass}>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
         <Link href="/" className="shrink-0">
           <Image
             src={logo}
             alt="Logo CV Bugar Nusantara Jaya"
-            className="h-9 w-auto sm:h-10"
+            className={`h-9 w-auto sm:h-10 ${overlay ? "brightness-0 invert" : ""}`}
             priority
           />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          <Link
-            href="/"
-            className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
-          >
+          <Link href="/" className={navLinkClass}>
             Home
           </Link>
-          <Link
-            href="/tentang-kami"
-            className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
-          >
+          <Link href="/tentang-kami" className={navLinkClass}>
             Tentang Kami
           </Link>
 
@@ -152,7 +160,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setEcosystemMenuOpen((value) => !value)}
               aria-expanded={ecosystemMenuOpen}
-              className="flex items-center gap-1 text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
+              className={`flex items-center gap-1 ${navLinkClass}`}
             >
               Ekosistem Bisnis
               <ChevronDown
@@ -193,28 +201,16 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link
-            href="/portofolio"
-            className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
-          >
+          <Link href="/portofolio" className={navLinkClass}>
             Portofolio & Klien
           </Link>
-          <Link
-            href="/berita"
-            className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
-          >
+          <Link href="/berita" className={navLinkClass}>
             Berita
           </Link>
-          <Link
-            href="/karir"
-            className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
-          >
+          <Link href="/karir" className={navLinkClass}>
             Karir
           </Link>
-          <Link
-            href="/kontak"
-            className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#03428E]"
-          >
+          <Link href="/kontak" className={navLinkClass}>
             Kontak
           </Link>
         </nav>
@@ -236,7 +232,11 @@ export default function Navbar() {
               type="button"
               onClick={() => setSearchOpen((value) => !value)}
               aria-label="Buka pencarian"
-              className="flex h-10 w-10 items-center justify-center text-neutral-600 transition-colors duration-200 hover:text-[#03428E]"
+              className={`flex h-10 w-10 items-center justify-center transition-colors duration-200 ${
+                overlay
+                  ? "text-white/80 hover:text-white"
+                  : "text-neutral-600 hover:text-[#03428E]"
+              }`}
             >
               <Search className="h-5 w-5" />
             </button>
@@ -244,7 +244,11 @@ export default function Navbar() {
 
           <Link
             href="/kontak"
-            className="ml-2 hidden items-center justify-center rounded-lg bg-[#03428E] px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#032f66] lg:inline-flex"
+            className={`ml-2 hidden items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors duration-200 lg:inline-flex ${
+              overlay
+                ? "border border-white/55 bg-white/[0.14] text-white backdrop-blur hover:bg-white/25"
+                : "bg-[#03428E] text-white hover:bg-[#032f66]"
+            }`}
           >
             Hubungi Kami
           </Link>
@@ -253,7 +257,9 @@ export default function Navbar() {
             type="button"
             onClick={() => setMobileOpen(true)}
             aria-label="Buka menu"
-            className="flex h-10 w-10 items-center justify-center text-neutral-700 lg:hidden"
+            className={`flex h-10 w-10 items-center justify-center lg:hidden ${
+              overlay ? "text-white" : "text-neutral-700"
+            }`}
           >
             <Menu className="h-6 w-6" />
           </button>

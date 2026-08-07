@@ -5,11 +5,24 @@
   --foreground: #03428e;
   --section-gap-y: clamp(3.5rem, 7vw, 6rem);
   --section-header-gap: clamp(2.5rem, 5vw, 3.5rem);
+
+  /* Vertical rhythm (revisi 2026-08-07): standar 120px desktop / 64-72px mobile.
+     Pemisahan antar-section dibentuk dari whitespace + alternating tone, bukan garis. */
+  --section-py: clamp(4rem, 8.5vw, 7.5rem); /* 64 → 120 (standar) */
+  --section-py-emphasis: clamp(4.5rem, 9.5vw, 8.75rem); /* 72 → 140 (transisi ke CTA biru) */
+  --section-py-light: clamp(4rem, 7vw, 6rem); /* 64 → 96 (section paling ringan) */
+
+  /* Alternating surface tones. --surface-alt = off-white bernuansa biru sangat halus,
+     harmonis dengan palet Corporate Blue. Section biru solid (Hero/CTA) tetap exception. */
+  --surface: #ffffff;
+  --surface-alt: #f6f8fc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
   --animate-marquee: marquee 32s linear infinite;
   --animate-float-badge: float-badge 3.2s ease-in-out infinite;
 }

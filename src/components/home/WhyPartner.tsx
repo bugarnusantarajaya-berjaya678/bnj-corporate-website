@@ -35,13 +35,13 @@ const reasons = [
 
 export default function WhyPartner() {
   return (
-    <section className="bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(64px,9vw,128px)]">
+    <section className="bg-surface-alt py-[var(--section-py)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             Keunggulan Kami
           </p>
-          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+          <h2 className="mt-4 max-w-2xl text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             Kenapa Partner Memilih BNJ
           </h2>
         </Reveal>
@@ -50,7 +50,7 @@ export default function WhyPartner() {
           {reasons.map((reason, index) => (
             <Reveal key={reason.title} delay={index * 0.1}>
               <div
-                className={`h-full border border-t-[3px] border-neutral-200 bg-white p-7 ${reason.accent}`}
+                className={`h-full border border-t-[3px] border-neutral-200 bg-white p-6 ${reason.accent}`}
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#03428E]/8">
                   <reason.icon

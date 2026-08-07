@@ -62,7 +62,7 @@ Dua dokumen ini adalah source of truth. Baca keduanya sebelum memeriksa apapun:
 
 ### C. Layout & Background
 - Background section konten: putih/netral, **selang-seling** `--surface` (`#ffffff`) ↔ `--surface-alt` (`#f6f8fc`) per section (utility `bg-surface` / `bg-surface-alt`). Tidak boleh 2 section tone sama berturut-turut (kecuali dipisah section biru). Solid warna penuh **hanya** boleh di CTA penutup, Footer, dan varian solid-blue Roadmap.
-- Spacing vertikal antar-section wajib pakai token `--section-py` / `--section-py-emphasis` / `--section-py-light` (bukan nilai clamp hardcode per komponen). Baseline: 120px desktop / 64–72px mobile; emphasis 140px; light 96px.
+- Spacing vertikal antar-section wajib pakai token `--section-py` / `--section-py-emphasis` untuk pt DAN pb (bukan nilai clamp/hardcode per komponen). Standar SPACIOUS: **72px mobile / 96px tablet / 144px desktop**; emphasis (transisi ke CTA) 160px desktop. Hero full-bleed = exception (padding komposisi hero, bukan token). Verifikasi jarak actual via computed style/bounding box, bukan cuma cek var terdefinisi.
 - Skala visual global: type + hero/image + padding internal card mengikuti revisi 0.9x (lihat §B). Cek di zoom 100% asli, jangan pakai simulasi zoom-out.
 - Pola zigzag foto+teks (kalau ada): posisi selang-seling antar section, garis vertikal hijau 5px + angka dekoratif transparan ikut menyesuaikan sisi teks.
 - Grid card: flat fill, border tipis/top-accent, tanpa drop shadow (kecuali Spotlight Card §3a yang memang exception resmi).

@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 export default function ClosingCta() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#03428E] px-6 pb-[clamp(72px,8vw,112px)] pt-[clamp(96px,11vw,150px)] lg:px-12">
+    <section className="relative w-full overflow-hidden bg-[#03428E] px-6 pb-[var(--section-py)] pt-[var(--section-py-emphasis)] lg:px-12">
       {/* Flagship bookend: mirrored wave (white -> blue), vertical mirror of Hero */}
       <svg
         viewBox="0 0 1440 110"

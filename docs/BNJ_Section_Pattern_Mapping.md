@@ -156,8 +156,8 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 ## 9. Footer
 
 - Background: solid Corporate Blue, menyatu dengan CTA penutup sebagai satu "closing block".
-- Dipisahkan dari CTA dengan garis putih tipis 1px, opacity 20-30%, full-width — posisi tepat di batas bawah CTA / atas Footer.
-- Wajib ada di SETIAP halaman yang punya CTA penutup + Footer (bukan cuma Home) — cek item ini di Design Parity Audit setiap kali halaman baru dibangun.
+- **Dipisahkan dari CTA dengan hairline `border-top` putih tipis 1px, opacity rendah ~10–15% (implementasi: `border-white/[0.12]`), full-width — built-in di KOMPONEN Footer itu sendiri (`src/components/Footer.tsx`), BUKAN ditambahkan manual per halaman.** Dengan begitu pemisah CTA→Footer otomatis konsisten muncul di semua halaman (Home, Tentang Kami, Ekosistem, dan halaman baru) tanpa perlu diingat ulang tiap kali page baru dibuat. Aturan lama "garis 20-30% ditambah per halaman" diganti oleh pendekatan built-in ini.
+- Wajib ada di SETIAP halaman yang punya CTA penutup + Footer (bukan cuma Home) — karena sudah built-in di komponen, cukup pastikan `<Footer />` dipakai. Catatan retrofit: kalau ada halaman lama yang masih menaruh garis pemisah manual di CTA-nya (mis. `about/ClosingCta`), hapus yang manual supaya tidak dobel dengan hairline Footer.
 
 ## 10. Navbar / Header (persist saat scroll)
 
@@ -258,13 +258,14 @@ Berlaku untuk SEMUA halaman ke depan (Home, Strategic Educational Alliance, Port
 
 Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E → 6AA84F → 0095DA), termasuk versi mirrored (hanya sudut/arah kurva dibalik, urutan warna tetap).
 
-## §Spacing (token wajib)
+## §Spacing (token wajib — standar "SPACIOUS" final 2026-08-08)
 
-- Jarak vertikal section (padding-top/bottom) wajib pakai token di `globals.css`:
-  - `--section-py` — standar (clamp 64px mobile → 120px desktop)
-  - `--section-py-emphasis` — section dengan penekanan / transisi ke CTA biru (72 → 140px)
-  - `--section-py-light` — section paling ringan (64 → 96px)
-- Surface tone: token `--surface` / `--surface-alt` (utility Tailwind `bg-surface` / `bg-surface-alt`).
+- Jarak vertikal section (padding-top **dan** padding-bottom) wajib pakai token di `globals.css`, dengan nilai DISKRIT per breakpoint (bukan clamp) supaya jaraknya persis:
+  - `--section-py` — standar: **mobile <768 = 72px, tablet 768–1023 = 96px, desktop ≥1024 = 144px**
+  - `--section-py-emphasis` — section penekanan / transisi masuk ke CTA biru: **72 / 96 / 160px** (sama dengan standar kecuali desktop 160px)
+- **Audit per komponen, bukan cuma definisikan var:** setiap section wrapper harus benar-benar memakai token ini untuk pt DAN pb, dan padding/margin manual lama yang konflik dihapus. Kegagalan sebelumnya terjadi karena var didefinisikan tapi komponen masih pakai padding lama → tetap menempel. Verifikasi dengan mengukur jarak actual (computed style / bounding box), bukan sekadar var sudah ada.
+- **Exception Hero:** section Hero full-bleed paling atas TIDAK memakai token ini — padding internalnya adalah komposisi hero (clearance navbar overlay + posisi headline di atas wave), bukan rhythm antar-section. Jarak Hero → section berikutnya dibentuk oleh wave + padding-top token section sesudahnya.
+- Surface tone: token `--surface` (`#ffffff`) / `--surface-alt` (`#f6f8fc`), utility Tailwind `bg-surface` / `bg-surface-alt`, dipasang selang-seling per section (lihat §Divider & Pemisahan Section). Section biru solid (Hero, kartu "Bertumbuh dalam Angka", CTA) tetap exception, tidak ikut alternating.
 - Spacing internal (eyebrow → heading → body → konten) tetap boleh pakai `--section-header-gap`. Token lama `--section-gap-y` masih ada untuk halaman yang belum diretrofit, tapi halaman baru pakai `--section-py` dkk.
 - Jangan hardcode nilai spacing/warna baru inline per komponen — selalu lewat token.
 

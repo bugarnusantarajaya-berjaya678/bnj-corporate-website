@@ -6,16 +6,32 @@
   --section-gap-y: clamp(3.5rem, 7vw, 6rem);
   --section-header-gap: clamp(2.5rem, 5vw, 3.5rem);
 
-  /* Vertical rhythm (revisi 2026-08-07): standar 120px desktop / 64-72px mobile.
-     Pemisahan antar-section dibentuk dari whitespace + alternating tone, bukan garis. */
-  --section-py: clamp(4rem, 8.5vw, 7.5rem); /* 64 → 120 (standar) */
-  --section-py-emphasis: clamp(4.5rem, 9.5vw, 8.75rem); /* 72 → 140 (transisi ke CTA biru) */
-  --section-py-light: clamp(4rem, 7vw, 6rem); /* 64 → 96 (section paling ringan) */
+  /* Vertical rhythm — standar "spacious" (final 2026-08-08).
+     Nilai DISKRIT per breakpoint (bukan clamp) supaya jarak antar-section persis:
+     mobile <768 = 72px, tablet 768-1023 = 96px, desktop >=1024 = 144px (emphasis 160px).
+     Override per breakpoint ada di media query di bawah blok :root ini.
+     Dipakai untuk padding-top DAN padding-bottom section wrapper di semua halaman. */
+  --section-py: 72px; /* mobile <768 (standar) */
+  --section-py-emphasis: 72px; /* mobile <768 (transisi masuk ke CTA biru) */
 
   /* Alternating surface tones. --surface-alt = off-white bernuansa biru sangat halus,
      harmonis dengan palet Corporate Blue. Section biru solid (Hero/CTA) tetap exception. */
   --surface: #ffffff;
   --surface-alt: #f6f8fc;
+}
+
+/* Vertical rhythm spacious — override per breakpoint */
+@media (min-width: 768px) {
+  :root {
+    --section-py: 96px; /* tablet 768-1023 */
+    --section-py-emphasis: 96px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --section-py: 144px; /* desktop >=1024 */
+    --section-py-emphasis: 160px; /* penekanan: transisi masuk ke CTA biru */
+  }
 }
 
 @theme inline {

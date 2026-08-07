@@ -69,7 +69,9 @@ export default function ClientsPreview() {
         </h2>
       </div>
 
-      <div className="relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent_0,#000_64px,#000_calc(100%-64px),transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0,#000_64px,#000_calc(100%-64px),transparent_100%)]">
+      {/* py memberi headroom vertikal supaya logo yang di-scale tidak terpotong
+          atas-bawah oleh overflow-hidden (yang tetap dipertahankan untuk mask marquee). */}
+      <div className="relative mt-10 overflow-hidden py-10 [mask-image:linear-gradient(to_right,transparent_0,#000_64px,#000_calc(100%-64px),transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0,#000_64px,#000_calc(100%-64px),transparent_100%)]">
         <div className="client-marquee flex w-max items-center gap-14">
           <LogoRow />
           <LogoRow ariaHidden />

@@ -48,11 +48,12 @@ const kpis = [
   { icon: Award, value: "60+", label: "Pelatih & Terapis Bersertifikasi" },
 ];
 
-const logos = [
+// Sizing per-logo mengikuti standar ClientsPreview / halaman EFM: object-contain + transform scale.
+const logos: { src: string; alt: string; w: number; scale?: number }[] = [
   { src: "/images/Page-Home/home-logo-telkom.png", alt: "Logo Telkom Indonesia", w: 104 },
-  { src: "/images/Page-Home/home-logo-ojk.png", alt: "Logo OJK", w: 120 },
-  { src: "/images/Page-Home/home-logo-wuling.png", alt: "Logo Wuling Motors", w: 150 },
-  { src: "/images/Page-Home/home-logo-AIA.png", alt: "Logo AIA Insurance", w: 56 },
+  { src: "/images/Page-Home/home-logo-ojk.png", alt: "Logo OJK", w: 120, scale: 1.68 },
+  { src: "/images/Page-Home/home-logo-wuling.png", alt: "Logo Wuling Motors", w: 150, scale: 1.1 },
+  { src: "/images/Page-Home/home-logo-AIA.png", alt: "Logo AIA Insurance", w: 56, scale: 1.2 },
 ];
 
 export default function EfmSpotlight() {
@@ -152,6 +153,11 @@ export default function EfmSpotlight() {
                       src={logo.src}
                       alt={logo.alt}
                       className="block h-auto w-auto max-h-full max-w-full object-contain"
+                      style={
+                        logo.scale
+                          ? { transform: `scale(${logo.scale})` }
+                          : undefined
+                      }
                     />
                   </div>
                 ))}

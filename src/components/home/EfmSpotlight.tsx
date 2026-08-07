@@ -57,7 +57,7 @@ const logos = [
 
 export default function EfmSpotlight() {
   return (
-    <section className="relative w-full overflow-hidden bg-surface px-6 py-[var(--section-py)] lg:px-12">
+    <section className="relative w-full overflow-hidden bg-white px-6 py-[var(--section-py)] lg:px-12">
       {/* faded photo collage background */}
       <div
         aria-hidden
@@ -117,17 +117,15 @@ export default function EfmSpotlight() {
                 Indonesia.
               </p>
 
-              <div className="efm-kpi mt-[clamp(28px,3.5vw,40px)] grid grid-cols-3 items-stretch gap-[14px]">
+              <div className="efm-kpi mt-[clamp(28px,3.5vw,40px)] grid grid-cols-1 gap-3 md:grid-cols-3 md:items-stretch md:gap-[14px]">
                 {kpis.map((kpi) => (
                   <div
                     key={kpi.label}
-                    className="box-border rounded-[12px] bg-[#03428E]/[0.05] px-[14px] py-[18px]"
+                    className="box-border flex items-center gap-3 rounded-[12px] bg-[#03428E]/[0.05] px-4 py-4 md:block md:px-[14px] md:py-[18px]"
                   >
-                    <div className="flex items-center justify-start gap-[10px]">
+                    <div className="flex items-center gap-[10px]">
                       <kpi.icon
-                        className="block shrink-0"
-                        width={22}
-                        height={22}
+                        className="block h-6 w-6 shrink-0 md:h-[22px] md:w-[22px]"
                         strokeWidth={1.5}
                         color="#03428E"
                       />
@@ -135,7 +133,7 @@ export default function EfmSpotlight() {
                         {kpi.value}
                       </p>
                     </div>
-                    <p className="mt-[10px] text-[13px] leading-[1.5] text-neutral-600">
+                    <p className="ml-auto text-right text-[13px] leading-[1.5] text-neutral-600 md:ml-0 md:mt-[10px] md:text-left">
                       {kpi.label}
                     </p>
                   </div>
@@ -208,9 +206,6 @@ export default function EfmSpotlight() {
         @media (max-width:767px){
           .efm-left > p{text-align:center;}
           .efm-logos{justify-content:center;}
-          .efm-kpi > div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
-          .efm-kpi > div > div{justify-content:center;}
-          .efm-kpi > div > p{text-align:center;}
         }
       `}</style>
     </section>

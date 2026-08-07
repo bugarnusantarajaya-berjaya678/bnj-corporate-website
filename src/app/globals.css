@@ -13,11 +13,6 @@
      Dipakai untuk padding-top DAN padding-bottom section wrapper di semua halaman. */
   --section-py: 72px; /* mobile <768 (standar) */
   --section-py-emphasis: 72px; /* mobile <768 (transisi masuk ke CTA biru) */
-
-  /* Alternating surface tones. --surface-alt = off-white bernuansa biru sangat halus,
-     harmonis dengan palet Corporate Blue. Section biru solid (Hero/CTA) tetap exception. */
-  --surface: #ffffff;
-  --surface-alt: #f6f8fc;
 }
 
 /* Vertical rhythm spacious — override per breakpoint */
@@ -37,8 +32,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-surface-alt: var(--surface-alt);
   --animate-marquee: marquee 32s linear infinite;
   --animate-float-badge: float-badge 3.2s ease-in-out infinite;
 }

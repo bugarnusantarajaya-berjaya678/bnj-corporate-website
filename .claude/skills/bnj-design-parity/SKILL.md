@@ -61,7 +61,7 @@ Dua dokumen ini adalah source of truth. Baca keduanya sebelum memeriksa apapun:
 - Font Inter di semua elemen, maksimal 2 weight per section
 
 ### C. Layout & Background
-- Background section konten: putih/netral, **selang-seling** `--surface` (`#ffffff`) ↔ `--surface-alt` (`#f6f8fc`) per section (utility `bg-surface` / `bg-surface-alt`). Tidak boleh 2 section tone sama berturut-turut (kecuali dipisah section biru). Solid warna penuh **hanya** boleh di CTA penutup, Footer, dan varian solid-blue Roadmap.
+- Background section konten: **putih polos (`#ffffff`/`bg-white`) untuk SEMUA section tengah** (keputusan final 2026-08-08 — alternating off-white tone sudah dicabut, token `--surface-alt` dihapus, jangan dihidupkan lagi). Solid warna penuh **hanya** di Hero, kartu "Bertumbuh dalam Angka", CTA penutup, Footer, dan varian solid-blue Roadmap.
 - Spacing vertikal antar-section wajib pakai token `--section-py` / `--section-py-emphasis` untuk pt DAN pb (bukan nilai clamp/hardcode per komponen). Standar SPACIOUS: **72px mobile / 96px tablet / 144px desktop**; emphasis (transisi ke CTA) 160px desktop. Hero full-bleed = exception (padding komposisi hero, bukan token). Verifikasi jarak actual via computed style/bounding box, bukan cuma cek var terdefinisi.
 - Skala visual global: type + hero/image + padding internal card mengikuti revisi 0.9x (lihat §B). Cek di zoom 100% asli, jangan pakai simulasi zoom-out.
 - Pola zigzag foto+teks (kalau ada): posisi selang-seling antar section, garis vertikal hijau 5px + angka dekoratif transparan ikut menyesuaikan sisi teks.

@@ -251,10 +251,9 @@ Berlaku untuk SEMUA halaman ke depan (Home, Strategic Educational Alliance, Port
 1. **Bawah Hero** — bentuk diagonal tebal (pillar tier) atau wave (Flagship tier: Home, Tentang Kami). Transisi biru → putih.
 2. **Pre-footer, transisi masuk ke CTA penutup** — untuk Flagship tier berupa wave bookend (mirror vertikal dari Hero); untuk pillar tier boleh garis/wave tri-warna. Transisi putih → biru.
 
-**Semua sambungan section di TENGAH halaman TIDAK boleh pakai garis apapun** (bukan garis tipis tri-warna, bukan diagonal pendek, bukan wave). Pemisahan section dibentuk murni dari:
+**Semua sambungan section di TENGAH halaman TIDAK boleh pakai garis apapun** (bukan garis tipis tri-warna, bukan diagonal pendek, bukan wave). Pemisahan section dibentuk murni dari **whitespace** — vertical rhythm via token spacing (lihat §Spacing di bawah).
 
-- **Whitespace** — vertical rhythm via token spacing (lihat §Spacing di bawah).
-- **Alternating background tone** — selang-seling `--surface` (putih murni `#ffffff`) dan `--surface-alt` (off-white bernuansa biru sangat halus `#f6f8fc`), section demi section: putih → off-white → putih → off-white, dst. Section background solid biru (Hero, CTA penutup) tetap exception yang berdiri sendiri, tidak dihitung dalam pola alternating.
+**Background section tengah selalu PUTIH POLOS (`#ffffff`).** Keputusan final 2026-08-08: TIDAK ada alternating tone / off-white. Percobaan alternating (`--surface-alt` off-white) sudah dicabut dan token-nya dihapus dari `globals.css` — jangan dihidupkan lagi di halaman manapun. Warna solid HANYA untuk section yang memang didesain biru (Hero, kartu "Bertumbuh dalam Angka", CTA penutup). Whitespace 144px (desktop) sudah cukup sebagai pemisah visual; jangan tambah garis/hairline di sambungan section tengah.
 
 Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E → 6AA84F → 0095DA), termasuk versi mirrored (hanya sudut/arah kurva dibalik, urutan warna tetap).
 
@@ -265,7 +264,7 @@ Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E 
   - `--section-py-emphasis` — section penekanan / transisi masuk ke CTA biru: **72 / 96 / 160px** (sama dengan standar kecuali desktop 160px)
 - **Audit per komponen, bukan cuma definisikan var:** setiap section wrapper harus benar-benar memakai token ini untuk pt DAN pb, dan padding/margin manual lama yang konflik dihapus. Kegagalan sebelumnya terjadi karena var didefinisikan tapi komponen masih pakai padding lama → tetap menempel. Verifikasi dengan mengukur jarak actual (computed style / bounding box), bukan sekadar var sudah ada.
 - **Exception Hero:** section Hero full-bleed paling atas TIDAK memakai token ini — padding internalnya adalah komposisi hero (clearance navbar overlay + posisi headline di atas wave), bukan rhythm antar-section. Jarak Hero → section berikutnya dibentuk oleh wave + padding-top token section sesudahnya.
-- Surface tone: token `--surface` (`#ffffff`) / `--surface-alt` (`#f6f8fc`), utility Tailwind `bg-surface` / `bg-surface-alt`, dipasang selang-seling per section (lihat §Divider & Pemisahan Section). Section biru solid (Hero, kartu "Bertumbuh dalam Angka", CTA) tetap exception, tidak ikut alternating.
+- Background section: **putih polos (`#ffffff`/`bg-white`) untuk SEMUA section tengah**. Tidak ada token surface-alt / alternating tone (sudah dicabut). Warna solid hanya untuk Hero, kartu "Bertumbuh dalam Angka", dan CTA (biru).
 - Spacing internal (eyebrow → heading → body → konten) tetap boleh pakai `--section-header-gap`. Token lama `--section-gap-y` masih ada untuk halaman yang belum diretrofit, tapi halaman baru pakai `--section-py` dkk.
 - Jangan hardcode nilai spacing/warna baru inline per komponen — selalu lewat token.
 

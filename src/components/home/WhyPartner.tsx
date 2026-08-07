@@ -35,7 +35,7 @@ const reasons = [
 
 export default function WhyPartner() {
   return (
-    <section className="bg-surface-alt py-[var(--section-py)]">
+    <section className="bg-white py-[var(--section-py)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">

@@ -41,7 +41,7 @@ const cards = [
 
 export default function ForYou() {
   return (
-    <section className="w-full bg-surface-alt px-6 py-[var(--section-py)] lg:px-12">
+    <section className="w-full bg-white px-6 py-[var(--section-py)] lg:px-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">

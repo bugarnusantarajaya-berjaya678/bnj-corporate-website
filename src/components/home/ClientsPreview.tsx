@@ -53,7 +53,7 @@ function LogoRow({ ariaHidden }: { ariaHidden?: boolean }) {
 
 export default function ClientsPreview() {
   return (
-    <section className="w-full bg-surface px-6 py-[var(--section-py)] lg:px-12">
+    <section className="w-full bg-white px-6 py-[var(--section-py)] lg:px-12">
       <div className="mx-auto max-w-7xl">
         <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
           Dipercaya Oleh

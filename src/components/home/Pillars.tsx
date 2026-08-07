@@ -116,7 +116,7 @@ export default function Pillars() {
   return (
     <section
       id="pilar-bisnis"
-      className="w-full bg-surface-alt px-6 py-[var(--section-py)] lg:px-12"
+      className="w-full bg-white px-6 py-[var(--section-py)] lg:px-12"
     >
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">

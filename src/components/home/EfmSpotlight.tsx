@@ -121,9 +121,9 @@ export default function EfmSpotlight() {
                 {kpis.map((kpi) => (
                   <div
                     key={kpi.label}
-                    className="box-border flex items-center gap-3 rounded-[12px] bg-[#03428E]/[0.05] px-4 py-4 md:block md:px-[14px] md:py-[18px]"
+                    className="box-border flex flex-col items-center gap-2 rounded-[12px] bg-[#03428E]/[0.05] px-4 py-4 text-center md:block md:gap-0 md:px-[14px] md:py-[18px] md:text-left"
                   >
-                    <div className="flex items-center gap-[10px]">
+                    <div className="flex flex-col items-center gap-1 md:flex-row md:items-center md:gap-[10px]">
                       <kpi.icon
                         className="block h-6 w-6 shrink-0 md:h-[22px] md:w-[22px]"
                         strokeWidth={1.5}
@@ -133,7 +133,7 @@ export default function EfmSpotlight() {
                         {kpi.value}
                       </p>
                     </div>
-                    <p className="ml-auto text-right text-[13px] leading-[1.5] text-neutral-600 md:ml-0 md:mt-[10px] md:text-left">
+                    <p className="text-[13px] leading-[1.5] text-neutral-600 md:mt-[10px] md:text-left">
                       {kpi.label}
                     </p>
                   </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Building2, Calendar, ShieldCheck } from "lucide-react";
-import heroImage from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Hero-Section.jpg";
+import heroImage from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Hero-Section.png";
 import Reveal from "@/components/Reveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 

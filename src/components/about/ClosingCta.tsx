@@ -28,16 +28,19 @@ export default function ClosingCta() {
       </svg>
 
       <svg
-        aria-hidden
-        width="360"
-        height="360"
-        viewBox="0 0 360 360"
+        viewBox="0 0 400 400"
+        width="520"
+        height="520"
         fill="none"
-        className="pointer-events-none absolute bottom-[-100px] right-[-80px] z-0"
+        stroke="#fff"
+        strokeWidth="1"
+        aria-hidden
+        className="pointer-events-none absolute right-[-120px] top-1/2 z-0 -translate-y-1/2 opacity-[0.08]"
       >
-        <circle cx="180" cy="180" r="170" stroke="#fff" strokeOpacity="0.08" strokeWidth="1.5" />
-        <circle cx="180" cy="180" r="120" stroke="#fff" strokeOpacity="0.08" strokeWidth="1.5" />
-        <circle cx="180" cy="180" r="70" stroke="#fff" strokeOpacity="0.08" strokeWidth="1.5" />
+        <circle cx="200" cy="200" r="199" />
+        <circle cx="200" cy="200" r="158" />
+        <circle cx="200" cy="200" r="117" />
+        <circle cx="200" cy="200" r="76" />
       </svg>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">

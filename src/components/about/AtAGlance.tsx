@@ -14,7 +14,7 @@ import photo8 from "../../../public/images/Page-Tentang-Kami/glance/bnj-photo-8.
 const stats = [
   { value: 2017, label: "Berdiri Sejak" },
   { value: 2022, label: "Entitas Legal Resmi" },
-  { value: 4, label: "Pilar Bisnis Terintegrasi" },
+  { value: 5, label: "Ekosistem Bisnis Terintegrasi" },
 ];
 
 const facts = [

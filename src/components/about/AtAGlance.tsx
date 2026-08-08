@@ -106,17 +106,17 @@ export default function AtAGlance() {
 
       <div className="relative z-[1] mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             BNJ Sekilas
           </p>
-          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+          <h2 className="mt-4 max-w-2xl text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             BNJ at a Glance
           </h2>
         </Reveal>
 
         <Reveal
           delay={0.1}
-          className="mt-[var(--section-header-gap)] rounded-3xl bg-white p-8 shadow-[0_8px_30px_rgba(3,66,142,0.14),0_6px_0_-2px_#03428E] sm:p-12 lg:p-16"
+          className="mt-[var(--section-header-gap)] rounded-3xl bg-white p-[clamp(24px,3vw,40px)] shadow-[0_8px_30px_rgba(3,66,142,0.14),0_6px_0_-2px_#03428E]"
         >
           <div className="grid grid-cols-1 sm:grid-cols-3">
             {stats.map((stat, i) => (
@@ -126,7 +126,7 @@ export default function AtAGlance() {
                   i === 1 ? "sm:border-x sm:border-[#EEF1F5]" : ""
                 }`}
               >
-                <span className="block text-[40px] font-extrabold leading-none tracking-tight text-[#03428E] sm:text-[56px]">
+                <span className="block text-[36px] font-extrabold leading-none tracking-tight text-[#03428E] sm:text-[50px]">
                   <AnimatedCounter value={stat.value} duration={1.4} />
                 </span>
                 <span className="mt-3 block text-xs font-semibold uppercase tracking-[0.14em] text-neutral-500">

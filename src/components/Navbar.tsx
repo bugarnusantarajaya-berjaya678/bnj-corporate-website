@@ -115,11 +115,12 @@ export default function Navbar() {
     setEcosystemExpanded(false);
   };
 
-  const isHome = pathname === "/";
-  // On Home, the navbar floats transparently over the hero photo until scrolled.
-  const overlay = isHome && !scrolled;
+  // On flagship pages with a full-bleed blue hero (Home & Tentang Kami), the
+  // navbar floats transparently over the hero photo until the user scrolls past it.
+  const isOverlayPage = pathname === "/" || pathname === "/tentang-kami";
+  const overlay = isOverlayPage && !scrolled;
 
-  const headerClass = isHome
+  const headerClass = isOverlayPage
     ? `fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
           ? "border-b border-neutral-200 bg-white shadow-[0_2px_16px_-6px_rgba(0,0,0,0.12)]"

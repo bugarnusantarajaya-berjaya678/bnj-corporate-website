@@ -64,10 +64,10 @@ export default function VisionMissionValues() {
     <section className="bg-white py-[var(--section-gap-y)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             Arah dan Nilai Kami
           </p>
-          <h2 className="mt-4 text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:whitespace-nowrap md:text-[32px] lg:text-[36px]">
+          <h2 className="mt-4 text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             Fondasi yang Memandu Setiap Langkah BNJ
           </h2>
         </Reveal>
@@ -153,7 +153,7 @@ export default function VisionMissionValues() {
                 <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
                   Nilai Inti BNJ
                 </p>
-                <h2 className="mt-3.5 text-[26px] font-bold leading-[1.2] text-white md:text-[32px]">
+                <h2 className="mt-3.5 text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] text-white">
                   Core Values B.N.J
                 </h2>
                 <p className="mt-3.5 text-[15px] leading-relaxed text-white/90">

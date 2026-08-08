@@ -44,35 +44,35 @@ export default function Hero() {
         />
       </svg>
 
-      <div className="relative z-[2] mx-auto flex min-h-[540px] max-w-7xl items-center px-6 pb-24 pt-20 sm:min-h-[620px] sm:pb-32 sm:pt-24 lg:min-h-[700px] lg:px-12 lg:pb-40 lg:pt-28">
+      <div className="relative z-[2] mx-auto flex min-h-[480px] max-w-7xl items-center px-6 pb-16 pt-24 sm:min-h-[540px] sm:pb-20 sm:pt-28 lg:min-h-[580px] lg:px-12 lg:pb-24 lg:pt-32">
         <Reveal className="max-w-xl">
-          <div className="mb-6 flex items-center gap-3.5">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-white/15">
-              <Building2 className="h-6 w-6 text-white" strokeWidth={2} />
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-white/15">
+              <Building2 className="h-5 w-5 text-white" strokeWidth={2} />
             </div>
-            <span className="text-[22px] font-extrabold uppercase tracking-wide text-white">
+            <span className="text-lg font-bold uppercase tracking-wide text-white">
               Tentang Kami
             </span>
           </div>
-          <h1 className="text-[32px] font-bold leading-[1.2] text-white md:text-[48px]">
+          <h1 className="text-[clamp(27px,3.4vw,42px)] font-bold leading-[1.18] text-white">
             Holding Company &amp; Venture Builder di Sektor Fitness,
             Wellness, Sport &amp; Education
           </h1>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-white/85">
+          <p className="mt-4 max-w-lg text-[15px] leading-[1.7] text-white/85">
             CV Bugar Nusantara Jaya (BNJ) mengembangkan dan mengelola
             berbagai inisiatif bisnis melalui keunggulan operasional,
             pengembangan talenta, inovasi berbasis teknologi, serta
             kemitraan strategis yang menciptakan nilai jangka panjang.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3">
-            <div className="flex items-center gap-2.5">
+          <div className="mt-8 flex flex-wrap gap-x-4 gap-y-3">
+            <div className="animate-float-badge flex items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-3.5 py-2 backdrop-blur">
               <Calendar className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
                 Berdiri Sejak <AnimatedCounter value={2017} duration={0.9} />
               </span>
             </div>
-            <div className="flex items-center gap-2.5">
+            <div className="animate-float-badge flex items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-3.5 py-2 backdrop-blur">
               <ShieldCheck className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
               <span className="text-sm font-semibold text-white">
                 Entitas Legal Sejak <AnimatedCounter value={2022} duration={0.9} />
@@ -82,7 +82,7 @@ export default function Hero() {
 
           <Link
             href="/kontak"
-            className="mt-9 inline-flex items-center justify-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-[#03428E] transition-colors duration-200 hover:bg-white/90"
+            className="mt-8 inline-flex items-center justify-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-[#03428E] transition-colors duration-200 hover:bg-white/90"
           >
             Hubungi Kami
           </Link>

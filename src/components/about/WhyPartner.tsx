@@ -69,10 +69,10 @@ export default function WhyPartner() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             8 Alasan
           </p>
-          <h2 className="mt-4 max-w-2xl text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:text-[36px]">
+          <h2 className="mt-4 max-w-2xl text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             Kenapa Partner Memilih BNJ
           </h2>
         </Reveal>
@@ -82,7 +82,7 @@ export default function WhyPartner() {
             <Reveal
               key={reason.title}
               delay={(index % 4) * 0.08}
-              className="h-full border border-neutral-200 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#03428E]"
+              className="h-full border border-neutral-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#03428E]"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#03428E]/8">
                 <reason.icon
@@ -90,7 +90,7 @@ export default function WhyPartner() {
                   strokeWidth={1.5}
                 />
               </div>
-              <h4 className="text-[18px] font-semibold leading-[1.2] text-neutral-900 md:text-[22px]">
+              <h4 className="text-base font-bold leading-[1.3] text-neutral-900">
                 {reason.title}
               </h4>
               <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">

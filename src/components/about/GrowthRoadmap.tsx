@@ -14,10 +14,10 @@ export default function GrowthRoadmap() {
     <section className="bg-white py-[var(--section-gap-y)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             Roadmap Pertumbuhan
           </p>
-          <h2 className="mt-4 text-[26px] font-bold leading-[1.2] tracking-tight text-neutral-900 md:whitespace-nowrap md:text-[32px] lg:text-[36px]">
+          <h2 className="mt-4 text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             Corporate Growth Roadmap 2026–2030
           </h2>
           <p className="mt-3 text-[15px] font-semibold italic text-[#0095DA]">

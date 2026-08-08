@@ -165,7 +165,7 @@ export default function OrgStructure() {
   };
 
   return (
-    <section className="bg-white py-[var(--section-gap-y)]">
+    <section className="bg-white py-[var(--section-py)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">

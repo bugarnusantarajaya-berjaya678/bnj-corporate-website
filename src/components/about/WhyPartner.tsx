@@ -65,7 +65,7 @@ export default function WhyPartner() {
   return (
     <section
       id="kenapa-partner"
-      className="bg-white py-[var(--section-gap-y)]"
+      className="bg-white py-[var(--section-py)]"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>

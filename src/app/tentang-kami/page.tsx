@@ -8,7 +8,6 @@ import GrowthRoadmap from "@/components/about/GrowthRoadmap";
 import OrgStructure from "@/components/about/OrgStructure";
 import WhyPartner from "@/components/about/WhyPartner";
 import ClosingCta from "@/components/about/ClosingCta";
-import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Tentang Kami | CV Bugar Nusantara Jaya",
@@ -19,19 +18,19 @@ export const metadata: Metadata = {
 export default function TentangKamiPage() {
   return (
     <>
+      {/*
+        Divider tri-warna HANYA di 2 bookend: Hero bottom (wave, di Hero.tsx) dan
+        pre-footer (wave masuk ke ClosingCta, di ClosingCta.tsx). Sambungan section
+        di tengah dibentuk murni dari whitespace (token --section-py 144/96/72px) —
+        tidak ada garis. (Aturan permanen, lihat docs & SKILL.)
+      */}
       <Hero />
       <Foreword />
-      <SectionDivider />
       <VisionMissionValues />
-      <SectionDivider />
       <AtAGlance />
-      <SectionDivider />
       <Milestone />
-      <SectionDivider />
       <GrowthRoadmap />
-      <SectionDivider />
       <OrgStructure />
-      <SectionDivider />
       <WhyPartner />
       <ClosingCta />
     </>

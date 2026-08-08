@@ -72,7 +72,7 @@ const collageColumns = [
 
 export default function AtAGlance() {
   return (
-    <section className="relative overflow-hidden bg-white py-[var(--section-gap-y)]">
+    <section className="relative overflow-hidden bg-white py-[var(--section-py)]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 top-[110px] z-0 overflow-hidden sm:top-[140px] md:top-[170px]"

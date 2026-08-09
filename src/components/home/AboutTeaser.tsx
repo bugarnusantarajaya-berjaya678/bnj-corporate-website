@@ -29,8 +29,21 @@ export default function AboutTeaser() {
           delay={0.1}
           className="mt-9 rounded-[14px] bg-white p-[clamp(24px,3vw,40px)] shadow-[0_8px_30px_rgba(3,66,142,0.14)]"
         >
-          <div className="grid grid-cols-1 items-center gap-[clamp(28px,4vw,48px)] md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
-            <div className="text-right">
+          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-[320px_1fr]">
+            {/* Photo left; treatment (aspect 4/3, rounded) tak berubah — hanya posisi.
+                Mobile: foto stack di atas teks mengikuti urutan DOM (pola Foreword). */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px]">
+              <Image
+                src={founderPhoto}
+                alt="Bagoes Soeharto, Founder BNJ"
+                fill
+                sizes="(min-width: 768px) 320px, 100vw"
+                className="object-cover"
+              />
+            </div>
+
+            {/* Text right, rata kiri (konsisten dg Pesan dari Pimpinan). */}
+            <div className="text-left">
               <h3 className="m-0 mb-4 text-[clamp(18px,2vw,24px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900 [text-wrap:pretty]">
                 Fondasi Bisnis yang Bertumbuh Sejak 2017
               </h3>
@@ -41,7 +54,7 @@ export default function AboutTeaser() {
                 kemitraan yang terukur.
               </p>
 
-              <blockquote className="mt-[clamp(20px,2.6vw,28px)] border-r-[5px] border-[#6AA84F] pr-6">
+              <blockquote className="mt-[clamp(20px,2.6vw,28px)] border-l-[5px] border-[#6AA84F] pl-6">
                 <p className="m-0 text-[15px] font-medium italic leading-[1.7] text-neutral-900">
                   &ldquo;Kami percaya bahwa pertumbuhan yang berkelanjutan
                   dibangun melalui kemitraan yang sehat, tata kelola yang
@@ -54,15 +67,6 @@ export default function AboutTeaser() {
                   Founder &amp; President Director
                 </p>
               </blockquote>
-            </div>
-
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[10px]">
-              <Image
-                src={founderPhoto}
-                alt="Bagoes Soeharto, Founder BNJ"
-                fill
-                className="object-cover"
-              />
             </div>
           </div>
 

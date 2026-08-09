@@ -269,3 +269,11 @@ Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E 
 - Jangan hardcode nilai spacing/warna baru inline per komponen — selalu lewat token.
 
 > Catatan retrofit: halaman pilar lama (EFM, Digital Labs, dst) masih memakai garis tri-warna antar-section + skala spacing lama. Menyesuaikannya ke aturan ini adalah pekerjaan retrofit terjadwal terpisah, bukan bagian dari build Home. Untuk halaman BARU, ikuti aturan revisi ini sejak awal.
+
+---
+
+## Prinsip Navigasi Carousel/Slide (berlaku untuk semua pola carousel di situs)
+
+- Panah navigasi (prev/next) SELALU menempel pada elemen konten yang benar-benar berubah saat navigasi terjadi (foto/card/slide) — BUKAN pada strip selector/tab terpisah yang punya jalan pintas klik sendiri.
+- Mobile (<768px): panah navigasi pindah ke BAWAH konten (sejajar horizontal kiri-kanan), bukan di samping kiri-kanan seperti desktop — mencegah panah hilang/terpotong saat ruang horizontal sempit.
+- Contoh penerapan: Corporate Growth Roadmap Carousel (Tentang Kami), Milestone Carousel (Tentang Kami & EFM).

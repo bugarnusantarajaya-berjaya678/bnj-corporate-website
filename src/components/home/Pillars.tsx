@@ -138,7 +138,7 @@ export default function Pillars() {
             type="button"
             aria-label="Sebelumnya"
             onClick={() => scrollByStep(-1)}
-            className="eco-prev flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300"
+            className="eco-prev hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300 md:flex"
             style={{ opacity: atStart ? 0.35 : 1 }}
           >
             <ChevronLeft className="h-[18px] w-[18px] text-white" />
@@ -187,7 +187,30 @@ export default function Pillars() {
             type="button"
             aria-label="Berikutnya"
             onClick={() => scrollByStep(1)}
-            className="eco-next flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300"
+            className="eco-next hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300 md:flex"
+            style={{ opacity: atEnd ? 0.35 : 1 }}
+          >
+            <ChevronRight className="h-[18px] w-[18px] text-white" />
+          </button>
+        </div>
+
+        {/* Navigasi panah bawah (mobile <768px) — di bawah card, sejajar horizontal.
+            Swipe gesture native (track overflow-x scroll-snap) tetap jadi navigasi utama. */}
+        <div className="mt-5 flex items-center justify-center gap-6 md:hidden">
+          <button
+            type="button"
+            aria-label="Sebelumnya"
+            onClick={() => scrollByStep(-1)}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300"
+            style={{ opacity: atStart ? 0.35 : 1 }}
+          >
+            <ChevronLeft className="h-[18px] w-[18px] text-white" />
+          </button>
+          <button
+            type="button"
+            aria-label="Berikutnya"
+            onClick={() => scrollByStep(1)}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#03428E] transition-opacity duration-300"
             style={{ opacity: atEnd ? 0.35 : 1 }}
           >
             <ChevronRight className="h-[18px] w-[18px] text-white" />
@@ -223,9 +246,6 @@ export default function Pillars() {
         @media (max-width:640px){
           .eco-carousel{gap:0;}
           .eco-card{flex:0 0 100%;}
-          .eco-prev,.eco-next{position:absolute;top:50%;transform:translateY(-50%);z-index:4;box-shadow:0 2px 12px rgba(0,0,0,.3);}
-          .eco-prev{left:10px;}
-          .eco-next{right:10px;}
         }
       `}</style>
     </section>

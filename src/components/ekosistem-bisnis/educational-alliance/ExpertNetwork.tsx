@@ -53,7 +53,7 @@ const outputs = [
 
 export default function ExpertNetwork() {
   return (
-    <section className="bg-white py-12 sm:py-14 md:py-16">
+    <section id="expert-network" className="scroll-mt-28 bg-white py-12 sm:py-14 md:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>

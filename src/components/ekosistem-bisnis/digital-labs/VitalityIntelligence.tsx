@@ -102,7 +102,7 @@ export default function VitalityIntelligence() {
   return (
     <section
       id="vitality-intelligence"
-      className="bg-white py-14 sm:py-16 md:py-24 lg:py-32"
+      className="scroll-mt-28 bg-white py-14 sm:py-16 md:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -135,7 +135,7 @@ export default function VitalityIntelligence() {
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#03428E]/8">
                 <LineChart className="h-7 w-7 text-[#03428E]" strokeWidth={1.5} />
               </div>
-              <h2 className="text-[28px] font-extrabold leading-tight text-[#03428E] sm:text-[32px]">
+              <h2 className="text-[22px] font-semibold leading-tight text-[#03428E] sm:text-[28px]">
                 BNJ Vitality Intelligence
               </h2>
             </div>

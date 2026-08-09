@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 
 export default function PortfolioMandiri() {
   return (
-    <section className="bg-white pt-14 pb-12 sm:pt-16 md:pt-24 md:pb-14 lg:pt-32 lg:pb-16">
+    <section id="tahap-1" className="scroll-mt-28 bg-white pt-14 pb-12 sm:pt-16 md:pt-24 md:pb-14 lg:pt-32 lg:pb-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal className="relative border-r-[5px] border-[#6AA84F] pr-6 text-right">
@@ -19,7 +19,7 @@ export default function PortfolioMandiri() {
               Tahap 1 &middot; 2028
             </span>
             <div className="relative z-10 flex flex-wrap items-center justify-end gap-3">
-              <h2 className="text-[26px] font-bold uppercase leading-[1.25] text-[#03428E] md:text-[36px]">
+              <h2 className="text-[26px] font-bold leading-[1.25] text-[#03428E] md:text-[36px]">
                 Investasi Portofolio
                 <br />
                 Mandiri

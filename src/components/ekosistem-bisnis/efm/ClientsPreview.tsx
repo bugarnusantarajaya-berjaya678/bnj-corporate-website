@@ -67,6 +67,7 @@ function LogoTrack({ ariaHidden = false }: { ariaHidden?: boolean }) {
               fill
               sizes="218px"
               className="object-contain"
+              unoptimized
             />
           </div>
         </div>

@@ -96,6 +96,7 @@ export default function Footer() {
                 src={logo}
                 alt="Logo CV Bugar Nusantara Jaya"
                 className="h-12 w-auto brightness-0 invert sm:h-14"
+                unoptimized
               />
             </Link>
             <div className="mt-8 flex items-start gap-3">

@@ -145,6 +145,7 @@ export default function Navbar() {
             alt="Logo CV Bugar Nusantara Jaya"
             className={`h-9 w-auto sm:h-10 ${overlay ? "brightness-0 invert" : ""}`}
             priority
+            unoptimized
           />
         </Link>
 
@@ -292,6 +293,8 @@ export default function Navbar() {
                   src={logo}
                   alt="Logo CV Bugar Nusantara Jaya"
                   className="h-8 w-auto"
+                  priority
+                  unoptimized
                 />
                 <button
                   type="button"

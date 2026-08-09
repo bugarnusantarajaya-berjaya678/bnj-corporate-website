@@ -124,10 +124,37 @@ export default function Milestone() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(paused);
-  const tabsRef = useRef<HTMLDivElement>(null);
+  const touchX = useRef<number | null>(null);
 
-  const scrollTabs = (dir: 1 | -1) => {
-    tabsRef.current?.scrollBy({ left: dir * 200, behavior: "smooth" });
+  const goPrev = () =>
+    setActive((i) => (i - 1 + milestones.length) % milestones.length);
+  const goNext = () => setActive((i) => (i + 1) % milestones.length);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    touchX.current = null;
+    if (Math.abs(dx) < 45) return;
+    if (dx < 0) goNext();
+    else goPrev();
+  };
+
+  // Panah navigasi slide — sama untuk versi samping (desktop) & bawah (mobile).
+  const arrowBtn = (dir: -1 | 1, extra = "") => {
+    const Icon = dir < 0 ? ChevronLeft : ChevronRight;
+    return (
+      <button
+        type="button"
+        onClick={() => (dir < 0 ? goPrev() : goNext())}
+        aria-label={dir < 0 ? "Milestone sebelumnya" : "Milestone berikutnya"}
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-white text-[#03428E] transition-colors hover:border-[#03428E] ${extra}`}
+      >
+        <Icon className="h-4 w-4" strokeWidth={2} />
+      </button>
+    );
   };
 
   useEffect(() => {
@@ -160,19 +187,9 @@ export default function Milestone() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            <div className="relative flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => scrollTabs(-1)}
-                aria-label="Geser tab ke kiri"
-                className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-white sm:flex"
-              >
-                <ChevronLeft className="h-4 w-4 text-[#03428E]" strokeWidth={2} />
-              </button>
-              <div
-                ref={tabsRef}
-                className="flex flex-1 items-start justify-between gap-1 overflow-x-auto border-b border-neutral-200 pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-center sm:gap-2"
-              >
+            {/* Strip tab icon tahun — jalan pintas klik-langsung, scroll
+                horizontal sendiri di mobile, tanpa panah navigasi. */}
+            <div className="flex items-start justify-between gap-1 overflow-x-auto border-b border-neutral-200 pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-center sm:gap-2">
               {milestones.map((m, i) => {
                 const isActive = active === i;
                 return (
@@ -211,19 +228,16 @@ export default function Milestone() {
                   </button>
                 );
               })}
-              </div>
-              <button
-                type="button"
-                onClick={() => scrollTabs(1)}
-                aria-label="Geser tab ke kanan"
-                className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-200 bg-white sm:flex"
-              >
-                <ChevronRight className="h-4 w-4 text-[#03428E]" strokeWidth={2} />
-              </button>
             </div>
 
-            <div className="mt-6 rounded-3xl bg-white p-2 shadow-[0_14px_40px_rgba(3,66,142,0.18)] sm:p-3">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[16/9] md:aspect-[21/8]">
+            <div className="mt-6 flex items-center gap-2 sm:gap-3">
+              {arrowBtn(-1, "hidden sm:flex")}
+              <div
+                className="min-w-0 flex-1 rounded-3xl bg-white p-2 shadow-[0_14px_40px_rgba(3,66,142,0.18)] sm:p-3"
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+              >
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[16/7] md:aspect-[3/1]">
                 <Image
                   src={current.photo}
                   alt={`Momen BNJ tahun ${current.year}, ${current.title}`}
@@ -233,7 +247,7 @@ export default function Milestone() {
                   priority={false}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,52,112,0.92)_0%,rgba(3,52,112,0.88)_34%,rgba(3,66,142,0.6)_52%,rgba(3,66,142,0.15)_68%,rgba(3,66,142,0)_78%)]" />
-                <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-10 md:p-14">
+                <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-8 md:p-10">
                   <div className="max-w-full sm:max-w-[65%] md:max-w-[58%]">
                     <span className="inline-block rounded-full bg-white px-4 py-1.5 text-[13px] font-bold tracking-[0.1em] text-[#03428E]">
                       {current.year}
@@ -249,6 +263,13 @@ export default function Milestone() {
                   </div>
                 </div>
               </div>
+              </div>
+              {arrowBtn(1, "hidden sm:flex")}
+            </div>
+
+            <div className="mt-4 flex items-center justify-center gap-6 sm:hidden">
+              {arrowBtn(-1)}
+              {arrowBtn(1)}
             </div>
           </div>
         </Reveal>

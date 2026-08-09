@@ -6,7 +6,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Reveal from "@/components/Reveal";
 import founderPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Struktur-Founder.png";
 import coFounderPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Struktur-CoFounder.png";
-import digitalGrowthPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Struktur-Digital-Growth.png";
+import digitalGrowthPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Struktur-Digital-Growth.jpg";
 import facilityManagementPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Struktur-Facility-Management.png";
 import curriculumDevelopmentPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Struktur-Curriculum-Development.png";
 import expertNetworkPhoto from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Struktur-Expert-Network.png";
@@ -164,6 +164,21 @@ export default function OrgStructure() {
     setOpenIndex((prev) => (prev === i ? null : i));
   };
 
+  const arrowBtn = (dir: 1 | -1, extra = "") => (
+    <button
+      type="button"
+      onClick={() => scrollByCard(dir)}
+      disabled={dir < 0 ? atStart : atEnd}
+      aria-label={dir < 0 ? "Sebelumnya" : "Berikutnya"}
+      className={`flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#03428E] shadow-[0_4px_14px_rgba(3,66,142,0.28)] transition-opacity disabled:pointer-events-none disabled:opacity-40 ${extra}`}
+    >
+      <ChevronDown
+        className={`h-[18px] w-[18px] text-white ${dir < 0 ? "rotate-90" : "-rotate-90"}`}
+        strokeWidth={2.2}
+      />
+    </button>
+  );
+
   return (
     <section className="bg-white py-[var(--section-py)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -233,24 +248,8 @@ export default function OrgStructure() {
             })}
           </div>
 
-          <button
-            type="button"
-            onClick={() => scrollByCard(-1)}
-            disabled={atStart}
-            aria-label="Sebelumnya"
-            className="absolute left-[-16px] top-1/2 hidden h-[38px] w-[38px] -translate-y-1/2 items-center justify-center rounded-full bg-[#03428E] shadow-[0_4px_14px_rgba(3,66,142,0.28)] transition-opacity disabled:pointer-events-none disabled:opacity-40 sm:flex"
-          >
-            <ChevronDown className="h-[18px] w-[18px] rotate-90 text-white" strokeWidth={2.2} />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollByCard(1)}
-            disabled={atEnd}
-            aria-label="Berikutnya"
-            className="absolute right-[-16px] top-1/2 hidden h-[38px] w-[38px] -translate-y-1/2 items-center justify-center rounded-full bg-[#03428E] shadow-[0_4px_14px_rgba(3,66,142,0.28)] transition-opacity disabled:pointer-events-none disabled:opacity-40 sm:flex"
-          >
-            <ChevronDown className="h-[18px] w-[18px] -rotate-90 text-white" strokeWidth={2.2} />
-          </button>
+          {arrowBtn(-1, "absolute left-[-16px] top-1/2 hidden -translate-y-1/2 sm:flex")}
+          {arrowBtn(1, "absolute right-[-16px] top-1/2 hidden -translate-y-1/2 sm:flex")}
         </div>
 
         {openIndex !== null ? (
@@ -286,6 +285,12 @@ export default function OrgStructure() {
         <p className="mt-4 text-center text-[13px] italic text-neutral-400">
           Klik ikon panah pada tiap kartu untuk melihat profil lengkap
         </p>
+
+        {/* Navigasi panah bawah (mobile) — di bawah caption, terpisah dari makna caption */}
+        <div className="mt-4 flex items-center justify-center gap-6 sm:hidden">
+          {arrowBtn(-1)}
+          {arrowBtn(1)}
+        </div>
 
         <div className="mt-[18px] flex items-center justify-center gap-2">
           {cards.map((card, i) => (

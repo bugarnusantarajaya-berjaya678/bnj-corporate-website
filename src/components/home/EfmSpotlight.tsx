@@ -49,53 +49,20 @@ const kpis = [
 ];
 
 // Sizing per-logo mengikuti standar ClientsPreview / halaman EFM: object-contain + transform scale.
+// Lebar dikecilkan seragam ~20% dari nilai lama (104/120/150/56) supaya 4 logo muat 1 baris
+// di lebar card standar; nilai scale dipertahankan agar proporsi antar-logo tetap seimbang.
 const logos: { src: string; alt: string; w: number; scale?: number }[] = [
-  { src: "/images/Page-Home/home-logo-telkom.png", alt: "Logo Telkom Indonesia", w: 104 },
-  { src: "/images/Page-Home/home-logo-ojk.png", alt: "Logo OJK", w: 120, scale: 1.68 },
-  { src: "/images/Page-Home/home-logo-wuling.png", alt: "Logo Wuling Motors", w: 150, scale: 1.1 },
-  { src: "/images/Page-Home/home-logo-AIA.png", alt: "Logo AIA Insurance", w: 56, scale: 1.2 },
+  { src: "/images/Page-Home/home-logo-telkom.png", alt: "Logo Telkom Indonesia", w: 83 },
+  { src: "/images/Page-Home/home-logo-ojk.png", alt: "Logo OJK", w: 96, scale: 1.68 },
+  { src: "/images/Page-Home/home-logo-wuling.png", alt: "Logo Wuling Motors", w: 120, scale: 1.1 },
+  { src: "/images/Page-Home/home-logo-AIA.png", alt: "Logo AIA Insurance", w: 45, scale: 1.2 },
 ];
 
 export default function EfmSpotlight() {
   return (
-    <section className="relative w-full overflow-hidden bg-white px-6 py-[var(--section-py)] lg:px-12">
-      {/* faded photo collage background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 z-0 overflow-hidden"
-        style={{
-          top: "calc(clamp(26px,3vw,32px) * 1.2 + 120px)",
-          bottom: "calc(var(--section-py) - 30px)",
-        }}
-      >
-        <div
-          className="absolute flex items-stretch gap-[1%] blur-[2.5px]"
-          style={{ left: "-2%", right: "-2%", top: "-3%", bottom: "-3%" }}
-        >
-          {collageColumns.map((col, i) => (
-            <div
-              key={i}
-              className="flex min-w-0 flex-col gap-[1.2%]"
-              style={{ flex: col.flex, marginTop: col.marginTop }}
-            >
-              {col.images.map((img, j) => (
-                <div
-                  key={j}
-                  className="relative min-h-0 overflow-hidden rounded-[14px]"
-                  style={{ flex: img.flex }}
-                >
-                  <Image src={img.photo} alt="" fill className="object-cover" />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-        <div className="absolute inset-0 bg-[#03428E] opacity-85 mix-blend-color" />
-        <div className="absolute inset-0 bg-white/[0.62]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#fff_0%,rgba(255,255,255,0)_12%,rgba(255,255,255,0)_88%,#fff_100%)]" />
-      </div>
-
-      <div className="relative z-[1] mx-auto max-w-7xl">
+    <section className="relative w-full overflow-hidden bg-white py-[var(--section-py)]">
+      {/* Zona atas — eyebrow + headline di background putih polos, tanpa foto */}
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
             Bukti Nyata
@@ -103,34 +70,71 @@ export default function EfmSpotlight() {
           <h2 className="mt-4 max-w-2xl text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             9 Tahun Melayani Ekosistem Fitness &amp; Wellness Indonesia
           </h2>
+          <p className="mt-4 max-w-2xl text-[15px] leading-[1.7] text-neutral-600">
+            Essential Fitness Management (EFM) adalah fondasi BNJ, beroperasi
+            sejak 2017 dalam pengelolaan fitness, wellness, dan fasilitas
+            olahraga untuk klien korporat maupun personal di seluruh Indonesia.
+          </p>
         </Reveal>
+      </div>
 
+      {/* Zona bawah — foto blur muted FULL-BLEED (mentok tepi viewport), sibling di luar
+          container konten; card di dalamnya tetap constrained ke max-width. */}
+      <div className="relative mt-[var(--section-header-gap)] w-full overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+        >
+          <div
+            className="absolute flex items-stretch gap-[1%] blur-[2.5px]"
+            style={{ left: "-2%", right: "-2%", top: "-3%", bottom: "-3%" }}
+          >
+            {collageColumns.map((col, i) => (
+              <div
+                key={i}
+                className="flex min-w-0 flex-col gap-[1.2%]"
+                style={{ flex: col.flex, marginTop: col.marginTop }}
+              >
+                {col.images.map((img, j) => (
+                  <div
+                    key={j}
+                    className="relative min-h-0 overflow-hidden rounded-[14px]"
+                    style={{ flex: img.flex }}
+                  >
+                    <Image src={img.photo} alt="" fill className="object-cover" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="absolute inset-0 bg-[#03428E] opacity-85 mix-blend-color" />
+          <div className="absolute inset-0 bg-white/[0.62]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#fff_0%,rgba(255,255,255,0)_12%,rgba(255,255,255,0)_88%,#fff_100%)]" />
+        </div>
+
+        {/* Konten card — tetap constrained ke max-width, tidak full-bleed */}
+        <div className="relative z-[1] mx-auto max-w-7xl px-6 lg:px-12">
+          {/* Padding zona foto sebelum card — samakan dengan BNJ at a Glance */}
+          <div className="px-[clamp(24px,3vw,40px)] py-[clamp(22px,2.6vw,34px)]">
         <Reveal
           delay={0.1}
-          className="relative mt-9 box-border rounded-3xl bg-white p-[clamp(28px,4vw,56px)] shadow-[0_8px_30px_rgba(3,66,142,0.14),0_6px_0_-2px_#03428E]"
+          className="relative box-border rounded-3xl bg-white p-[clamp(28px,4vw,56px)] shadow-[0_8px_30px_rgba(3,66,142,0.14),0_6px_0_-2px_#03428E]"
         >
           <div className="efm-2col">
             <div className="efm-left flex flex-col">
-              <p className="m-0 text-[15px] leading-[1.7] text-neutral-600">
-                Essential Fitness Management (EFM) adalah fondasi BNJ, beroperasi
-                sejak 2017 dalam pengelolaan fitness, wellness, dan fasilitas
-                olahraga untuk klien korporat maupun personal di seluruh
-                Indonesia.
-              </p>
-
-              <div className="efm-kpi mt-[clamp(28px,3.5vw,40px)] grid grid-cols-1 gap-3 md:grid-cols-3 md:items-stretch md:gap-[14px]">
+              <div className="efm-kpi grid grid-cols-1 gap-3 md:grid-cols-3 md:items-stretch md:gap-[14px]">
                 {kpis.map((kpi) => (
                   <div
                     key={kpi.label}
                     className="box-border flex flex-col items-center gap-2 rounded-[12px] bg-[#03428E]/[0.05] px-4 py-4 text-center md:block md:gap-0 md:px-[14px] md:py-[18px] md:text-left"
                   >
-                    <div className="flex flex-col items-center gap-1 md:flex-row md:items-center md:gap-[10px]">
+                    <div className="flex items-center gap-2 md:gap-[10px]">
                       <kpi.icon
                         className="block h-6 w-6 shrink-0 md:h-[22px] md:w-[22px]"
                         strokeWidth={1.5}
                         color="#03428E"
                       />
-                      <p className="m-0 text-[clamp(20px,2vw,25px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#03428E]">
+                      <p className="m-0 whitespace-nowrap text-[clamp(18px,1.8vw,21px)] font-bold leading-[1.15] tracking-[-0.02em] text-[#03428E]">
                         {kpi.value}
                       </p>
                     </div>
@@ -141,11 +145,11 @@ export default function EfmSpotlight() {
                 ))}
               </div>
 
-              <div className="efm-logos mt-[clamp(28px,3.5vw,40px)] flex flex-wrap items-center gap-7 border-t border-neutral-200 pt-[clamp(24px,3vw,32px)]">
+              <div className="efm-logos mt-[clamp(28px,3.5vw,40px)] flex flex-wrap items-center gap-6 border-t border-neutral-200 pt-[clamp(24px,3vw,32px)]">
                 {logos.map((logo) => (
                   <div
                     key={logo.src}
-                    className="flex h-14 shrink-0 items-center justify-center rounded-lg bg-white"
+                    className="efm-logo flex h-14 shrink-0 items-center justify-center rounded-lg bg-white"
                     style={{ width: logo.w }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -198,6 +202,8 @@ export default function EfmSpotlight() {
             </div>
           </div>
         </Reveal>
+          </div>
+        </div>
       </div>
 
       <style>{`
@@ -205,13 +211,17 @@ export default function EfmSpotlight() {
         @media (max-width:900px){
           .efm-2col{grid-template-columns:1fr;gap:clamp(24px,4vw,32px);}
           .efm-left{display:contents;}
-          .efm-video{order:2;min-height:220px;}
-          .efm-logos{order:3;}
+          .efm-video{order:2;}
+          /* Reset margin-top desktop (flex-col): di mobile efm-logos jadi grid row,
+             spacing sudah dari grid gap — mencegah gap dobel/kosong besar video→logo. */
+          .efm-logos{order:3;margin-top:0;}
           .efm-cta{order:4;}
         }
         @media (max-width:767px){
           .efm-left > p{text-align:center;}
           .efm-logos{justify-content:center;}
+          /* Logo klien mobile — kecilkan ~22% (skala) supaya proporsional dg elemen card lain */
+          .efm-logo{transform:scale(0.78);}
         }
       `}</style>
     </section>

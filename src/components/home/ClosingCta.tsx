@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 export default function ClosingCta() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#03428E] px-6 pb-[var(--section-py)] pt-[var(--section-py-emphasis)] lg:px-12">
+    <section className="relative isolate overflow-hidden bg-[#03428E] pb-[var(--section-gap-y)] pt-[clamp(6rem,11vw,9.375rem)]">
       {/* Flagship bookend: mirrored wave (white -> blue), vertical mirror of Hero */}
       <svg
         viewBox="0 0 1440 110"
@@ -44,38 +44,42 @@ export default function ClosingCta() {
         <circle cx="200" cy="200" r="76" />
       </svg>
 
-      <div className="relative z-[1] mx-auto max-w-7xl">
-        <Reveal>
-          <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#9FC9E8]">
-            Mari Berkolaborasi
-          </p>
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-6">
-            <div className="max-w-[560px]">
-              <h2 className="m-0 text-[clamp(22px,2.3vw,27px)] font-bold leading-[1.3] text-white">
-                Siap Membangun Pertumbuhan Bersama BNJ?
-              </h2>
-              <p className="mt-3 text-[15px] leading-[1.6] text-white/75">
-                Hubungi tim kami untuk mendiskusikan peluang kemitraan
-                operasional, pendidikan, maupun investasi.
-              </p>
-            </div>
-            <div className="flex shrink-0 flex-wrap gap-3">
-              <Link
-                href="/kontak"
-                className="inline-flex w-fit items-center justify-center whitespace-nowrap rounded-lg bg-white px-7 py-3.5 text-sm font-semibold leading-[1.2] text-[#03428E] transition-colors duration-200 hover:bg-white/90"
-              >
-                Hubungi Kami
-              </Link>
-              <a
-                href="#pilar-bisnis"
-                className="inline-flex w-fit items-center justify-center whitespace-nowrap rounded-lg border border-white/40 px-[27px] py-[13px] text-sm font-semibold leading-[1.2] text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
-              >
-                Jelajahi Ekosistem Bisnis
-              </a>
-            </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+        <Reveal className="flex flex-col gap-6 md:flex-row md:flex-wrap md:items-center md:justify-between">
+          <div className="max-w-xl border-l-[5px] border-[#6AA84F] pl-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#9FC9E8]">
+              Mari Berkolaborasi
+            </p>
+            <h2 className="mt-3.5 text-[26px] font-bold leading-[1.2] text-white md:text-[36px]">
+              Siap Membangun Pertumbuhan Bersama BNJ?
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-white/75">
+              Hubungi tim kami untuk mendiskusikan peluang kemitraan
+              operasional, pendidikan, maupun investasi bersama CV Bugar
+              Nusantara Jaya.
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <Link
+              href="/kontak"
+              className="inline-flex items-center justify-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-[#03428E] transition-colors duration-200 hover:bg-white/90"
+            >
+              Hubungi Kami
+            </Link>
+            <a
+              href="#pilar-bisnis"
+              className="inline-flex items-center justify-center rounded-lg border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
+            >
+              Jelajahi Ekosistem Bisnis Kami
+            </a>
           </div>
         </Reveal>
       </div>
+
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-[2px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.55)_50%,rgba(255,255,255,0)_100%)]"
+      />
     </section>
   );
 }

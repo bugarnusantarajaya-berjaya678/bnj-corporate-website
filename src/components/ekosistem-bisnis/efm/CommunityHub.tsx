@@ -51,7 +51,7 @@ export default function CommunityHub() {
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#03428E]/8">
                 <Users className="h-7 w-7 text-[#03428E]" strokeWidth={1.5} />
               </div>
-              <h2 className="text-[26px] font-bold uppercase leading-[1.2] text-[#03428E] md:text-[36px]">
+              <h2 className="text-[26px] font-bold leading-[1.2] text-[#03428E] md:text-[36px]">
                 Essential Community Hub
               </h2>
             </div>

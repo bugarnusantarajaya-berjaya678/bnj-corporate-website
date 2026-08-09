@@ -110,7 +110,7 @@ export default function ProductSuite() {
               01
             </span>
             <div className="relative z-10 flex flex-wrap items-center gap-3 lg:justify-end">
-              <p className="text-[28px] font-extrabold uppercase tracking-[0.06em] text-[#03428E] sm:text-[32px]">
+              <p className="text-[26px] font-bold leading-[1.3] text-[#03428E] md:text-[36px]">
                 Produk Digital
               </p>
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#03428E]/8">
@@ -152,10 +152,10 @@ export default function ProductSuite() {
         </div>
 
         <div className="mt-12">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
+          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
             Produk Digital
           </p>
-          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+          <h2 className="mt-4 max-w-2xl text-[26px] font-bold tracking-tight text-neutral-900 md:text-[36px]">
             4 Layanan Inti Kesehatan Digital
           </h2>
         </div>
@@ -196,10 +196,10 @@ export default function ProductSuite() {
         </div>
 
         <div className="mt-12">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
+          <p className="text-xs font-semibold uppercase tracking-[0.05em] text-[#03428E]">
             Spesialisasi Layanan
           </p>
-          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+          <h2 className="mt-4 max-w-2xl text-[26px] font-bold tracking-tight text-neutral-900 md:text-[36px]">
             6 Program Spesialisasi Kesehatan
           </h2>
         </div>

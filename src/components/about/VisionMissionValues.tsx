@@ -61,7 +61,7 @@ const coreValues = [
 
 export default function VisionMissionValues() {
   return (
-    <section className="bg-white py-[var(--section-py)]">
+    <section className="bg-white pt-[var(--section-py)] pb-[var(--section-header-gap)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
@@ -88,8 +88,8 @@ export default function VisionMissionValues() {
             <div className="absolute inset-0 bg-[#03428E]/60 sm:hidden" />
             <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#03428E_0%,#03428E_40%,rgba(3,66,142,0.72)_62%,rgba(3,66,142,0.28)_85%,rgba(3,66,142,0.12)_100%)] sm:block" />
 
-            <div className="relative z-[1] p-6 sm:p-8 lg:p-10">
-              <div className="mx-auto max-w-xl text-center">
+            <div className="relative z-[1] px-[clamp(20px,2.5vw,36px)] py-[clamp(22px,2.6vw,34px)]">
+              <div className="mx-auto max-w-xl text-center lg:max-w-4xl">
                 <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
                   Visi
                 </p>
@@ -103,13 +103,13 @@ export default function VisionMissionValues() {
                 </p>
               </div>
 
-              <div className="mx-auto mt-6 max-w-xl text-center sm:mt-8">
+              <div className="mx-auto mt-5 max-w-xl text-center sm:mt-6">
                 <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
                   Misi
                 </p>
               </div>
 
-              <div className="mt-5 grid grid-cols-1 gap-3.5 sm:mt-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-4 grid grid-cols-1 gap-3.5 sm:mt-5 sm:grid-cols-2 lg:grid-cols-4">
                 {missionPoints.map((point) => (
                   <div
                     key={point.title}
@@ -148,14 +148,11 @@ export default function VisionMissionValues() {
             <div className="absolute inset-0 bg-[#03428E]/60 sm:hidden" />
             <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#03428E_0%,#03428E_40%,rgba(3,66,142,0.72)_62%,rgba(3,66,142,0.28)_85%,rgba(3,66,142,0.12)_100%)] sm:block" />
 
-            <div className="relative z-[1] p-6 sm:p-8 lg:p-10">
-              <div className="mx-auto max-w-xl text-center">
+            <div className="relative z-[1] px-[clamp(20px,2.5vw,36px)] py-[clamp(22px,2.6vw,34px)]">
+              <div className="mx-auto max-w-xl text-center lg:max-w-3xl">
                 <p className="mx-auto inline-block w-fit rounded-full bg-white px-5 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-[#03428E]">
-                  Nilai Inti BNJ
+                  Nilai Inti (Core Values) BNJ
                 </p>
-                <h2 className="mt-3.5 text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] text-white">
-                  Core Values B.N.J
-                </h2>
                 <p className="mt-3.5 text-[15px] leading-relaxed text-white/90">
                   Tiga nilai ini menjadi dasar setiap keputusan dan cara kerja
                   BNJ, dari pengelolaan operasional harian hingga pengembangan
@@ -163,7 +160,7 @@ export default function VisionMissionValues() {
                 </p>
               </div>
 
-              <div className="mt-6 flex flex-col gap-3.5 sm:mt-8 sm:flex-row sm:items-stretch">
+              <div className="mt-5 flex flex-col gap-3.5 sm:mt-6 sm:flex-row sm:items-stretch">
                 {coreValues.map((value) => (
                   <div
                     key={value.letter}
@@ -190,7 +187,7 @@ export default function VisionMissionValues() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <p className="mt-[var(--section-header-gap)] text-center text-[22px] font-bold italic leading-[1.2] text-[#03428E] md:text-[26px]">
+          <p className="mt-[var(--section-py)] text-center text-[22px] font-bold italic leading-[1.2] text-[#03428E] md:text-[26px]">
             &ldquo;More Than Our Name. It Is the Way We Build Our
             Business.&rdquo;
           </p>

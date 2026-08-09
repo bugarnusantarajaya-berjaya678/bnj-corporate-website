@@ -43,7 +43,7 @@ export default function BrandDevelopment() {
               01
             </span>
             <div className="relative z-10 flex flex-wrap items-center justify-end gap-3">
-              <h2 className="text-[26px] font-bold uppercase leading-[1.25] text-[#03428E] md:text-[36px]">
+              <h2 className="text-[26px] font-bold leading-[1.25] text-[#03428E] md:text-[36px]">
                 Brand Development &amp;
                 <br />
                 Digital Strategy

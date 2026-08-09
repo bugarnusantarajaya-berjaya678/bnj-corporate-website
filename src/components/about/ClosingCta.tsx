@@ -12,9 +12,9 @@ export default function ClosingCta() {
       >
         <defs>
           <linearGradient id="tkCtaCutLine" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#6AA84F" />
-            <stop offset="50%" stopColor="#0095DA" />
-            <stop offset="100%" stopColor="#03428E" />
+            <stop offset="0%" stopColor="#03428E" />
+            <stop offset="50%" stopColor="#6AA84F" />
+            <stop offset="100%" stopColor="#0095DA" />
           </linearGradient>
         </defs>
         <path d="M0,66 C 300,116 1080,38 1440,90 L1440,0 L0,0 Z" fill="#fff" />
@@ -50,7 +50,7 @@ export default function ClosingCta() {
               Mari Berkolaborasi
             </p>
             <h2 className="mt-3.5 text-[26px] font-bold leading-[1.2] text-white md:text-[36px]">
-              Tertarik Membangun Pertumbuhan Bersama BNJ?
+              Siap Membangun Pertumbuhan Bersama BNJ?
             </h2>
             <p className="mt-3 text-base leading-relaxed text-white/75">
               Hubungi tim kami untuk mendiskusikan peluang kemitraan
@@ -69,7 +69,7 @@ export default function ClosingCta() {
               href="/#pilar-bisnis"
               className="inline-flex items-center justify-center rounded-lg border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-white/10"
             >
-              Lihat Ekosistem Bisnis Kami
+              Jelajahi Ekosistem Bisnis Kami
             </Link>
           </div>
         </Reveal>

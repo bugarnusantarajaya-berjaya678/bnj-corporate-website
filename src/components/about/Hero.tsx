@@ -1,24 +1,28 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Building2, Calendar, ShieldCheck } from "lucide-react";
-import heroImage from "../../../public/images/Page-Tentang-Kami/Tentang-Kami-Hero-Section.png";
 import Reveal from "@/components/Reveal";
-import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#03428E]">
+    <section className="tk-hero relative isolate overflow-hidden bg-[#03428E]">
+      <style>{heroCss}</style>
+
       <div className="absolute inset-0 -z-10">
-        <Image
-          src={heroImage}
-          alt="Kantor CV Bugar Nusantara Jaya"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(3,66,142,0.94)_0%,rgba(3,66,142,0.86)_32%,rgba(3,66,142,0.42)_58%,rgba(3,66,142,0.08)_78%,rgba(3,66,142,0)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,41,89,0.55)_0%,rgba(3,41,89,0)_38%)]" />
+        <picture className="tk-hero__pic">
+          <source
+            media="(max-width:767px)"
+            srcSet="/images/Page-Tentang-Kami/Tentang-Kami-Hero-Section-Mobile.jpg"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/Page-Tentang-Kami/Tentang-Kami-Hero-Section.png"
+            alt="Kantor CV Bugar Nusantara Jaya"
+          />
+        </picture>
+        {/* Left-side directional scrim (like Home) — keeps the text side
+            readable while the right portion of the photo stays untinted.
+            Mobile gets a stronger blend so the full-bleed image reads as one
+            object instead of two separate colour blocks. */}
+        <div className="tk-hero__scrim" aria-hidden />
       </div>
 
       <svg
@@ -44,41 +48,18 @@ export default function Hero() {
         />
       </svg>
 
-      <div className="relative z-[2] mx-auto flex min-h-[480px] max-w-7xl items-center px-6 pb-16 pt-24 sm:min-h-[540px] sm:pb-20 sm:pt-28 lg:min-h-[580px] lg:px-12 lg:pb-24 lg:pt-32">
-        <Reveal className="max-w-xl">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-white/15">
-              <Building2 className="h-5 w-5 text-white" strokeWidth={2} />
-            </div>
-            <span className="text-lg font-bold uppercase tracking-wide text-white">
-              Tentang Kami
-            </span>
-          </div>
+      <div className="relative z-[2] mx-auto flex min-h-[480px] max-w-7xl items-center px-6 pb-24 pt-24 sm:min-h-[540px] sm:pb-28 sm:pt-28 lg:min-h-[580px] lg:px-12 lg:pb-32 lg:pt-32">
+        <Reveal className="tk-hero__text max-w-xl">
           <h1 className="text-[clamp(27px,3.4vw,42px)] font-bold leading-[1.18] text-white">
-            Holding Company &amp; Venture Builder di Sektor Fitness,
-            Wellness, Sport &amp; Education
+            Holding Company yang Membangun Lima Unit Bisnis Melalui Satu
+            Sistem
           </h1>
           <p className="mt-4 max-w-lg text-[15px] leading-[1.7] text-white/85">
-            CV Bugar Nusantara Jaya (BNJ) mengembangkan dan mengelola
-            berbagai inisiatif bisnis melalui keunggulan operasional,
-            pengembangan talenta, inovasi berbasis teknologi, serta
-            kemitraan strategis yang menciptakan nilai jangka panjang.
+            CV Bugar Nusantara Jaya mengoperasikan lima unit bisnis di sektor
+            fitness, wellness, sport, dan edukasi melalui sistem operasional
+            yang terstandardisasi, kemitraan yang selektif, dan tata kelola
+            yang terukur.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-x-4 gap-y-3">
-            <div className="animate-float-badge flex items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-3.5 py-2 backdrop-blur">
-              <Calendar className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
-              <span className="text-sm font-semibold text-white">
-                Berdiri Sejak <AnimatedCounter value={2017} duration={0.9} />
-              </span>
-            </div>
-            <div className="animate-float-badge flex items-center gap-2.5 rounded-full border border-white/30 bg-white/10 px-3.5 py-2 backdrop-blur">
-              <ShieldCheck className="h-5 w-5 shrink-0 text-white" strokeWidth={2} />
-              <span className="text-sm font-semibold text-white">
-                Entitas Legal Sejak <AnimatedCounter value={2022} duration={0.9} />
-              </span>
-            </div>
-          </div>
 
           <Link
             href="/kontak"
@@ -91,3 +72,15 @@ export default function Hero() {
     </section>
   );
 }
+
+const heroCss = `
+.tk-hero__pic{position:absolute;inset:0;display:block;width:100%;height:100%;}
+.tk-hero__pic img{width:100%;height:100%;object-fit:cover;object-position:70% center;display:block;}
+.tk-hero__scrim{position:absolute;inset:0;
+  background:linear-gradient(100deg, rgba(3,66,142,0.92) 0%, rgba(3,66,142,0.8) 30%, rgba(3,66,142,0.42) 50%, rgba(3,66,142,0.08) 66%, rgba(3,66,142,0) 78%);}
+@media (max-width:767px){
+  .tk-hero__pic img{object-position:center;}
+  .tk-hero__scrim{background:linear-gradient(90deg, rgba(3,66,142,.94) 0%, rgba(3,66,142,.93) 46%, rgba(3,66,142,.9) 62%, rgba(3,66,142,.42) 82%, rgba(3,66,142,.18) 100%);}
+  .tk-hero__text{max-width:75%;}
+}
+`;

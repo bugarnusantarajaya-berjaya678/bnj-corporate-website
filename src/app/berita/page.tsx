@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BeritaHeader from "@/components/berita/BeritaHeader";
 import BeritaSorotan from "@/components/berita/BeritaSorotan";
+import BeritaFeed from "@/components/berita/BeritaFeed";
 
 export const metadata: Metadata = {
   title: "Berita & Update BNJ | CV Bugar Nusantara Jaya",
@@ -17,6 +18,7 @@ export default function BeritaPage() {
       */}
       <BeritaHeader />
       <BeritaSorotan />
+      <BeritaFeed />
     </main>
   );
 }

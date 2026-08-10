@@ -23,10 +23,14 @@ export default function BeritaSorotan() {
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
-            {/* Overlay gradient gelap bawah -> transparan atas (untuk keterbacaan teks putih) */}
+            {/* Overlay gradient gelap bawah -> transparan atas (untuk keterbacaan
+                teks putih). Zona bawah (tempat judul+tanggal) diperkuat: base
+                navy pekat + biru tinggi opacity sampai ~35%, supaya teks tetap
+                terbaca di atas foto apapun termasuk area terang (mis. layar
+                monitor putih). */}
             <div
               aria-hidden
-              className="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,66,142,0.9)_0%,rgba(3,66,142,0.3)_45%,rgba(3,66,142,0)_75%)]"
+              className="absolute inset-0 bg-[linear-gradient(to_top,rgba(1,22,48,0.94)_0%,rgba(3,66,142,0.85)_34%,rgba(3,66,142,0.42)_60%,rgba(3,66,142,0)_86%)]"
             />
             {/* Badge kategori "Sorotan" (Growth Green solid, teks putih) */}
             <span className="absolute left-5 top-5 rounded-full bg-[#6AA84F] px-3.5 py-1.5 text-xs font-bold text-white">

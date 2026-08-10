@@ -5,9 +5,9 @@ import Reveal from "@/components/Reveal";
 // Bookend pre-footer: garis tri-warna 3px di ATAS section (transisi putih -> biru),
 // satu-satunya divider tri-warna di tengah/bawah halaman ini (§Divider bookend).
 // Dekorasi: 4 lingkaran konsentris putih opacity 8% di pojok kanan-bawah.
-// Pemisah CTA -> Footer (hairline putih) TIDAK ditambahkan manual di sini —
-// sudah built-in di komponen Footer (border-top white/[0.12]) per §9, supaya
-// tidak dobel.
+// Hairline putih 2px (gradient fade) di dasar CTA sebagai pemisah sub-blok
+// CTA <-> sub-blok Footer — konsisten dengan seluruh CTA pilar lain (EFM,
+// Digital Labs, ECA Aspire, Investment Ventures, Brand Incubation).
 export default function BeritaClosingCta() {
   return (
     <section className="relative isolate overflow-hidden bg-[#03428E] py-[clamp(64px,8vw,96px)]">
@@ -63,6 +63,13 @@ export default function BeritaClosingCta() {
           </div>
         </Reveal>
       </div>
+
+      {/* Hairline putih 2px pemisah CTA -> Footer (gradient fade, sama persis
+          dengan CTA pilar lain) */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-[2px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.55)_50%,rgba(255,255,255,0)_100%)]"
+      />
     </section>
   );
 }

@@ -29,8 +29,8 @@ export default function BeritaPage() {
         Divider tri-warna hanya di 1 titik bookend pre-footer (di dalam
         BeritaClosingCta). Halaman ini tidak punya Hero band biru di atas, jadi
         tidak ada bookend tri-warna atas. Sambungan antar-section tengah murni
-        whitespace. Footer global (layout.tsx) sudah membawa hairline pemisah
-        CTA -> Footer.
+        whitespace. Pemisah CTA -> Footer: hairline putih 2px di dalam
+        BeritaClosingCta (konvensi CTA pilar), di atas border built-in Footer.
       */}
       <BeritaHeader />
       <BeritaSorotan />

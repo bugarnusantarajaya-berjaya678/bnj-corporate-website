@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { SOROTAN } from "./data";
 
@@ -10,8 +11,8 @@ export default function BeritaSorotan() {
     <section className="w-full bg-white pb-[clamp(64px,8vw,110px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <a
-            href="#"
+          <Link
+            href={`/berita/${SOROTAN.slug}`}
             className="group relative block min-h-[clamp(220px,26vw,260px)] overflow-hidden rounded-[14px]"
           >
             {/* PLACEHOLDER SEMENTARA: ganti ke foto kategori sesuai (EFM) saat foto final tersedia */}
@@ -45,7 +46,7 @@ export default function BeritaSorotan() {
               </h3>
               <p className="mt-2.5 text-[13px] text-white/70">{SOROTAN.date}</p>
             </div>
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

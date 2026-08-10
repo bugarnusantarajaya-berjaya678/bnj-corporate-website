@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import BeritaHeader from "@/components/berita/BeritaHeader";
 import BeritaSorotan from "@/components/berita/BeritaSorotan";
 import BeritaFeed from "@/components/berita/BeritaFeed";
@@ -35,7 +36,11 @@ export default function BeritaPage() {
       */}
       <BeritaHeader />
       <BeritaSorotan />
-      <BeritaFeed />
+      {/* BeritaFeed memakai useSearchParams (baca ?kategori=) -> butuh
+          Suspense boundary agar build statis tidak error. */}
+      <Suspense fallback={null}>
+        <BeritaFeed />
+      </Suspense>
       <BeritaVideo />
       <ClosingCta />
     </main>

@@ -1,15 +1,31 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import Reveal from "@/components/Reveal";
-import { ARTICLES, CATEGORIES, PAGE_SIZE, type Category } from "./data";
+import ArticleCard from "./ArticleCard";
+import {
+  ARTICLES,
+  CATEGORIES,
+  PAGE_SIZE,
+  SLUG_TO_CATEGORY,
+  type Category,
+} from "./data";
 
 // FILTER TAB + DAFTAR ARTIKEL — filter kategori client-side (tanpa reload),
 // daftar kartu HORIZONTAL (thumbnail kiri + teks kanan), tombol "Muat Lebih
 // Banyak" untuk menambah PAGE_SIZE artikel berikutnya.
+//
+// Preselect kategori dari query param ?kategori=<slug> (dipakai breadcrumb
+// kategori di Detail Artikel untuk balik ke index dengan tab kategori aktif).
+// Komponen ini memakai useSearchParams -> parent (page.tsx) membungkusnya
+// dalam <Suspense>.
 export default function BeritaFeed() {
-  const [activeCategory, setActiveCategory] = useState<Category>("Semua");
+  const searchParams = useSearchParams();
+  const initialCategory: Category =
+    SLUG_TO_CATEGORY[searchParams.get("kategori") ?? ""] ?? "Semua";
+
+  const [activeCategory, setActiveCategory] = useState<Category>(initialCategory);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filtered = useMemo(
@@ -54,34 +70,19 @@ export default function BeritaFeed() {
           })}
         </div>
 
-        {/* Daftar artikel vertikal — kartu horizontal, border tipis atas per kartu, tanpa shadow */}
+        {/* Daftar artikel vertikal — kartu horizontal bersama (ArticleCard),
+            border tipis atas per kartu, tanpa shadow. Setiap kartu clickable
+            ke halaman detail /berita/[slug]. */}
         <div className="flex flex-col">
           {visible.map((art) => (
-            <a
+            <ArticleCard
               key={art.id}
-              href="#"
-              className="group flex items-center gap-5 border-t border-[#e5e5e5] py-[18px]"
-            >
-              {/* PLACEHOLDER SEMENTARA: ganti ke foto kategori sesuai saat foto final tersedia */}
-              <span className="relative block h-[78px] w-[110px] shrink-0 overflow-hidden rounded-lg">
-                <Image
-                  src={art.img}
-                  alt={art.title}
-                  fill
-                  sizes="110px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
-                />
-              </span>
-              <div className="min-w-0">
-                <p className="text-xs font-semibold text-[#03428E]">
-                  {art.category}
-                </p>
-                <h4 className="mt-1.5 text-base font-bold leading-[1.35] text-[#171717] transition-colors duration-200 group-hover:text-[#03428E]">
-                  {art.title}
-                </h4>
-                <p className="mt-1.5 text-[13px] text-[#808080]">{art.date}</p>
-              </div>
-            </a>
+              href={`/berita/${art.slug}`}
+              img={art.img}
+              category={art.category}
+              title={art.title}
+              date={art.date}
+            />
           ))}
           {/* Garis penutup daftar (border bawah kartu terakhir) */}
           <div className="border-t border-[#e5e5e5]" />

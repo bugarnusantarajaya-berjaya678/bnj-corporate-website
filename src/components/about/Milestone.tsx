@@ -175,9 +175,7 @@ export default function Milestone() {
     <section className="bg-white py-[var(--section-py)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Perjalanan Kami
-          </p>
+          <p className="bnj-eyebrow">Perjalanan Kami</p>
           <h2 className="mt-4 max-w-2xl text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             Milestone CV Bugar Nusantara Jaya
           </h2>

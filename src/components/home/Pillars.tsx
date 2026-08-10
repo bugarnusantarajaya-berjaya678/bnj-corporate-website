@@ -120,9 +120,7 @@ export default function Pillars() {
     >
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Ekosistem Bisnis
-          </p>
+          <p className="bnj-eyebrow">Ekosistem Bisnis</p>
           <h2 className="mt-4 text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             5 Ekosistem Bisnis Saling Terintegrasi
           </h2>

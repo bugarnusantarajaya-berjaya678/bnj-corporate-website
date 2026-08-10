@@ -64,9 +64,7 @@ export default function EfmSpotlight() {
       {/* Zona atas — eyebrow + headline di background putih polos, tanpa foto */}
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Bukti Nyata
-          </p>
+          <p className="bnj-eyebrow">Bukti Nyata</p>
           <h2 className="mt-4 max-w-2xl text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             9 Tahun Melayani Ekosistem Fitness &amp; Wellness Indonesia
           </h2>

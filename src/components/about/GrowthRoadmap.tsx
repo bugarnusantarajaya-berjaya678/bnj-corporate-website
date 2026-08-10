@@ -192,9 +192,7 @@ export default function GrowthRoadmap() {
     <section className="bg-white py-[var(--section-py)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Roadmap Pertumbuhan
-          </p>
+          <p className="bnj-eyebrow">Roadmap Pertumbuhan</p>
           <h2 className="mt-4 text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             Corporate Growth Roadmap 2026–2030
           </h2>

@@ -44,9 +44,7 @@ export default function ForYou() {
     <section className="w-full bg-white px-6 py-[var(--section-py)] lg:px-12">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="m-0 text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-            Mulai Dari Sini
-          </p>
+          <p className="bnj-eyebrow">Mulai Dari Sini</p>
           <h2 className="mt-4 max-w-2xl text-[clamp(26px,2.6vw,32px)] font-bold leading-[1.2] tracking-[-0.01em] text-neutral-900">
             BNJ untuk Anda
           </h2>

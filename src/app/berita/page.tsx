@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
+import BeritaHeader from "@/components/berita/BeritaHeader";
+import BeritaSorotan from "@/components/berita/BeritaSorotan";
 
 export const metadata: Metadata = {
-  title: "Berita | CV Bugar Nusantara Jaya",
-  description: "Halaman berita CV Bugar Nusantara Jaya sedang dalam pengembangan.",
+  title: "Berita & Update BNJ | CV Bugar Nusantara Jaya",
+  description:
+    "Perkembangan terbaru dari seluruh unit bisnis BNJ: Essential Fitness Management, BNJ Digital Labs, ECA Aspire, dan BNJ Investment Ventures.",
 };
 
 export default function BeritaPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-6 py-24 text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-        Berita
-      </p>
-      <h1 className="mt-4 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-        Halaman Ini Sedang Dalam Pengembangan
-      </h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-neutral-600">
-        Berita dan kabar terbaru dari CV Bugar Nusantara Jaya akan segera
-        hadir di halaman ini.
-      </p>
+    <main>
+      {/*
+        Navbar solid putih dari awal: Navbar global hanya transparan/overlay di
+        "/" dan "/tentang-kami", jadi /berita otomatis dapat navbar putih solid.
+      */}
+      <BeritaHeader />
+      <BeritaSorotan />
     </main>
   );
 }

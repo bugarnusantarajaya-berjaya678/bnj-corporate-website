@@ -5,7 +5,7 @@ import AboutTeaser from "@/components/home/AboutTeaser";
 import ForYou from "@/components/home/ForYou";
 import EfmSpotlight from "@/components/home/EfmSpotlight";
 import WhyPartner from "@/components/home/WhyPartner";
-import ClosingCta from "@/components/home/ClosingCta";
+import ClosingCta from "@/components/ClosingCta";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",

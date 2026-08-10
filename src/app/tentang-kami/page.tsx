@@ -7,7 +7,7 @@ import Milestone from "@/components/about/Milestone";
 import GrowthRoadmap from "@/components/about/GrowthRoadmap";
 import OrgStructure from "@/components/about/OrgStructure";
 import WhyPartner from "@/components/about/WhyPartner";
-import ClosingCta from "@/components/about/ClosingCta";
+import ClosingCta from "@/components/ClosingCta";
 
 export const metadata: Metadata = {
   title: "Tentang Kami | CV Bugar Nusantara Jaya",

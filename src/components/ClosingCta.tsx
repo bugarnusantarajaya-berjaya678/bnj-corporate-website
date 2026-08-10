@@ -1,17 +1,28 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
+// CTA penutup BERSAMA (Flagship tier) — satu-satunya sumber untuk CTA penutup
+// Home, Tentang Kami, dan Berita. Markup identik dengan versi flagship yang
+// sebelumnya diduplikasi di home/ClosingCta.tsx & about/ClosingCta.tsx, supaya
+// tampilan ketiga halaman selalu sama by-design (bukan di-maintain manual per
+// halaman). Elemen: wave bookend tri-warna (transisi putih -> biru), 4 lingkaran
+// konsentris opacity 8%, hairline putih 2px pemisah CTA -> Footer.
+//
+// Catatan link: tombol kedua memakai "/#pilar-bisnis" (absolute) supaya berfungsi
+// dari halaman manapun (di Home tetap scroll ke section pilar; di Tentang Kami /
+// Berita navigasi ke Home lalu scroll). Perilaku setara versi lama, tampilan sama.
 export default function ClosingCta() {
   return (
     <section className="relative isolate overflow-hidden bg-[#03428E] pb-[var(--section-gap-y)] pt-[clamp(6rem,11vw,9.375rem)]">
+      {/* Flagship bookend: mirrored wave (white -> blue), vertical mirror of Hero */}
       <svg
-        aria-hidden
         viewBox="0 0 1440 110"
         preserveAspectRatio="none"
+        aria-hidden
         className="pointer-events-none absolute inset-x-0 top-[-1px] z-[4] block h-14 w-full sm:h-20 lg:h-[104px]"
       >
         <defs>
-          <linearGradient id="tkCtaCutLine" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient id="ctaCutLine" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#03428E" />
             <stop offset="50%" stopColor="#6AA84F" />
             <stop offset="100%" stopColor="#0095DA" />
@@ -21,7 +32,7 @@ export default function ClosingCta() {
         <path
           d="M0,66 C 300,116 1080,38 1440,90"
           fill="none"
-          stroke="url(#tkCtaCutLine)"
+          stroke="url(#ctaCutLine)"
           strokeWidth="5"
           vectorEffect="non-scaling-stroke"
         />

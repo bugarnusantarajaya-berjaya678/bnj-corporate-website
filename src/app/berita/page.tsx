@@ -3,7 +3,7 @@ import BeritaHeader from "@/components/berita/BeritaHeader";
 import BeritaSorotan from "@/components/berita/BeritaSorotan";
 import BeritaFeed from "@/components/berita/BeritaFeed";
 import BeritaVideo from "@/components/berita/BeritaVideo";
-import BeritaClosingCta from "@/components/berita/BeritaClosingCta";
+import ClosingCta from "@/components/ClosingCta";
 
 export const metadata: Metadata = {
   title: "Berita & Update BNJ | CV Bugar Nusantara Jaya",
@@ -26,17 +26,18 @@ export default function BeritaPage() {
         Navbar solid putih dari awal: Navbar global hanya transparan/overlay di
         "/" dan "/tentang-kami", jadi /berita otomatis dapat navbar putih solid.
 
-        Divider tri-warna hanya di 1 titik bookend pre-footer (di dalam
-        BeritaClosingCta). Halaman ini tidak punya Hero band biru di atas, jadi
-        tidak ada bookend tri-warna atas. Sambungan antar-section tengah murni
-        whitespace. Pemisah CTA -> Footer: hairline putih 2px di dalam
-        BeritaClosingCta (konvensi CTA pilar), di atas border built-in Footer.
+        CTA penutup Berita mengikuti Flagship tier (keputusan final Bagoes):
+        pakai komponen ClosingCta bersama yang sama persis dengan Home & Tentang
+        Kami (wave bookend tri-warna putih -> biru + 4 lingkaran + hairline 2px).
+        Halaman ini tidak punya Hero band biru di atas, jadi wave pre-footer itu
+        satu-satunya bookend tri-warna. Sambungan antar-section tengah murni
+        whitespace.
       */}
       <BeritaHeader />
       <BeritaSorotan />
       <BeritaFeed />
       <BeritaVideo />
-      <BeritaClosingCta />
+      <ClosingCta />
     </main>
   );
 }

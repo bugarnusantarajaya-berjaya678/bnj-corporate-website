@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Activity, ArrowRight, BookOpen, Dumbbell, Monitor } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  BookOpen,
+  Check,
+  Dumbbell,
+  Monitor,
+} from "lucide-react";
 
 type Unit = {
   name: string;
@@ -58,12 +65,19 @@ const inputClass =
 
 export default function UnitContactBlock() {
   const [tujuan, setTujuan] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   function selectUnit(value: string) {
     setTujuan(value);
+    setSubmitted(false);
     document
       .getElementById("form-kontak")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function resetForm() {
+    setSubmitted(false);
+    setTujuan("");
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -91,6 +105,9 @@ export default function UnitContactBlock() {
     window.location.href = `mailto:bugarnusantarajaya@gmail.com?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
+
+    // State sukses inline (tetap sampai user klik "Kirim Pesan Lain", tanpa timer)
+    setSubmitted(true);
   }
 
   return (
@@ -149,12 +166,13 @@ export default function UnitContactBlock() {
               sizes="(max-width: 1080px) 100vw, 1080px"
               className="object-cover"
             />
-            {/* Layer 2: gradient putih horizontal (desktop only) */}
+            {/* Layer 2: gradient putih horizontal, foto memudar progresif ke
+                putih sebelum area card (desktop only) */}
             <div
               className="pointer-events-none absolute inset-0 hidden md:block"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.15) 40%, rgba(255,255,255,.85) 60%, #fff 100%)",
+                  "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 35%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0.95) 72%, #ffffff 88%)",
               }}
             />
           </div>
@@ -162,9 +180,31 @@ export default function UnitContactBlock() {
           {/* Layer 3: floating card putih (form) */}
           <form
             onSubmit={handleSubmit}
-            className="mt-6 flex flex-col gap-3 rounded-none bg-white p-6 shadow-none md:absolute md:right-12 md:top-8 md:mt-0 md:w-[min(380px,80%)] md:rounded-2xl md:p-7 md:shadow-[0_18px_44px_rgba(3,66,142,.14),0_4px_12px_rgba(3,66,142,.08)]"
+            className="mt-6 flex flex-col gap-3 rounded-none bg-white p-6 shadow-none md:absolute md:right-12 md:top-8 md:mt-0 md:w-[400px] md:max-w-[calc(100%-96px)] md:rounded-2xl md:p-7 md:shadow-[0_18px_44px_rgba(3,66,142,.14),0_4px_12px_rgba(3,66,142,.08)]"
           >
-            <div className="mb-0.5">
+            {submitted ? (
+              <div className="flex flex-col items-center gap-3 py-6 text-center">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#6AA84F]">
+                  <Check className="h-7 w-7 text-white" strokeWidth={2.5} />
+                </div>
+                <h2 className="text-[clamp(20px,2.4vw,24px)] font-bold leading-[1.2] tracking-[-0.01em] text-[#171717]">
+                  Pesan Berhasil Dikirim
+                </h2>
+                <p className="max-w-[300px] text-sm leading-[1.6] text-[#525252]">
+                  Tim kami akan segera menghubungi Anda melalui email atau
+                  WhatsApp.
+                </p>
+                <button
+                  type="button"
+                  onClick={resetForm}
+                  className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[#03428E] px-4 py-2 text-[13px] font-semibold text-[#03428E] transition-colors duration-200 hover:bg-[#03428E] hover:text-white"
+                >
+                  Kirim Pesan Lain
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="mb-0.5">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-[#03428E]">
                 Formulir Kontak
               </p>
@@ -258,12 +298,14 @@ export default function UnitContactBlock() {
               />
             </div>
 
-            <button
-              type="submit"
-              className="box-border w-full rounded-lg bg-[#03428E] px-7 py-3.5 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#032f66]"
-            >
-              Kirim Pesan
-            </button>
+                <button
+                  type="submit"
+                  className="box-border w-full rounded-lg bg-[#03428E] px-7 py-3.5 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#032f66]"
+                >
+                  Kirim Pesan
+                </button>
+              </>
+            )}
           </form>
         </div>
       </section>

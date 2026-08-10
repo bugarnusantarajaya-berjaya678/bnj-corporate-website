@@ -63,7 +63,7 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
+function YoutubeIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -74,15 +74,29 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
       strokeLinejoin="round"
       {...props}
     >
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
     </svg>
   );
 }
 
+// Ubah/tambah platform cukup di array ini (1 baris data), bukan per-icon.
 const socialLinks = [
-  { label: "Instagram", href: "#", icon: InstagramIcon },
-  { label: "LinkedIn", href: "#", icon: LinkedinIcon },
-  { label: "Facebook", href: "#", icon: FacebookIcon },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/bugarnusantarajaya",
+    icon: InstagramIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/bugarnusantarajaya",
+    icon: LinkedinIcon,
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com/@BugarNusantaraJaya",
+    icon: YoutubeIcon,
+  },
 ];
 
 export default function Footer() {
@@ -102,7 +116,7 @@ export default function Footer() {
             <div className="mt-8 flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/60" />
               <p className="text-sm leading-relaxed text-white/70">
-                Jl. Terogong Raya No. 8, Hampton&apos;s Park Apartment, Tower
+                Jl. Terogong Raya No. 18, Hampton&apos;s Park Apartment, Tower
                 A, Cilandak Barat, Jakarta Selatan, DKI Jakarta
               </p>
             </div>
@@ -120,6 +134,8 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="flex h-9 w-9 items-center justify-center border border-white/20 text-white/80 transition-colors duration-200 hover:border-white hover:text-white"
                 >

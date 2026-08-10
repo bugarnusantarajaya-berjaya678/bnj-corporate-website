@@ -120,11 +120,13 @@ export default function UnitContactBlock() {
               key={unit.name}
               className="flex flex-col rounded-[14px] border border-[#e5e5e5] p-6"
             >
-              {/* Icon sticker 2-layer: Corporate Blue depan + Growth Green offset kanan-bawah */}
-              <div className="relative mb-5 h-12 w-12">
-                <div className="absolute -bottom-1.5 -right-1.5 h-11 w-11 rounded-[10px] bg-[#6AA84F]" />
-                <div className="absolute left-0 top-0 flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#03428E]">
-                  <unit.Icon className="h-[22px] w-[22px] text-white" strokeWidth={1.5} />
+              {/* Icon Module — spec resmi (§10), identik Corporate Growth Roadmap:
+                  container 43px, 2 layer flat 40px radius 11px, Growth Green
+                  offset 3px kanan-bawah + Corporate Blue depan, icon putih 18px. */}
+              <div className="relative mb-5 h-[43px] w-[43px] shrink-0">
+                <div className="absolute bottom-0 right-0 h-10 w-10 rounded-[11px] bg-[#6AA84F]" />
+                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-[11px] bg-[#03428E]">
+                  <unit.Icon className="h-[18px] w-[18px] text-white" />
                 </div>
               </div>
               <h3 className="m-0 text-[17px] font-bold text-[#171717]">

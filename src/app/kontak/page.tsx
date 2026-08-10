@@ -1,24 +1,32 @@
 import type { Metadata } from "next";
+import ContactHeader from "@/components/kontak/ContactHeader";
+import UnitContactBlock from "@/components/kontak/UnitContactBlock";
+import Faq from "@/components/kontak/Faq";
 
 export const metadata: Metadata = {
   title: "Hubungi Kami | CV Bugar Nusantara Jaya",
   description:
-    "Halaman kontak CV Bugar Nusantara Jaya sedang dalam pengembangan.",
+    "Hubungi CV Bugar Nusantara Jaya. Pilih unit bisnis yang sesuai kebutuhan Anda (Essential Fitness Management, BNJ Digital Labs, ECA Aspire, BNJ Investment Ventures) atau kirim pesan langsung ke tim kami.",
 };
 
 export default function KontakPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-6 py-24 text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-        Hubungi Kami
-      </p>
-      <h1 className="mt-4 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-        Halaman Ini Sedang Dalam Pengembangan
-      </h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-neutral-600">
-        Informasi kontak lengkap CV Bugar Nusantara Jaya akan segera hadir di
-        halaman ini.
-      </p>
+    <main>
+      {/*
+        Divider tri-warna HANYA di 1 titik: garis tipis pre-footer di bawah.
+        Halaman Kontak tidak punya Hero band biru maupun CTA penutup biru,
+        jadi tidak ada bookend lain yang berhak dapat tri-warna. Sambungan
+        antar-section di tengah dibentuk murni dari whitespace (--section-py).
+      */}
+      <ContactHeader />
+      <UnitContactBlock />
+      <Faq />
+
+      {/* Garis tipis tri-warna — satu-satunya di halaman ini, tepat sebelum Footer */}
+      <div
+        aria-hidden="true"
+        className="h-[3px] w-full bg-[linear-gradient(90deg,#03428E_0%,#6AA84F_50%,#0095DA_100%)]"
+      />
     </main>
   );
 }

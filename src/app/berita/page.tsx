@@ -3,6 +3,7 @@ import BeritaHeader from "@/components/berita/BeritaHeader";
 import BeritaSorotan from "@/components/berita/BeritaSorotan";
 import BeritaFeed from "@/components/berita/BeritaFeed";
 import BeritaVideo from "@/components/berita/BeritaVideo";
+import BeritaClosingCta from "@/components/berita/BeritaClosingCta";
 
 export const metadata: Metadata = {
   title: "Berita & Update BNJ | CV Bugar Nusantara Jaya",
@@ -24,11 +25,18 @@ export default function BeritaPage() {
       {/*
         Navbar solid putih dari awal: Navbar global hanya transparan/overlay di
         "/" dan "/tentang-kami", jadi /berita otomatis dapat navbar putih solid.
+
+        Divider tri-warna hanya di 1 titik bookend pre-footer (di dalam
+        BeritaClosingCta). Halaman ini tidak punya Hero band biru di atas, jadi
+        tidak ada bookend tri-warna atas. Sambungan antar-section tengah murni
+        whitespace. Footer global (layout.tsx) sudah membawa hairline pemisah
+        CTA -> Footer.
       */}
       <BeritaHeader />
       <BeritaSorotan />
       <BeritaFeed />
       <BeritaVideo />
+      <BeritaClosingCta />
     </main>
   );
 }

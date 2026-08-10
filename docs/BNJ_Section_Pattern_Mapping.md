@@ -4,6 +4,27 @@ Dokumen referensi singkat. Dipakai setiap kali membangun atau mereview section b
 
 ---
 
+## 0. Page Header (halaman tanpa Hero foto)
+
+Blok pembuka untuk halaman index/utility yang **tidak** punya foto Hero full-bleed di atas. Menggantikan fungsi Hero sebagai anchor pembuka halaman, tapi dengan bobot visual jauh lebih ringan (teks di atas background putih polos, bukan foto + overlay).
+
+**Kapan dipakai:**
+
+- Halaman index/utility tanpa foto Hero: **Kontak**, **Berita**, dan halaman serupa ke depan (mis. **Karir** kalau memang tidak memakai foto Hero).
+- **Bukan** untuk halaman pilar/sub-halaman yang sudah punya Hero foto sendiri (EFM, Digital Labs, dst) — itu tetap pakai Hero §1 + Section Heading H2 di dalamnya.
+
+**Struktur:**
+
+- **Eyebrow**: label kategori kecil uppercase, memakai **token yang sama persis dengan Label Kategori — on white** (12px, SemiBold, uppercase, letter-spacing +0.05em, warna Corporate Blue `#03428E`). Jangan di-restyle manual berbeda per halaman — pakai token/kelas bersama (`.bnj-eyebrow`) supaya identik dengan eyebrow section di halaman lain.
+- **H1** (BUKAN H2): karena Page Header inilah yang menggantikan fungsi Hero sebagai judul utama halaman, head-nya adalah H1 dengan skala standar `clamp(27px, 3.4vw, 42px)` Bold (skala H1 di `BNJ_Typography_Standard.md`), bukan skala komposisi Hero (tanpa foto).
+- **Subcopy**: 1 kalimat pendukung (body 15-16px), maksimal 1 baris kalimat.
+- **Background**: putih polos (`#ffffff`).
+- **Navbar**: solid putih dari awal (bukan transparan/overlay) — karena tidak ada foto Hero gelap di belakang navbar. Overlay transparan direservasi untuk halaman Flagship yang punya Hero foto (Home, Tentang Kami).
+
+**Beda dengan Section Heading:** Section Heading (judul section DI DALAM halaman yang sudah punya Hero sendiri) selalu pakai **H2** `clamp(26px, 2.6vw, 32px)`, bukan H1. Page Header pakai **H1** justru karena dia berdiri sendiri sebagai pengganti Hero di puncak halaman. Eyebrow-nya memakai token yang sama; yang beda hanya level heading di bawahnya (H1 vs H2).
+
+---
+
 ## 1. Hero (section paling atas halaman)
 
 - Background: foto full-width dengan overlay gradasi biru gelap → transparan (untuk keterbacaan teks putih di atas foto).
@@ -51,9 +72,31 @@ Contoh: "B2B Management" (Community Wellness Program + Facility Management, masi
 - Dipakai kalau satu topik punya breakdown detail yang terlalu banyak untuk 1 card body text saja (lebih dari 3-4 poin), tapi tetap perlu dikelompokkan biar tidak jadi grid rata 8+ item tanpa struktur.
 - Kalau sub-grid detail lebih dari 4 item, pecah jadi 2 sub-grid dengan sub-label masing-masing (mis. "Kondisi & Lingkungan Fasilitas" vs "Operasional & Outdoor") — bukan satu grid 8 kolom yang membingungkan.
 
+## 3c. Icon Module — Representasi Unit/Kategori
+
+Spec resmi tunggal untuk icon yang merepresentasikan **unit bisnis, divisi, program, atau kategori abstrak** di dalam grid-card atau list. Tujuannya supaya semua icon "kategori" identik di seluruh situs, bukan beda gaya per halaman.
+
+(Catatan penomoran: idealnya section ini diberi nomor tersendiri; ditempatkan sebagai §3c karena berkaitan langsung dengan pola grid-card §3. Nomor §10 sudah dipakai Navbar/Header.)
+
+**Kapan dipakai:**
+
+- Grid-card / item yang icon-nya mewakili sebuah unit bisnis, divisi, program, layanan, atau kategori abstrak lain.
+- **BUKAN** untuk: foto orang (mis. Struktur Kepemimpinan §14), dan **BUKAN** untuk icon fungsional kontak/navigasi (telepon, email, lokasi, jam, chevron, panah, search) di Header/Footer/carousel — itu icon utilitas, bukan representasi kategori.
+- Catatan koeksistensi dengan §3: grid-card padat yang sudah memakai pola icon flat tinted box (`bg-[#03428E]/8`, single-layer) adalah pola §3 yang sah dan sudah diaudit. Icon Module ini dipakai untuk representasi unit/kategori yang ingin ditonjolkan (mis. headline representation), bukan mengganti seluruh icon grid §3 secara paksa. Migrasi antar keduanya = keputusan sadar per section, bukan otomatis.
+
+**Spec (wajib persis, tanpa gradient/shadow/blur):**
+
+- Container: bounding `43px` (`relative h-[43px] w-[43px]`) untuk menampung offset.
+- Dua layer flat, masing-masing `40px` (`h-10 w-10`), rounded-square radius `10-12px` (implementasi: `rounded-[11px]`):
+  - Layer belakang: solid Growth Green `#6AA84F`, offset `~3px` ke kanan-bawah (`absolute bottom-0 right-0`).
+  - Layer depan: solid Corporate Blue `#03428E` (`absolute left-0 top-0`), icon putih di tengah, ukuran icon `18px` (`h-[18px] w-[18px] text-white`).
+- **Satu icon library konsisten di seluruh situs: `lucide-react`.** Jangan campur library icon berbeda untuk pola ini.
+
+**Contoh implementasi:** Corporate Growth Roadmap (Tentang Kami, `about/GrowthRoadmap.tsx`) dan Grid 4 Kartu Unit Bisnis (Kontak, `kontak/UnitContactBlock.tsx`).
+
 ## 4. Roadmap / Timeline (kondisional — lihat kriteria di bawah)
 
-Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Acceleration, Strategic Educational Alliance, BNJ Digital Labs. Varian solid-blue: "Corporate Growth Roadmap" di halaman Tentang Kami.
+Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Acceleration, Strategic Educational Alliance, BNJ Digital Labs.
 
 **Kapan dipakai (kriteria wajib, bukan template default):**
 
@@ -67,14 +110,28 @@ Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Accelerati
 - Label kategori uppercase kecil (eyebrow): tidak lagi pakai teks tetap "ROADMAP PENGEMBANGAN" di semua halaman — pilih kata sesuai konteks section (mis. "ARAH PENGEMBANGAN", "ARAH INVESTASI"), maksimal 2 kata, dan hindari mengulang kata kunci yang sudah dipakai di heading besar di bawahnya. Penentuan kata final dilakukan langsung saat editing di Claude Design, fleksibel per halaman.
 - Garis penghubung horizontal antar-titik: MENERUS dari titik pertama sampai titik terakhir (bukan cuma sebagian) — segmen status "sedang berjalan" berwarna Growth Green, segmen "rencana lanjutan" berwarna abu-abu netral solid.
 
-**Varian container solid Corporate Blue (dipakai kalau butuh penekanan visual lebih kuat, mis. "Corporate Growth Roadmap" di Tentang Kami):**
+**Varian container solid Corporate Blue (dipakai kalau butuh penekanan visual lebih kuat):**
 
 - Background container: solid Corporate Blue (#03428E), rounded-corner besar, aksen strip biru tebal di tepi bawah container.
 - Icon status "sedang berjalan": ring accent Growth Green di sekeliling lingkaran, fill lingkaran bagian dalam putih solid supaya icon line-style tetap kontras.
 - Icon "rencana lanjutan": fill lingkaran putih opacity ~15-20% (frosted/translucent di atas biru), icon line-style putih (bukan abu-abu — abu-abu kehilangan kontras di atas biru solid).
 - Garis penghubung: segmen "sedang berjalan" tetap Growth Green, segmen "rencana lanjutan" jadi putih opacity ~30% (bukan abu-abu).
 - Label "SEDANG BERJALAN": tetap Growth Green (kontras cukup di atas biru). Label "RENCANA LANJUTAN": putih opacity ~60%. Teks tahun: putih solid 100%. Judul milestone: putih solid 100%.
-- Section tetap horizontal single-row — varian ini hanya mengubah warna/kontras, bukan mengubah orientasi atau jumlah titik.
+- Section tetap horizontal single-row sebagai deskripsi visual dasar di atas — **untuk implementasi carousel penuh dari varian ini (pill-selector tahun + 1 slide aktif per waktu, bukan semua titik tampil sekaligus), lihat §4a di bawah.**
+
+## 4a. Corporate Growth Roadmap Carousel (Implementasi Resmi Varian Solid-Blue)
+
+Contoh: section "Corporate Growth Roadmap 2026-2030" di halaman Tentang Kami — implementasi final dari varian solid Corporate Blue §4 di atas, setelah percobaan pola track+accordion terbukti gagal khusus di breakpoint mobile.
+
+Struktur:
+
+- Strip 5 pill tahun horizontal di atas (pill aktif solid Corporate Blue, non-aktif abu-abu, garis tipis hijau→abu di bawah strip menandakan progres riil bisnis, bukan progres navigasi user).
+- 1 slide card di bawahnya, terdiri dari:
+  - Header block: background Corporate Blue solid, berisi tahun besar + badge status (pill putih transparan) + judul node, teks putih semua.
+  - Body putih: daftar inisiatif (judul, deskripsi 1 kalimat, link "Pelajari Lebih Lanjut" ke anchor section halaman pilar terkait).
+  - Icon rounded-square 12px radius di kiri tiap item inisiatif: 2 layer flat sticker style tanpa gradient/shadow/blur — layer utama Corporate Blue solid + icon putih, layer Growth Green offset sedikit di belakang (kanan-bawah).
+- Navigasi panah menempel di sisi slide card (ikuti Prinsip Navigasi Carousel/Slide di bawah), TANPA dot pagination terpisah (pill tahun sudah jadi indikator posisi).
+- Satu komponen sama persis dipakai di semua breakpoint (bukan implementasi terpisah desktop/mobile).
 
 ## 5. Badge Row — Highlight Kualitatif (kondisional)
 
@@ -118,7 +175,7 @@ Contoh: section "Milestone Essential Fitness Management" dan "Milestone CV Bugar
 
 - Strip icon-tab di atas (satu icon bulat + tahun per titik, jumlah sesuai banyaknya milestone), tab aktif diberi ring/underline Corporate Blue, tab lain abu-abu netral.
 - Layout 2 kolom per slide (setelah tab dipilih): foto besar kiri, teks kanan (tahun besar bold Corporate Blue, judul milestone, deskripsi 1-2 kalimat) — atau varian foto full dengan overlay gradient bawah + teks di dalam foto (lihat contoh EFM).
-- Navigasi: klik langsung ke tab tahun yang dituju (bukan cuma panah sekuensial), plus panah kiri-kanan untuk geser tab kalau jumlah tahun melebihi lebar viewport.
+- Navigasi: klik langsung ke tab tahun yang dituju (bukan cuma panah sekuensial), plus panah kiri-kanan untuk geser tab kalau jumlah tahun melebihi lebar viewport, mengikuti Prinsip Navigasi Carousel/Slide di bawah (panah menempel di sisi card foto, bukan sisi strip tab; pindah ke bawah card di mobile).
 - Card center-aligned dengan max-width (~900-1000px) untuk varian 2-kolom, tidak mepet ke satu sisi.
 - Background section: putih/netral, sama seperti Varian A.
 
@@ -144,6 +201,16 @@ Contoh: section snapshot perusahaan di halaman Ekosistem Bisnis/Tentang Kami (fo
 
 - Jangan pasang section ini kalau angka-angkanya sudah tersampaikan di Hero (badge) atau di heading grid tepat di bawahnya — kalau sudah ada, section ini jadi pengulangan yang membingungkan, bukan penguat.
 - Foto dasar harus benar-benar merepresentasikan isi section (mis. aktivitas produk digital, bukan foto jabat tangan generik). Foto jabat tangan formal/penandatanganan berisiko terbaca sebagai dokumentasi MoU sungguhan — jangan dipakai kecuali memang ada kemitraan resmi yang dikonfirmasi.
+
+## 7a. Zona Teks Terpisah dari Zona Foto (Readability Fix)
+
+Contoh: "BNJ at a Glance" (Tentang Kami), "Bukti Nyata EFM" (Home) — koreksi wajib terhadap implementasi awal §7 yang sempat menaruh eyebrow+heading di atas foto langsung dan terbukti sulit dibaca.
+
+Berlaku untuk SEMUA section Stat Card Overlay Photo (§7) ke depan:
+
+- Eyebrow + heading (+ paragraf, tergantung konteks) DILARANG duduk di atas foto — kontras rendah, sulit dibaca.
+- Struktur wajib: zona atas = background putih polos berisi teks pengantar; zona bawah = foto blur FULL-BLEED (mentok tepi viewport, bukan dibatasi max-width container — foto jadi sibling DI LUAR wrapper max-width, konten/card tetap di dalam wrapper max-width) berisi card putih mengambang.
+- Paragraf boleh tetap di zona atas (terpisah dari card) ATAU menyatu di dalam card bersama data — tergantung apakah card berfungsi murni snapshot data tanpa video (paragraf di luar, contoh: BNJ at a Glance) atau "kartu pembuktian" utuh dengan video/bukti visual (paragraf di dalam card bersama stat+video, contoh: Bukti Nyata EFM).
 
 ## 8. CTA penutup (section terakhir sebelum Footer)
 
@@ -215,7 +282,7 @@ Contoh: section "Struktur Kepemimpinan" di halaman Tentang Kami.
 - Row horizontal scroll, kartu fixed-width, kartu berikutnya "peek" terpotong di tepi kanan viewport — bukan grid statis, bukan 1-kartu-aktif dengan panah di atas.
 - Tombol navigasi geser (solid Corporate Blue, posisi di luar area foto, tidak overlap) di kedua ujung row, state disabled (opacity ~40%) saat sudah mentok di ujung terkait — dievaluasi ulang di setiap event scroll, bukan cuma saat klik.
 - Dot indicator di bawah row, sync ke posisi scroll aktif (dot aktif solid Corporate Blue lebih besar, dot lain outline abu-abu tipis).
-- Baris teks kecil di bawah dot menjelaskan cara interaksi (mis. "Klik ikon panah pada tiap kartu untuk melihat profil lengkap").
+- Baris teks kecil di bawah dot menjelaskan cara interaksi (mis. "Klik ikon panah pada tiap kartu untuk melihat profil lengkap"), mengikuti Prinsip Navigasi Carousel/Slide di bawah (panah menempel di sisi kartu, bukan sisi elemen lain; urutan mobile: kartu → caption → panah → dot).
 
 **Struktur kartu — 2 varian konten:**
 
@@ -236,7 +303,7 @@ Contoh: section "Struktur Kepemimpinan" di halaman Tentang Kami.
 
 ## Aturan lintas-section (berlaku di semua tipe di atas)
 
-- Background solid warna penuh (biru/hijau) **hanya boleh** di CTA penutup, Footer, dan varian solid-blue Roadmap (§4). Section lain tetap putih/netral (lihat alternating tone di §Divider & Pemisahan Section), warna brand jadi aksen tipis saja (garis, icon, border, atau gradient fungsional di dalam kartu foto seperti §14 — bukan background section itu sendiri).
+- Background solid warna penuh (biru/hijau) **hanya boleh** di CTA penutup, Footer, dan varian solid-blue Roadmap (§4/§4a). Section lain tetap putih/netral (lihat alternating tone di §Divider & Pemisahan Section), warna brand jadi aksen tipis saja (garis, icon, border, atau gradient fungsional di dalam kartu foto seperti §14 — bukan background section itu sendiri).
 - Satu section = satu pola. Jangan gabungkan garis vertikal hijau dengan label kategori grid, atau sebaliknya — tiap pola berlaku untuk tipe section yang berbeda supaya tetap punya makna, bukan dekorasi acak.
 - **Pemisahan antar-section: lihat aturan permanen di §Divider & Pemisahan Section (revisi 2026-08-08) di bawah.** Aturan lama "divider antar-section selalu garis tipis tri-warna" sudah TIDAK berlaku.
 
@@ -272,8 +339,8 @@ Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E 
 
 ---
 
-## Prinsip Navigasi Carousel/Slide (berlaku untuk semua pola carousel di situs)
+## §Prinsip Navigasi Carousel/Slide (berlaku untuk semua pola carousel di situs)
 
 - Panah navigasi (prev/next) SELALU menempel pada elemen konten yang benar-benar berubah saat navigasi terjadi (foto/card/slide) — BUKAN pada strip selector/tab terpisah yang punya jalan pintas klik sendiri.
 - Mobile (<768px): panah navigasi pindah ke BAWAH konten (sejajar horizontal kiri-kanan), bukan di samping kiri-kanan seperti desktop — mencegah panah hilang/terpotong saat ruang horizontal sempit.
-- Contoh penerapan: Corporate Growth Roadmap Carousel (Tentang Kami), Milestone Carousel (Tentang Kami & EFM).
+- Contoh penerapan: Corporate Growth Roadmap Carousel (§4a, Tentang Kami), Milestone Carousel (§6 Varian B, Tentang Kami & EFM), Overlay Card Carousel (§14, Tentang Kami).

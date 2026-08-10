@@ -36,6 +36,23 @@
   --animate-float-badge: float-badge 3.2s ease-in-out infinite;
 }
 
+/* Eyebrow / Label Kategori — on white (token bersama).
+   Satu sumber styling untuk semua eyebrow uppercase di atas background putih:
+   Page Header (§0, mis. Berita/Kontak) DAN Section Heading (H2) di seluruh situs.
+   Spec resmi: 12px, SemiBold, uppercase, letter-spacing +0.05em, Corporate Blue
+   (BNJ_Typography_Standard.md — Label Kategori on white). Pakai kelas `bnj-eyebrow`,
+   jangan re-style manual per komponen.
+   Ditulis sebagai plain CSS (bukan @utility) supaya selalu ter-emit — tidak
+   bergantung pada JIT/HMR Turbopack yang sempat gagal me-generate @utility baru. */
+.bnj-eyebrow {
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #03428e;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

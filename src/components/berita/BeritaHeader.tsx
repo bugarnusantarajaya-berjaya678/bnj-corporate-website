@@ -8,9 +8,7 @@ export default function BeritaHeader() {
     <section className="w-full bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(40px,5vw,56px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#03428E]">
-            Berita
-          </p>
+          <p className="bnj-eyebrow">Berita</p>
           <h1 className="mt-4 text-[clamp(27px,3.4vw,42px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
             Berita &amp; Update BNJ
           </h1>

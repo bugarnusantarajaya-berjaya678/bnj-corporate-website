@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import VideoHeader from "@/components/berita/video/VideoHeader";
+import VideoBrowser from "@/components/berita/video/VideoBrowser";
 
 export const metadata: Metadata = {
   title: "Video BNJ | CV Bugar Nusantara Jaya",
@@ -24,6 +25,7 @@ export default function VideoPage() {
         berikutnya (reuse komponen bersama Flagship tier).
       */}
       <VideoHeader />
+      <VideoBrowser />
     </main>
   );
 }

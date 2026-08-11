@@ -25,9 +25,9 @@ export default function BeritaVideo() {
           <h3 className="text-[clamp(20px,2.2vw,24px)] font-bold text-[#171717]">
             Video
           </h3>
-          {/* Halaman /video menyusul (backend Kelola Video). */}
+          {/* Halaman daftar video lengkap (player + sidebar + filter kategori). */}
           <Link
-            href="/video"
+            href="/berita/video"
             className="whitespace-nowrap text-[13px] font-semibold text-[#03428E] transition-colors duration-200 hover:text-[#032f66]"
           >
             Ke Halaman Video &rarr;

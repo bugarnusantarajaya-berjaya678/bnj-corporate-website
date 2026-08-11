@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ArticleCard from "@/components/berita/ArticleCard";
+import ArticleCoverCarousel from "@/components/berita/ArticleCoverCarousel";
 import ClosingCta from "@/components/ClosingCta";
 import {
   CATEGORY_SLUGS,
@@ -83,18 +83,14 @@ export default async function DetailArtikelPage({
             <span className="text-[13px] text-[#808080]">{article.date}</span>
           </div>
 
-          {/* Foto cover — full-width container, rounded 14px.
+          {/* Foto cover 16:9 rounded — carousel kalau photos.length > 1 (logic
+              di-port dari slideshow Hero Home), statis kalau 1 foto.
               PLACEHOLDER SEMENTARA: foto generik, ganti ke foto EFM asli nanti. */}
-          <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-[14px]">
-            <Image
-              src={article.photos[0]}
-              alt={article.title}
-              fill
-              priority
-              sizes="(max-width: 760px) 100vw, 760px"
-              className="object-cover"
-            />
-          </div>
+          <ArticleCoverCarousel
+            photos={article.photos}
+            alt={article.title}
+            className="mt-8"
+          />
           <p className="mt-2.5 text-xs italic text-[#808080]">
             {article.coverCaption}
           </p>

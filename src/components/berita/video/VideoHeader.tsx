@@ -1,7 +1,7 @@
 import Reveal from "@/components/Reveal";
 
 // PAGE HEADER (§0) halaman /berita/video — background putih polos, tanpa Hero
-// foto. Eyebrow "VIDEO" memakai token bersama .bnj-eyebrow (font-semibold/600,
+// foto. Eyebrow "INSIDE BNJ" memakai token bersama .bnj-eyebrow (font-semibold/600,
 // uppercase, tracking 0.05em, Corporate Blue) — bukan restyle manual.
 //
 // Skala H1 STANDAR (BNJ_Typography_Standard.md: clamp(27px,3.4vw,42px) Bold 700),
@@ -17,7 +17,7 @@ export default function VideoHeader() {
     <section className="w-full bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(32px,4vw,40px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="bnj-eyebrow">Video</p>
+          <p className="bnj-eyebrow">Inside BNJ</p>
           <h1 className="mt-4 text-[clamp(27px,3.4vw,42px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
             Video BNJ
           </h1>

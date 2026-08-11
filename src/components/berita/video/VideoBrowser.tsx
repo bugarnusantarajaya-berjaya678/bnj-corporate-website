@@ -42,6 +42,13 @@ type PageVideo = {
 const photo = (n: number) =>
   `/images/Page-Tentang-Kami/glance/bnj-photo-${n}.webp`;
 
+// Thumbnail source: kalau youtubeId sudah terisi -> ambil thumbnail asli
+// YouTube (i.ytimg.com, sudah di-allowlist di next.config images.remotePatterns).
+// Kalau masih null (fase dummy tanpa link) -> fallback ke placeholder bnj-photo
+// yang tersimpan di v.img. Dipakai di thumbnail Featured maupun tiap item sidebar.
+const thumbSrc = (v: PageVideo) =>
+  v.youtubeId ? `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg` : v.img;
+
 // Cap 5 video di sidebar sebelum tombol "Muat Lebih Banyak" (berlaku ulang
 // tiap ganti kategori — jumlah video per kategori beda-beda).
 const SIDEBAR_CAP = 5;
@@ -241,10 +248,10 @@ export default function VideoBrowser() {
                   aria-label={`Putar video: ${activeVideo.title}`}
                   className="group absolute inset-0 h-full w-full"
                 >
-                  {/* PLACEHOLDER SEMENTARA: thumbnail bnj-photo generik — nanti
-                      auto-fetch dari i.ytimg.com berdasarkan youtubeId. */}
+                  {/* Thumbnail: YouTube (i.ytimg.com hqdefault) bila youtubeId
+                      terisi, fallback bnj-photo generik bila masih null. */}
                   <Image
-                    src={activeVideo.img}
+                    src={thumbSrc(activeVideo)}
                     alt={activeVideo.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 65vw"
@@ -318,10 +325,10 @@ export default function VideoBrowser() {
                     }`}
                   >
                     <span className="relative block h-[60px] w-[100px] shrink-0 overflow-hidden rounded-[7px]">
-                      {/* PLACEHOLDER SEMENTARA: thumbnail bnj-photo — nanti
-                          i.ytimg.com by youtubeId. */}
+                      {/* Thumbnail: YouTube (i.ytimg.com hqdefault) bila youtubeId
+                          terisi, fallback bnj-photo bila masih null. */}
                       <Image
-                        src={v.img}
+                        src={thumbSrc(v)}
                         alt={v.title}
                         fill
                         sizes="100px"

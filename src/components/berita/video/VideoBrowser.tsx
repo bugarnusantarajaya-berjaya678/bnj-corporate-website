@@ -285,22 +285,27 @@ export default function VideoBrowser() {
           </div>
 
           {/* --- Sidebar kanan --- */}
-          <div className="flex min-h-0 flex-col md:h-full">
+          {/* relative -> anchor untuk list absolute di desktop (lihat catatan di
+              bawah). Grid md:items-stretch bikin tinggi grid item ini = tinggi
+              blok kiri (player+judul+kategori+deskripsi). */}
+          <div className="relative flex min-h-0 flex-col md:h-full">
             {/* Mobile: hairline + label "Video lainnya" (desktop disembunyikan). */}
             <div className="mb-4 block border-t border-[#e5e5e5] pt-4 md:hidden">
               <p className="text-[13px] text-[#808080]">Video lainnya</p>
             </div>
 
             {/*
-              Desktop: list flex-1 + overflow-y-auto DI CONTAINER SIDEBAR SENDIRI
-              (bukan scroll halaman). Grid md:items-stretch bikin tinggi sidebar =
-              tinggi blok kiri (player+judul+kategori+deskripsi). Saat collapse
-              (5 item + tombol) konten muat -> tidak scroll. Saat expand (semua
-              video) konten melebihi -> scroll internal, tinggi total SIDEBAR
-              TETAP sama. Mobile: flex-none + overflow-visible -> stack natural,
-              tanpa height-match / scroll internal.
+              Desktop: list absolute inset-0 -> mengisi TINGGI grid item (= tinggi
+              blok kiri) TAPI keluar dari flow, jadi konten sidebar TIDAK ikut
+              menambah tinggi baris grid. Efeknya tinggi sidebar SELALU terkunci ke
+              tinggi blok kiri: collapse (5 item + tombol) muat tanpa scroll; expand
+              (semua video) melebihi -> scroll internal DI CONTAINER INI (bukan
+              scroll halaman), tinggi total SIDEBAR TETAP sama. (Pakai flex-1 biasa
+              tidak cukup: konten yang melebihi justru menumbuhkan baris grid.)
+              Mobile: flex-none + overflow-visible -> stack natural, tanpa
+              height-match / scroll internal.
             */}
-            <div className="flex flex-none flex-col gap-1 overflow-visible md:min-h-0 md:flex-1 md:overflow-y-auto">
+            <div className="flex flex-none flex-col gap-1 overflow-visible md:absolute md:inset-0 md:min-h-0 md:overflow-y-auto">
               {visible.map((v) => {
                 const active = v.id === activeVideo.id;
                 return (

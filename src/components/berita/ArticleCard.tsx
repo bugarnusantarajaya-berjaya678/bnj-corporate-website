@@ -26,24 +26,25 @@ export default function ArticleCard({
   return (
     <Link
       href={href}
-      className="group flex items-center gap-5 border-t border-[#e5e5e5] py-[18px]"
+      className="group flex items-center gap-4 border-t border-[#e5e5e5] py-5 md:gap-6 md:py-6"
     >
-      {/* PLACEHOLDER SEMENTARA: ganti ke foto kategori sesuai saat foto final tersedia */}
-      <span className="relative block h-[78px] w-[110px] shrink-0 overflow-hidden rounded-lg">
+      {/* Thumbnail landscape 4:3 (mendekati News Feed detiknews): 100×75 mobile,
+          160×120 desktop. PLACEHOLDER SEMENTARA: ganti ke foto kategori final. */}
+      <span className="relative block h-[75px] w-[100px] shrink-0 overflow-hidden rounded-lg md:h-[120px] md:w-[160px]">
         <Image
           src={img}
           alt={title}
           fill
-          sizes="110px"
+          sizes="(max-width: 767px) 100px, 160px"
           className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
         />
       </span>
       <div className="min-w-0">
         <p className="text-xs font-semibold text-[#03428E]">{category}</p>
-        <h4 className="mt-1.5 text-base font-bold leading-[1.35] text-[#171717] transition-colors duration-200 group-hover:text-[#03428E]">
+        <h4 className="mt-1.5 text-base font-bold leading-[1.4] text-[#171717] transition-colors duration-200 group-hover:text-[#03428E] md:text-[17px]">
           {title}
         </h4>
-        {date && <p className="mt-1.5 text-[13px] text-[#808080]">{date}</p>}
+        {date && <p className="mt-2 text-[13px] text-[#808080]">{date}</p>}
       </div>
     </Link>
   );

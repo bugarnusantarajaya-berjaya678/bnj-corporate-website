@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import VideoHeader from "@/components/berita/video/VideoHeader";
 import VideoBrowser from "@/components/berita/video/VideoBrowser";
+import ClosingCta from "@/components/ClosingCta";
 
 export const metadata: Metadata = {
   title: "Video BNJ | CV Bugar Nusantara Jaya",
@@ -21,11 +22,17 @@ export default function VideoPage() {
 
       {/*
         Navbar solid putih dari awal (route ini bukan "/" / "/tentang-kami", jadi
-        Navbar global otomatis solid). CTA penutup + Footer disambung di bagian
-        berikutnya (reuse komponen bersama Flagship tier).
+        Navbar global otomatis solid).
+
+        CTA penutup Flagship tier: reuse komponen bersama ClosingCta.tsx (sama
+        persis Home / Tentang Kami / Berita) — wave bookend tri-warna putih->biru
+        + 4 lingkaran + hairline 2px pemisah ke Footer sudah built-in di komponen.
+        JANGAN tambah divider garis lurus manual di sini (itu pola pillar tier,
+        akan dobel dengan wave). Footer di-render global dari layout.tsx.
       */}
       <VideoHeader />
       <VideoBrowser />
+      <ClosingCta />
     </main>
   );
 }

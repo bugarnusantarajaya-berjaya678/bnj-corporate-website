@@ -11,9 +11,13 @@ export default function BeritaSorotan() {
     <section className="w-full bg-white pb-[clamp(64px,8vw,110px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
+          {/* Foto Sorotan rasio ~2:1 (proporsi terinspirasi detiknews — lebih
+              seimbang dari rasio pendek-lebar lama, tapi tidak setinggi 16:9).
+              Lebar tetap penuh (max-w-7xl). Gradient scrim + badge + teks overlay
+              tidak berubah mekanismenya. */}
           <Link
             href={`/berita/${SOROTAN.slug}`}
-            className="group relative block min-h-[clamp(220px,26vw,260px)] overflow-hidden rounded-[14px]"
+            className="group relative block aspect-[2/1] overflow-hidden rounded-[14px]"
           >
             {/* PLACEHOLDER SEMENTARA: ganti ke foto kategori sesuai (EFM) saat foto final tersedia */}
             <Image

@@ -17,7 +17,7 @@ export default function BeritaSorotan() {
           >
             {/* PLACEHOLDER SEMENTARA: ganti ke foto kategori sesuai (EFM) saat foto final tersedia */}
             <Image
-              src={SOROTAN.img}
+              src={SOROTAN.photos[0]}
               alt={SOROTAN.title}
               fill
               priority

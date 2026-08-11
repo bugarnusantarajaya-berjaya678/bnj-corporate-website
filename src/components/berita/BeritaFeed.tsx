@@ -85,7 +85,7 @@ export default function BeritaFeed() {
                 <ArticleCard
                   key={art.id}
                   href={`/berita/${art.slug}`}
-                  img={art.img}
+                  img={art.photos[0]}
                   category={art.category}
                   title={art.title}
                   date={art.date}

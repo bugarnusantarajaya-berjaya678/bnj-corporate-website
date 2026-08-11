@@ -87,7 +87,7 @@ export default async function DetailArtikelPage({
               PLACEHOLDER SEMENTARA: foto generik, ganti ke foto EFM asli nanti. */}
           <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-[14px]">
             <Image
-              src={article.coverImg}
+              src={article.photos[0]}
               alt={article.title}
               fill
               priority
@@ -133,7 +133,7 @@ export default async function DetailArtikelPage({
                 <ArticleCard
                   key={rel.slug}
                   href={`/berita/${rel.slug}`}
-                  img={rel.img}
+                  img={rel.photos[0]}
                   category={rel.category}
                   title={rel.title}
                 />

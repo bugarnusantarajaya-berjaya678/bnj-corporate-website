@@ -50,7 +50,9 @@ export type Article = {
   title: string;
   category: ArticleCategory;
   date: string;
-  img: string;
+  // Foto artikel: array maks 4. photos[0] = cover (dipakai di Sorotan &
+  // ArticleCard). Slot 2-4 hanya relevan untuk carousel Detail Artikel.
+  photos: string[];
 };
 
 // Artikel sorotan (pinned) — 1 kartu besar di atas daftar.
@@ -61,7 +63,7 @@ export const SOROTAN: Article = {
     "EFM Raih Penghargaan Wellness Provider Terbaik Tiga Tahun Berturut-turut",
   category: "Essential Fitness Management",
   date: "14 Agustus 2026",
-  img: photo(1),
+  photos: [photo(1)],
 };
 
 export const ARTICLES: Article[] = [
@@ -71,7 +73,7 @@ export const ARTICLES: Article[] = [
     title: "EFM Perluas Layanan Wellness Korporat ke 5 Kota Baru",
     category: "Essential Fitness Management",
     date: "10 Agustus 2026",
-    img: photo(2),
+    photos: [photo(2)],
   },
   {
     id: "art-2",
@@ -79,7 +81,7 @@ export const ARTICLES: Article[] = [
     title: "BNJ Digital Labs Luncurkan Fitur Booking Sesi Konsultasi Online",
     category: "BNJ Digital Labs",
     date: "6 Agustus 2026",
-    img: photo(3),
+    photos: [photo(3)],
   },
   {
     id: "art-3",
@@ -87,7 +89,7 @@ export const ARTICLES: Article[] = [
     title: "ECA Aspire Gelar Summer Camp Perdana Bersama Sampoerna Academy",
     category: "ECA Aspire",
     date: "2 Agustus 2026",
-    img: photo(4),
+    photos: [photo(4)],
   },
   {
     id: "art-4",
@@ -95,7 +97,7 @@ export const ARTICLES: Article[] = [
     title: "BNJ Investment Ventures Umumkan Roadmap Tahap 2 Konsorsium",
     category: "BNJ Investment Ventures",
     date: "28 Juli 2026",
-    img: photo(5),
+    photos: [photo(5)],
   },
   {
     id: "art-5",
@@ -103,7 +105,7 @@ export const ARTICLES: Article[] = [
     title: "EFM Jalin Kerja Sama Baru dengan 3 Klien Korporat",
     category: "Essential Fitness Management",
     date: "22 Juli 2026",
-    img: photo(6),
+    photos: [photo(6)],
   },
   {
     id: "art-6",
@@ -111,7 +113,7 @@ export const ARTICLES: Article[] = [
     title: "ECA School Advanced Program Catat Peningkatan Peserta 40%",
     category: "ECA Aspire",
     date: "15 Juli 2026",
-    img: photo(7),
+    photos: [photo(7)],
   },
   {
     id: "art-7",
@@ -119,7 +121,7 @@ export const ARTICLES: Article[] = [
     title: "BNJ Digital Labs Perkuat Jaringan Expert Multi-Disiplin",
     category: "BNJ Digital Labs",
     date: "9 Juli 2026",
-    img: photo(8),
+    photos: [photo(8)],
   },
   {
     id: "art-8",
@@ -127,7 +129,7 @@ export const ARTICLES: Article[] = [
     title: "CV Bugar Nusantara Jaya Rayakan Tiga Tahun Berbadan Hukum",
     category: "BNJ Investment Ventures",
     date: "1 Juli 2026",
-    img: photo(2),
+    photos: [photo(2)],
   },
 ];
 
@@ -143,7 +145,8 @@ export type RelatedArticle = {
   slug: string;
   title: string;
   category: string;
-  img: string;
+  // photos[0] = cover kartu Artikel Terkait (array demi konsistensi tipe foto).
+  photos: string[];
 };
 
 export type ArticleDetail = {
@@ -151,7 +154,10 @@ export type ArticleDetail = {
   title: string;
   category: ArticleCategory;
   date: string;
-  coverImg: string;
+  // Foto artikel: array maks 4. photos[0] = cover. Jika photos.length > 1,
+  // cover di Detail Artikel dirender sebagai carousel (crossfade + dots +
+  // panah), jika 1 foto tetap statis.
+  photos: string[];
   coverCaption: string;
   // Body: paragraf berurutan. Paragraf ke-3 (index 2) adalah kutipan langsung.
   paragraphs: string[];
@@ -165,9 +171,10 @@ const ARTICLE_DETAILS: Record<string, ArticleDetail> = {
     title: "EFM Perluas Layanan Wellness Korporat ke 5 Kota Baru",
     category: "Essential Fitness Management",
     date: "10 Agustus 2026",
-    // PLACEHOLDER SEMENTARA: foto generik bnj-photo-4.webp (beda dari foto slot
-    // Sorotan/Daftar Artikel index), ganti ke foto EFM asli saat foto final ada.
-    coverImg: photo(4),
+    // PLACEHOLDER SEMENTARA: foto generik. photos[0] = cover (bnj-photo-4, beda
+    // dari foto slot Sorotan/Daftar Artikel index); slot 2-4 diisi variasi
+    // berbeda untuk menguji carousel (>1 foto). Ganti ke foto EFM asli nanti.
+    photos: [photo(4), photo(1), photo(6), photo(8)],
     coverCaption: "Foto: Dok. BNJ",
     // Teks PERSIS dari hasil final Claude Design (Detail Artikel Berita.dc.html).
     paragraphs: [
@@ -184,20 +191,20 @@ const ARTICLE_DETAILS: Record<string, ArticleDetail> = {
         slug: "efm-jalin-kerja-sama-baru-3-klien-korporat",
         title: "EFM Jalin Kerja Sama Baru dengan 3 Klien Korporat",
         category: "Essential Fitness Management",
-        img: photo(6),
+        photos: [photo(6)],
       },
       {
         slug: "efm-raih-penghargaan-wellness-provider-terbaik",
         title:
           "EFM Raih Penghargaan Wellness Provider Terbaik Tiga Tahun Berturut-turut",
         category: "Essential Fitness Management",
-        img: photo(1),
+        photos: [photo(1)],
       },
       {
         slug: "efm-perkuat-tim-personal-trainer-bersertifikat",
         title: "EFM Perkuat Tim Personal Trainer Bersertifikat Internasional",
         category: "Essential Fitness Management",
-        img: photo(8),
+        photos: [photo(8)],
       },
     ],
   },

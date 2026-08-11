@@ -25,8 +25,6 @@ export const CATEGORIES = [
 export type Category = (typeof CATEGORIES)[number];
 export type ArticleCategory = Exclude<Category, "Semua">;
 
-export const PAGE_SIZE = 6;
-
 // Slug kategori untuk deep-link filter dari breadcrumb Detail Artikel
 // (mis. /berita?kategori=essential-fitness-management memilih tab kategori itu).
 export const CATEGORY_SLUGS: Record<ArticleCategory, string> = {
@@ -141,12 +139,12 @@ export const ARTICLES: Article[] = [
 // belum punya entry di sini -> halaman detail memanggil notFound().
 // Begitu backend Kelola Berita tersedia, ganti map ini ke fetch by slug.
 
-export type RelatedArticle = {
-  slug: string;
+// Referensi sumber (opsional) — jurnal/artikel eksternal untuk artikel bertema
+// kesehatan/fitness. Kalau tidak ada, section Referensi tidak dirender.
+export type ArticleReference = {
   title: string;
-  category: string;
-  // photos[0] = cover kartu Artikel Terkait (array demi konsistensi tipe foto).
-  photos: string[];
+  source: string;
+  url?: string;
 };
 
 export type ArticleDetail = {
@@ -162,7 +160,9 @@ export type ArticleDetail = {
   // Body: paragraf berurutan. Paragraf ke-3 (index 2) adalah kutipan langsung.
   paragraphs: string[];
   tags: string[];
-  related: RelatedArticle[];
+  // Sidebar "Artikel Terkait" TIDAK lagi dari sini — dihitung dari ARTICLES
+  // (kategori sama, exclude current) di page.tsx. Field `related` lama dihapus.
+  references?: ArticleReference[];
 };
 
 const ARTICLE_DETAILS: Record<string, ArticleDetail> = {
@@ -184,27 +184,27 @@ const ARTICLE_DETAILS: Record<string, ArticleDetail> = {
       "Dengan penambahan lima kota ini, EFM kini melayani klien korporat di sembilan kota di Indonesia, memperkuat posisinya sebagai penyedia layanan wellness korporat dengan jangkauan operasional terluas di bawah payung CV Bugar Nusantara Jaya.",
     ],
     tags: ["EFM", "Wellness Korporat", "Ekspansi Layanan"],
-    // Related PERSIS dari reference (kategori sama, artikel berbeda dari yang
-    // sedang dibaca). PLACEHOLDER foto sementara.
-    related: [
+    // PLACEHOLDER SEMENTARA: 3 referensi contoh (url example.com, jelas dummy)
+    // untuk mengisi section Referensi di fase dummy — konsisten dengan seluruh
+    // konten Berita lain yang masih placeholder. Ganti dengan sumber/jurnal asli
+    // saat artikel kesehatan/fitness sungguhan tersedia dari backend.
+    references: [
       {
-        slug: "efm-jalin-kerja-sama-baru-3-klien-korporat",
-        title: "EFM Jalin Kerja Sama Baru dengan 3 Klien Korporat",
-        category: "Essential Fitness Management",
-        photos: [photo(6)],
-      },
-      {
-        slug: "efm-raih-penghargaan-wellness-provider-terbaik",
         title:
-          "EFM Raih Penghargaan Wellness Provider Terbaik Tiga Tahun Berturut-turut",
-        category: "Essential Fitness Management",
-        photos: [photo(1)],
+          "Efektivitas Program Wellness Berbasis Tempat Kerja terhadap Produktivitas Karyawan",
+        source: "Jurnal Kesehatan Kerja Indonesia, Vol. 12 No. 2 (2025)",
+        url: "https://example.com/jurnal-wellness-korporat",
       },
       {
-        slug: "efm-perkuat-tim-personal-trainer-bersertifikat",
-        title: "EFM Perkuat Tim Personal Trainer Bersertifikat Internasional",
-        category: "Essential Fitness Management",
-        photos: [photo(8)],
+        title:
+          "Dampak Aktivitas Fisik Terstruktur pada Kesehatan Karyawan Korporat",
+        source: "Indonesian Journal of Occupational Health, 2024",
+        url: "https://example.com/aktivitas-fisik-korporat",
+      },
+      {
+        title:
+          "Pedoman Penyelenggaraan Kebugaran Karyawan di Lingkungan Kerja",
+        source: "Kementerian Kesehatan RI (2023)",
       },
     ],
   },

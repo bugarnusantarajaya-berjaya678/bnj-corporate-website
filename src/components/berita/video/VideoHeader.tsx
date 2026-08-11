@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import Breadcrumb from "@/components/berita/Breadcrumb";
 
 // PAGE HEADER (§0) halaman /berita/video — background putih polos, tanpa Hero
 // foto. Eyebrow "INSIDE BNJ" memakai token bersama .bnj-eyebrow (font-semibold/600,
@@ -17,7 +18,12 @@ export default function VideoHeader() {
     <section className="w-full bg-white pt-[clamp(56px,7vw,96px)] pb-[clamp(32px,4vw,40px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <p className="bnj-eyebrow">Inside BNJ</p>
+          {/* Breadcrumb (di bawah Navbar, di atas Page Header) — komponen bersama,
+              sejajar pola Detail Artikel. "Video" = current page, tidak clickable. */}
+          <Breadcrumb
+            items={[{ label: "Berita", href: "/berita" }, { label: "Video" }]}
+          />
+          <p className="bnj-eyebrow mt-5">Inside BNJ</p>
           <h1 className="mt-4 text-[clamp(27px,3.4vw,42px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
             Video BNJ
           </h1>

@@ -19,6 +19,7 @@ export const CATEGORIES = [
   "BNJ Digital Labs",
   "ECA Aspire",
   "BNJ Investment Ventures",
+  "Brand Incubation",
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
@@ -33,6 +34,7 @@ export const CATEGORY_SLUGS: Record<ArticleCategory, string> = {
   "BNJ Digital Labs": "bnj-digital-labs",
   "ECA Aspire": "eca-aspire",
   "BNJ Investment Ventures": "bnj-investment-ventures",
+  "Brand Incubation": "brand-incubation",
 };
 
 // Kebalikan CATEGORY_SLUGS: slug -> nama kategori (dipakai BeritaFeed untuk

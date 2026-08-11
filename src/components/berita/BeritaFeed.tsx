@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import ArticleCard from "./ArticleCard";
+import EmptyCategoryState from "./EmptyCategoryState";
 import {
   ARTICLES,
   CATEGORIES,
@@ -70,23 +71,31 @@ export default function BeritaFeed() {
           })}
         </div>
 
-        {/* Daftar artikel vertikal — kartu horizontal bersama (ArticleCard),
-            border tipis atas per kartu, tanpa shadow. Setiap kartu clickable
-            ke halaman detail /berita/[slug]. */}
-        <div className="flex flex-col">
-          {visible.map((art) => (
-            <ArticleCard
-              key={art.id}
-              href={`/berita/${art.slug}`}
-              img={art.img}
-              category={art.category}
-              title={art.title}
-              date={art.date}
-            />
-          ))}
-          {/* Garis penutup daftar (border bawah kartu terakhir) */}
-          <div className="border-t border-[#e5e5e5]" />
-        </div>
+        {/* Tab kategori tanpa artikel (fase dummy, mis. Brand Incubation) ->
+            empty-state FLAT (bukan §11 Coming Soon blur/lock). */}
+        {filtered.length === 0 ? (
+          <EmptyCategoryState message="Dokumentasi Brand Incubation sedang dibangun." />
+        ) : (
+          <>
+            {/* Daftar artikel vertikal — kartu horizontal bersama (ArticleCard),
+                border tipis atas per kartu, tanpa shadow. Setiap kartu clickable
+                ke halaman detail /berita/[slug]. */}
+            <div className="flex flex-col">
+              {visible.map((art) => (
+                <ArticleCard
+                  key={art.id}
+                  href={`/berita/${art.slug}`}
+                  img={art.img}
+                  category={art.category}
+                  title={art.title}
+                  date={art.date}
+                />
+              ))}
+              {/* Garis penutup daftar (border bawah kartu terakhir) */}
+              <div className="border-t border-[#e5e5e5]" />
+            </div>
+          </>
+        )}
 
         {hasMore && (
           <Reveal className="mt-7 text-center">

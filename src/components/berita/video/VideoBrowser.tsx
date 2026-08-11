@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import EmptyCategoryState from "@/components/berita/EmptyCategoryState";
 
 // BROWSER VIDEO (client) — Filter kategori + Player kiri + Sidebar kanan.
 // Data DUMMY statis di komponen (fase dummy). Backend "Kelola Video" menyusul
@@ -19,6 +20,7 @@ const CATEGORIES = [
   "BNJ Digital Labs",
   "ECA Aspire",
   "BNJ Investment Ventures",
+  "Brand Incubation",
 ] as const;
 
 type Filter = (typeof CATEGORIES)[number];
@@ -211,6 +213,13 @@ export default function VideoBrowser() {
 
       {/* ===== PLAYER + SIDEBAR ===== */}
       <section className="w-full bg-white pb-[clamp(64px,8vw,110px)]">
+        {filtered.length === 0 ? (
+          // Tab kategori tanpa video (fase dummy, mis. Brand Incubation) ->
+          // empty-state FLAT (bukan §11 Coming Soon blur/lock).
+          <div className="mx-auto max-w-7xl px-6 lg:px-12">
+            <EmptyCategoryState message="Dokumentasi video Brand Incubation sedang dibangun." />
+          </div>
+        ) : (
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 lg:px-12 md:grid-cols-[65%_35%] md:items-stretch">
           {/* --- Player kiri --- */}
           <div>
@@ -362,6 +371,7 @@ export default function VideoBrowser() {
             </div>
           </div>
         </div>
+        )}
       </section>
     </>
   );

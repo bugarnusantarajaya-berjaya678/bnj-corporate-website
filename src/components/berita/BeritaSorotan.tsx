@@ -10,14 +10,15 @@ export default function BeritaSorotan() {
   return (
     <section className="w-full bg-white pb-[clamp(64px,8vw,110px)]">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <Reveal>
-          {/* Foto Sorotan rasio ~2:1 (proporsi terinspirasi detiknews — lebih
-              seimbang dari rasio pendek-lebar lama, tapi tidak setinggi 16:9).
-              Lebar tetap penuh (max-w-7xl). Gradient scrim + badge + teks overlay
-              tidak berubah mekanismenya. */}
+        {/* Container Sorotan dibatasi ~68% lebar konten standar di desktop/tablet,
+            LEFT-aligned (md:mr-auto → margin-left 0) supaya tepi kirinya sejajar
+            persis dengan tepi kiri card Daftar Artikel di bawah (container +
+            padding sama). Ruang kosong ada di sisi KANAN. Mobile (<768px): ~100%
+            (w-full). Rasio foto tidak berubah; gradient scrim + badge + teks tetap. */}
+        <Reveal className="w-full md:mr-auto md:max-w-[68%]">
           <Link
             href={`/berita/${SOROTAN.slug}`}
-            className="group relative block aspect-[2/1] overflow-hidden rounded-[14px]"
+            className="group relative block aspect-[3/2] overflow-hidden rounded-[14px] md:aspect-[2/1]"
           >
             {/* PLACEHOLDER SEMENTARA: ganti ke foto kategori sesuai (EFM) saat foto final tersedia */}
             <Image

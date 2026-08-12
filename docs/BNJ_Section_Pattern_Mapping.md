@@ -10,16 +10,17 @@ Blok pembuka untuk halaman index/utility yang **tidak** punya foto Hero full-ble
 
 **Kapan dipakai:**
 
-- Halaman index/utility tanpa foto Hero: **Kontak**, **Berita**, dan halaman serupa ke depan (mis. **Karir** kalau memang tidak memakai foto Hero).
+- Halaman index/utility tanpa foto Hero: **Kontak**, **Berita**, **Video** (`/berita/video`), dan halaman serupa ke depan (mis. **Karir** kalau memang tidak memakai foto Hero).
 - **Bukan** untuk halaman pilar/sub-halaman yang sudah punya Hero foto sendiri (EFM, Digital Labs, dst) — itu tetap pakai Hero §1 + Section Heading H2 di dalamnya.
 
 **Struktur:**
 
-- **Eyebrow**: label kategori kecil uppercase, memakai **token yang sama persis dengan Label Kategori — on white** (12px, SemiBold, uppercase, letter-spacing +0.05em, warna Corporate Blue `#03428E`). Jangan di-restyle manual berbeda per halaman — pakai token/kelas bersama (`.bnj-eyebrow`) supaya identik dengan eyebrow section di halaman lain.
+- **Eyebrow**: label kategori kecil uppercase, memakai **token yang sama persis dengan Label Kategori — on white** (12px, SemiBold, uppercase, letter-spacing +0.05em, warna Corporate Blue `#03428E`). Jangan di-restyle manual berbeda per halaman — pakai token/kelas bersama (`.bnj-eyebrow`) supaya identik dengan eyebrow section di halaman lain. **Untuk pemilihan KATA eyebrow (bukan styling-nya), wajib ikuti §Eyebrow Label — Aturan Penulisan.**
 - **H1** (BUKAN H2): karena Page Header inilah yang menggantikan fungsi Hero sebagai judul utama halaman, head-nya adalah H1 dengan skala standar `clamp(27px, 3.4vw, 42px)` Bold (skala H1 di `BNJ_Typography_Standard.md`), bukan skala komposisi Hero (tanpa foto).
 - **Subcopy**: 1 kalimat pendukung (body 15-16px), maksimal 1 baris kalimat.
 - **Background**: putih polos (`#ffffff`).
 - **Navbar**: solid putih dari awal (bukan transparan/overlay) — karena tidak ada foto Hero gelap di belakang navbar. Overlay transparan direservasi untuk halaman Flagship yang punya Hero foto (Home, Tentang Kami).
+- **Breadcrumb** (opsional, kalau halaman ini punya induk jelas, mis. Video anak dari Berita): lihat §15, posisi di ATAS Page Header ini (antara Navbar dan eyebrow), BUKAN bagian dari Page Header itu sendiri.
 
 **Beda dengan Section Heading:** Section Heading (judul section DI DALAM halaman yang sudah punya Hero sendiri) selalu pakai **H2** `clamp(26px, 2.6vw, 32px)`, bukan H1. Page Header pakai **H1** justru karena dia berdiri sendiri sebagai pengganti Hero di puncak halaman. Eyebrow-nya memakai token yang sama; yang beda hanya level heading di bawahnya (H1 vs H2).
 
@@ -49,7 +50,7 @@ Contoh: Konsultasi Online, Terapi & Fisioterapi (BNJ Digital Labs); section deta
 
 Contoh: "4 Program Spesialisasi", grid 4-Pilar homepage.
 
-- Label kecil uppercase di atas heading section (mis. "SPESIALISASI LAYANAN") — cukup ini saja sebagai penanda kategori.
+- Label kecil uppercase di atas heading section (mis. "SPESIALISASI LAYANAN") — cukup ini saja sebagai penanda kategori. **Pemilihan kata eyebrow mengikuti §Eyebrow Label — Aturan Penulisan.**
 - **Tidak pakai** garis vertikal hijau di section ini — fungsinya sudah digantikan oleh grid card itu sendiri.
 - Card: flat fill, border tipis atau single top-accent, tanpa drop shadow (sesuai Design Playbook).
 - **Exception khusus Home:** card di grid "4 Pilar Bisnis" boleh dapat drop shadow **saat hover saja** (bukan permanen/idle state) — treatment interaktif khusus Home, lihat catatan di §1.
@@ -94,6 +95,68 @@ Spec resmi tunggal untuk icon yang merepresentasikan **unit bisnis, divisi, prog
 
 **Contoh implementasi:** Corporate Growth Roadmap (Tentang Kami, `about/GrowthRoadmap.tsx`) dan Grid 4 Kartu Unit Bisnis (Kontak, `kontak/UnitContactBlock.tsx`).
 
+## 3d. Featured + Sidebar Video (kondisional)
+
+Contoh: halaman Video (`/berita/video`).
+
+**Kapan dipakai:** khusus halaman/section berisi koleksi video yang butuh 1 video utama ditonton + daftar video lain sebagai referensi cepat (pola "up next"), bukan untuk grid konten setara (pakai pola §3 Grid kartu).
+
+**Struktur visual:**
+
+- Kiri: player video Featured, ukuran dominan (≥60% lebar container).
+- Kanan: daftar sidebar scrollable (fixed height, scroll internal jika daftar panjang — implementasi teknis scroll internal ini generic, lihat §3g) — tiap item: thumbnail kecil + badge durasi + judul + waktu relatif.
+- Klik item sidebar → **SWAP**: video tersebut pindah jadi Featured kiri, player langsung autoplay. Sidebar tidak expand di tempat.
+- Filter kategori di atas section (jika ada) berlaku **global** — Featured dan Sidebar dua-duanya ikut ter-filter.
+- Video default saat halaman pertama dimuat: video terbaru/paling relevan (setara "pinned", mirip pola Sorotan §3e di Berita), bukan acak.
+- Mobile: Featured stack di atas (full-width), Sidebar jadi horizontal scroll di bawahnya (bukan vertical stack panjang).
+- Thumbnail video: kalau `youtubeId` sudah terisi, ambil otomatis dari `https://i.ytimg.com/vi/{youtubeId}/hqdefault.jpg` (WAJIB `hqdefault`, bukan `maxresdefault` — tidak semua video punya resolusi itu, `hqdefault` selalu tersedia). Domain `i.ytimg.com` wajib di-allowlist di `next.config` (`images.remotePatterns`). Kalau `youtubeId` masih kosong/null, fallback ke foto placeholder statis.
+
+## 3e. Sorotan — Featured Content Card (kondisional)
+
+Contoh: card "Sorotan" di halaman Berita index (`/berita`).
+
+**Kapan dipakai:** untuk highlight 1 konten pinned/terbaru paling penting di atas grid/list konten sejenis (artikel, dst) — elemen berdiri sendiri, bukan bagian dari grid biasa.
+
+**Struktur visual:**
+
+- Lebar container ~68% dari max-width standar halaman di desktop/tablet (≥768px), **LEFT-ALIGNED** (margin-left 0, BUKAN margin-auto kiri-kanan/center) — tepi kirinya WAJIB sejajar dengan tepi kiri konten di bawahnya (filter tab, list card §3f). Sisa ruang kosong ada di sisi KANAN, itu kondisi yang benar.
+- Aspect-ratio foto: ~2:1 di desktop, ~3:2 di mobile — titik tengah yang proporsional. BUKAN rasio pendek-lebar ekstrem (terlalu kecil untuk konten "featured"), dan BUKAN 16:9 penuh (terlalu tinggi/dominan untuk konteks index, pernah dicoba dan gagal).
+- Mobile (<768px): lebar kembali 100% viewport (dengan padding standar halaman) — pembatasan 68% khusus desktop/tablet.
+- Badge kategori pill kecil (mis. "Sorotan", Growth Green) di pojok kiri-atas foto.
+- Overlay teks (kategori + headline + tanggal) di pojok kiri-bawah foto, WAJIB duduk di atas **gradient scrim** (linear-gradient dari Corporate Blue opacity tinggi di dasar foto, fade ke transparan naik ke atas) — **BUKAN** kotak/box terpisah dengan background sendiri. Box terpisah pernah jadi bug nyata (teks tertutup, sulit terbaca) — gradient scrim langsung di atas foto adalah pola yang benar dan terverifikasi.
+- Rounded corner normal di keempat sudut.
+
+## 3f. ArticleCard — Kartu Konten Horizontal (list & referensi)
+
+Contoh: Daftar Artikel (index Berita), Artikel Terkait (sidebar Detail Artikel), Artikel Lainnya (Detail Artikel).
+
+**Struktur standar (varian dengan foto):**
+
+- Layout horizontal: thumbnail kiri + teks kanan (kategori pill + judul + tanggal).
+- Ukuran thumbnail: **160×120px (4:3) di desktop, 100×75px (4:3) di mobile** — landscape, BUKAN persegi 1:1 (versi lama persegi kecil terbukti timpang secara visual dibanding elemen lain di halaman).
+- 1 komponen React dipakai ulang PERSIS di semua tempat (Daftar Artikel index, Artikel Terkait, Artikel Lainnya) — JANGAN buat varian ukuran/style berbeda per tempat pemakaian.
+
+**Varian text-only (tanpa thumbnail):**
+
+- Dipakai KHUSUS saat ruang horizontal sempit (mis. sidebar "Artikel Terkait" di halaman Detail Artikel yang berdampingan dengan kolom body, lihat §17) — thumbnail dihapus sepenuhnya, tampilkan kategori pill + judul + tanggal saja.
+- Antar-item dipisah hairline tipis netral (abu-abu, 1px), padding vertikal dilebarkan (~14-16px) untuk kompensasi hilangnya elemen visual foto, supaya tetap terasa lega bukan padat.
+- Ini exception yang disengaja untuk konteks sidebar sempit — BUKAN pengganti varian foto standar di tempat lain manapun.
+
+## 3g. Cap + Akordion + Scroll Internal (List Panjang)
+
+Contoh: Sidebar Video §3d (`/berita/video`), Sidebar "Artikel Terkait" (varian text-only §3f, Detail Artikel), "Artikel Lainnya" (Detail Artikel), Daftar Artikel index Berita.
+
+**Kapan dipakai:** untuk list/grid konten yang berpotensi sangat panjang (bisa puluhan item) dan perlu dibatasi secara default supaya halaman tidak memanjang tak terkendali secara vertikal, tapi tetap bisa dijelajah penuh tanpa reload/pindah halaman/pagination bernomor.
+
+**Mekanisme (wajib sama persis di semua tempat pemakaian):**
+
+1. Tampilkan cap awal **5 item** (collapsed state). Kalau total item hasil filter ≤ 5, TIDAK ada tombol/akordion sama sekali — jangan tampilkan tombol kosong/palsu yang tidak berfungsi.
+2. Kalau total item > 5, tampilkan tombol "Muat Lebih Banyak" di bawah item ke-5.
+3. Klik tombol → **EXPAND**: container masuk mode scroll internal dengan max-height TETAP (bukan memanjang tanpa batas ke bawah halaman), `overflow-y: auto`, scrollbar tipis netral. Tinggi container boleh berbeda nilai per konteks pemakaian (tergantung tinggi rata-rata 1 item), target umum ~600-820px. Tombol berubah label jadi "Tampilkan Lebih Sedikit" untuk collapse balik, chevron icon rotate 180° via CSS transform (BUKAN swap dua icon berbeda).
+4. **Implementasi teknis wajib**: gunakan `position: absolute; inset: 0` di dalam wrapper `position: relative` dengan tinggi tetap untuk container scroll saat expanded. **JANGAN pakai `flex-1`** — terbukti gagal: `flex-1` dengan `align-items: stretch` justru menumbuhkan tinggi parent mengikuti konten yang melebihi, bukan membatasi dengan scroll internal.
+5. **Reset saat filter/kategori berganti**: kalau list ini berada di bawah filter tab kategori, state WAJIB reset ke collapsed setiap kali tab berganti — jangan mempertahankan state expanded dari kategori sebelumnya (bisa membingungkan kalau kategori baru totalnya di bawah cap).
+6. **Parity mobile-desktop**: mekanisme cap+akordion+scroll ini WAJIB identik perilakunya di semua breakpoint (nilai tinggi container boleh beda per breakpoint, tapi logic cap/expand/scroll harus sama-sama berfungsi) — verifikasi eksplisit di kedua ukuran layar, jangan diasumsikan otomatis sama karena struktur HTML-nya sama.
+
 ## 4. Roadmap / Timeline (kondisional — lihat kriteria di bawah)
 
 Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Acceleration, Strategic Educational Alliance, BNJ Digital Labs.
@@ -107,7 +170,7 @@ Contoh: section "Roadmap Pengembangan" di Brand Incubation & Business Accelerati
 **Struktur visual (varian default — background putih):**
 
 - TANPA divider garis di atas section (aturan lama "divider tri-warna tipis di atas" sudah dicabut — lihat §Divider & Pemisahan Section revisi 2026-08-08). Pisahkan dari section sebelumnya dengan whitespace + alternating tone.
-- Label kategori uppercase kecil (eyebrow): tidak lagi pakai teks tetap "ROADMAP PENGEMBANGAN" di semua halaman — pilih kata sesuai konteks section (mis. "ARAH PENGEMBANGAN", "ARAH INVESTASI"), maksimal 2 kata, dan hindari mengulang kata kunci yang sudah dipakai di heading besar di bawahnya. Penentuan kata final dilakukan langsung saat editing di Claude Design, fleksibel per halaman.
+- Label kategori uppercase kecil (eyebrow): pemilihan kata **wajib mengikuti §Eyebrow Label — Aturan Penulisan** — jangan pakai teks tetap "ROADMAP PENGEMBANGAN" sebagai default generik di semua halaman.
 - Garis penghubung horizontal antar-titik: MENERUS dari titik pertama sampai titik terakhir (bukan cuma sebagian) — segmen status "sedang berjalan" berwarna Growth Green, segmen "rencana lanjutan" berwarna abu-abu netral solid.
 
 **Varian container solid Corporate Blue (dipakai kalau butuh penekanan visual lebih kuat):**
@@ -215,10 +278,10 @@ Berlaku untuk SEMUA section Stat Card Overlay Photo (§7) ke depan:
 ## 8. CTA penutup (section terakhir sebelum Footer)
 
 - Background: solid Corporate Blue — ini adalah satu-satunya exception resmi untuk background solid penuh warna (selain Footer dan varian solid-blue Roadmap §4).
-- Garis vertikal tebal 5px Growth Green di sisi teks, + label kategori uppercase kecil di atasnya.
+- Garis vertikal tebal 5px Growth Green di sisi teks, + label kategori uppercase kecil di atasnya. **Pemilihan kata eyebrow mengikuti §Eyebrow Label — Aturan Penulisan.**
 - Dua tombol: primary (fill putih, teks Corporate Blue) + secondary (outline putih transparan).
 - Elemen dekoratif opsional: grafik line-art tipis, opacity sangat rendah (~8%), di sudut kosong — bukan pengisi paksa.
-- Divider di atas section: ini adalah salah satu dari 2 titik bookend yang BOLEH pakai tri-warna (transisi putih → biru). Flagship tier (Home, Tentang Kami) pakai wave bookend mirror Hero; pillar tier boleh garis/wave tri-warna. Lihat §Divider & Pemisahan Section revisi 2026-08-08.
+- Divider di atas section: ini adalah salah satu dari 2 titik bookend yang BOLEH pakai tri-warna (transisi putih → biru). Flagship tier (Home, Tentang Kami, Berita — WAJIB via komponen bersama `src/components/ClosingCta.tsx`, markup identik di semua halaman flagship, JANGAN implementasi ulang manual) pakai wave bookend mirror Hero; pillar tier (EFM, Digital Labs, ECA Aspire, Investment Ventures, Brand Incubation — file lokal per halaman) boleh garis/wave tri-warna. Lihat §Divider & Pemisahan Section revisi 2026-08-08.
 
 ## 9. Footer
 
@@ -239,7 +302,7 @@ Contoh: section "4 Fitur Utama Tersedia" dan "2 Keunggulan Utama" di sub-section
 **Kapan dipakai:**
 
 - HANYA untuk section di halaman BNJ Digital Labs yang isinya konsep/fitur produk digital yang belum diluncurkan resmi dan sengaja belum dibuka detailnya ke publik untuk alasan proteksi ide/kompetitif.
-- **Jangan dipakai di halaman lain** tanpa konfirmasi eksplisit dari Bagoes — ini bukan pola default untuk semua "section masa depan/2027-2028" di seluruh website (bandingkan dengan Badge Row §5 dan Roadmap §4 yang tetap terbuka penuh, cuma beda pola visual, bukan disembunyikan).
+- **Jangan dipakai di halaman lain** tanpa konfirmasi eksplisit dari Bagoes — ini bukan pola default untuk semua "section masa depan/2027-2028" di seluruh website (bandingkan dengan Badge Row §5 dan Roadmap §4 yang tetap terbuka penuh, cuma beda pola visual, bukan disembunyikan). Untuk kategori/tab yang belum punya konten sama sekali (mis. tab "Brand Incubation" di filter Video/Berita/Portofolio sebelum ada dokumentasi nyata), pakai **empty-state flat sederhana** (ikon + 1 kalimat, TANPA blur/lock) — BUKAN pola Coming Soon ini.
 - Timeline/badge terkait tetap pakai angka tahun yang jujur (mis. "2026-2027") — yang disamarkan adalah detail konsep/fitur, bukan status aktif-tidaknya inisiatif.
 
 **Struktur visual:**
@@ -299,28 +362,73 @@ Contoh: section "Struktur Kepemimpinan" di halaman Tentang Kami.
 - Icon chevron rotate 180° (down↔up) mengikuti state buka/tutup (CSS transform, bukan swap dua icon berbeda).
 - Di Claude Design, cukup buat 2 frame referensi (kondisi tertutup + 1 contoh kondisi terbuka) sebagai acuan visual — logic interaktif sungguhan baru dibangun saat handoff Claude Code.
 
+## 15. Breadcrumb (halaman dengan hierarki > 1 level)
+
+Contoh: halaman Video (`/berita/video`), Detail Artikel (`/berita/[slug]`).
+
+**Kapan dipakai:** untuk halaman yang punya "halaman induk" jelas (bukan halaman top-level navbar) — supaya ada jalan cepat kembali tanpa mengandalkan tombol back browser.
+
+**Struktur:**
+
+- Posisi: tepat di bawah Navbar, DI ATAS Page Header §0 (eyebrow+H1) atau Hero halaman tersebut.
+- Format: "[Induk]" (Corporate Blue, clickable) → separator "/" → "[Halaman saat ini]" (abu-gelap, TIDAK clickable — dia bukan link ke dirinya sendiri).
+- Untuk kasus crumb kedua adalah FILTER kategori (bukan halaman final, mis. breadcrumb dari sebuah kartu artikel berkategori tertentu menuju index dengan kategori ter-preselect via `?kategori=...`) — crumb kedua BOLEH clickable. Beda dari kasus Video/Detail Artikel yang crumb kedua memang halaman final, tidak clickable.
+- 1 komponen bersama dipakai di semua halaman yang butuh breadcrumb (`Breadcrumb.tsx`, props array of `{label, href?}`) — JANGAN implementasi manual berulang per halaman.
+
+## 16. Referensi Sumber (opsional, khusus konten artikel)
+
+Contoh: section "Referensi" di halaman Detail Artikel (`/berita/[slug]`), untuk artikel bertema kesehatan/fitness yang merujuk jurnal/sumber eksternal.
+
+**Kapan dipakai:**
+
+- OPSIONAL per artikel, dikontrol lewat toggle ON/OFF eksplisit di form admin (lihat spec BNJ Admin System). Kalau di-OFF (mis. berita kegiatan rutin tanpa rujukan eksternal), section ini TIDAK ditampilkan sama sekali di halaman publik — bukan ditampilkan kosong/heading tanpa isi.
+- Posisi: di dalam kolom konten utama, setelah tag topik artikel, sebelum divider penutup blok konten utama (lihat §17 untuk konteks layout di sekitarnya).
+
+**Struktur:**
+
+- Label kecil uppercase "Referensi" (token sama dengan eyebrow section lain).
+- List bernomor. Tiap entri: judul/deskripsi singkat + nama sumber (italic, abu-abu). Kalau ada url, judul jadi link Corporate Blue (`target="_blank" rel="noopener"`, underline on hover); kalau tidak ada url, teks biasa (tidak clickable).
+
+## 17. Layout 2-Kolom Konten + Sidebar Independent-Height
+
+Contoh: halaman Detail Artikel (`/berita/[slug]`) — kolom body+foto (kiri) berdampingan dengan sidebar "Artikel Terkait" (kanan, kombinasi §3f varian text-only + §3g cap-akordion-scroll).
+
+**Kapan dipakai:** saat 1 kolom (biasanya sidebar pendukung) berpotensi jadi LEBIH TINGGI dari kolom utama (karena isinya bisa panjang/expand), dan kita TIDAK mau tinggi kolom utama "menunggu" sidebar selesai — efek gap kosong besar yang muncul kalau pakai CSS grid 2-kolom biasa (tinggi row grid = tinggi kolom tertinggi).
+
+**Struktur teknis:**
+
+- Wrapper `position: relative` membungkus kedua kolom. Kolom UTAMA (kiri) tetap normal block flow, max-width tetap (mis. 760px) — tinggi WRAPPER ditentukan MURNI oleh kolom ini.
+- Kolom SIDEBAR (kanan) di-set `position: absolute; top: 0; right: 0` di breakpoint desktop/tablet (≥768px) — sehingga TIDAK ikut menentukan tinggi wrapper, tapi tetap top-align secara visual dengan bagian atas kolom utama.
+- Efek samping yang wajar (BUKAN bug): kalau sidebar (terutama saat expanded via §3g) lebih tinggi dari kolom utama, sidebar boleh "menjorok" sedikit melewati batas bawah kolom utama — ini diterima (lebih baik dari gap kosong besar), tapi berikan jarak aman/`z-index` supaya tidak overlap dengan konten section berikutnya.
+- Mobile (<768px): sidebar kembali `position: static` (stack normal di bawah kolom utama), TIDAK absolute.
+- Section/konten SETELAH wrapper ini (mis. §16 Referensi kalau ada, atau section "Artikel Lainnya") otomatis mulai tepat setelah kolom utama selesai, bukan menunggu sidebar — inilah tujuan utama teknik ini.
+
 ---
 
 ## Aturan lintas-section (berlaku di semua tipe di atas)
 
 - Background solid warna penuh (biru/hijau) **hanya boleh** di CTA penutup, Footer, dan varian solid-blue Roadmap (§4/§4a). Section lain tetap putih/netral (lihat alternating tone di §Divider & Pemisahan Section), warna brand jadi aksen tipis saja (garis, icon, border, atau gradient fungsional di dalam kartu foto seperti §14 — bukan background section itu sendiri).
 - Satu section = satu pola. Jangan gabungkan garis vertikal hijau dengan label kategori grid, atau sebaliknya — tiap pola berlaku untuk tipe section yang berbeda supaya tetap punya makna, bukan dekorasi acak.
-- **Pemisahan antar-section: lihat aturan permanen di §Divider & Pemisahan Section (revisi 2026-08-08) di bawah.** Aturan lama "divider antar-section selalu garis tipis tri-warna" sudah TIDAK berlaku.
+- **Pemisahan antar-section: lihat aturan permanen di §Divider & Pemisahan Section (revisi 2026-08-08, dengan exception tambahan 2026-08-12) di bawah.** Aturan lama "divider antar-section selalu garis tipis tri-warna" sudah TIDAK berlaku.
+- **Pemilihan kata eyebrow: lihat aturan permanen di §Eyebrow Label — Aturan Penulisan (revisi 2026-08-11) di bawah.**
+- **List/grid yang berpotensi sangat panjang (banyak item)**: pakai §3g Cap + Akordion + Scroll Internal — JANGAN reinvent pagination bernomor atau infinite-scroll baru per section, ini pola resmi yang sudah dipakai konsisten di 4 tempat berbeda.
 
 ---
 
-## §Divider & Pemisahan Section (REVISI ATURAN PERMANEN — 2026-08-08)
+## §Divider & Pemisahan Section (REVISI ATURAN PERMANEN — 2026-08-08, exception ditambahkan 2026-08-12)
 
 Berlaku untuk SEMUA halaman ke depan (Home, Strategic Educational Alliance, Portofolio, Kontak, dst), menggantikan semua aturan divider tri-warna antar-section yang tersebar di §2, §4, §8, dan aturan lintas-section di atas.
 
 **Divider/garis tri-warna (Corporate Blue → Growth Green → Digital Blue) HANYA boleh muncul di 2 titik per halaman:**
 
-1. **Bawah Hero** — bentuk diagonal tebal (pillar tier) atau wave (Flagship tier: Home, Tentang Kami). Transisi biru → putih.
-2. **Pre-footer, transisi masuk ke CTA penutup** — untuk Flagship tier berupa wave bookend (mirror vertikal dari Hero); untuk pillar tier boleh garis/wave tri-warna. Transisi putih → biru.
+1. **Bawah Hero** — bentuk diagonal tebal (pillar tier) atau wave (Flagship tier: Home, Tentang Kami). Transisi biru → putih. (Halaman Page Header §0 tanpa Hero, seperti Kontak/Berita, tidak punya titik ini.)
+2. **Pre-footer, transisi masuk ke CTA penutup** — untuk Flagship tier (Home, Tentang Kami, Berita) berupa wave bookend via komponen bersama `ClosingCta.tsx`; untuk pillar tier berupa garis horizontal tipis tri-warna. Transisi putih → biru.
 
-**Semua sambungan section di TENGAH halaman TIDAK boleh pakai garis apapun** (bukan garis tipis tri-warna, bukan diagonal pendek, bukan wave). Pemisahan section dibentuk murni dari **whitespace** — vertical rhythm via token spacing (lihat §Spacing di bawah).
+**Semua sambungan section di TENGAH halaman TIDAK boleh pakai garis tri-warna apapun** (bukan garis tipis tri-warna, bukan diagonal pendek, bukan wave). Pemisahan section dibentuk murni dari **whitespace** — vertical rhythm via token spacing (lihat §Spacing di bawah).
 
-**Background section tengah selalu PUTIH POLOS (`#ffffff`).** Keputusan final 2026-08-08: TIDAK ada alternating tone / off-white. Percobaan alternating (`--surface-alt` off-white) sudah dicabut dan token-nya dihapus dari `globals.css` — jangan dihidupkan lagi di halaman manapun. Warna solid HANYA untuk section yang memang didesain biru (Hero, kartu "Bertumbuh dalam Angka", CTA penutup). Whitespace 144px (desktop) sudah cukup sebagai pemisah visual; jangan tambah garis/hairline di sambungan section tengah.
+**Exception (ditambahkan 2026-08-12):** hairline tipis **netral** (abu-abu, mis. `#E5E7EB`, 1px, **BUKAN** tri-warna) diperbolehkan sebagai pembatas antar **BLOK KONTEN yang berbeda fungsi** di dalam 1 halaman Page Header §0 (mis. blok baca utama vs blok jelajah "Artikel Lainnya" di Detail Artikel, atau transisi ke sidebar "Artikel Terkait" saat stack ke mobile). Ini BUKAN pembatas antar-section biasa (yang tetap dilarang pakai garis apapun), jadi tidak melanggar aturan di atas — bedanya ada di FUNGSI transisi (baca → jelajah), bukan sekadar jeda visual antar-section serupa. Lihat §3g dan §17 untuk konteks penerapannya.
+
+**Background section tengah selalu PUTIH POLOS (`#ffffff`).** Keputusan final 2026-08-08: TIDAK ada alternating tone / off-white. Percobaan alternating (`--surface-alt` off-white) sudah dicabut dan token-nya dihapus dari `globals.css` — jangan dihidupkan lagi di halaman manapun. Warna solid HANYA untuk section yang memang didesain biru (Hero, kartu "Bertumbuh dalam Angka", CTA penutup). Whitespace 144px (desktop) sudah cukup sebagai pemisah visual; jangan tambah garis/hairline tri-warna di sambungan section tengah.
 
 Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E → 6AA84F → 0095DA), termasuk versi mirrored (hanya sudut/arah kurva dibalik, urutan warna tetap).
 
@@ -334,6 +442,7 @@ Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E 
 - Background section: **putih polos (`#ffffff`/`bg-white`) untuk SEMUA section tengah**. Tidak ada token surface-alt / alternating tone (sudah dicabut). Warna solid hanya untuk Hero, kartu "Bertumbuh dalam Angka", dan CTA (biru).
 - Spacing internal (eyebrow → heading → body → konten) tetap boleh pakai `--section-header-gap`. Token lama `--section-gap-y` masih ada untuk halaman yang belum diretrofit, tapi halaman baru pakai `--section-py` dkk.
 - Jangan hardcode nilai spacing/warna baru inline per komponen — selalu lewat token.
+- **Hairline netral (§Divider exception 2026-08-12)** pakai margin lebih besar dari `--section-header-gap` biasa (mis. `clamp(56px,8vw,80px)`) di sekitarnya — divider antar-BLOK butuh jarak lebih lega dari divider internal biasa supaya terasa sebagai pemisah fungsi, bukan sekadar spacing standar.
 
 > Catatan retrofit: halaman pilar lama (EFM, Digital Labs, dst) masih memakai garis tri-warna antar-section + skala spacing lama. Menyesuaikannya ke aturan ini adalah pekerjaan retrofit terjadwal terpisah, bukan bagian dari build Home. Untuk halaman BARU, ikuti aturan revisi ini sejak awal.
 
@@ -344,3 +453,22 @@ Urutan warna tri-warna di 2 titik bookend tetap konsisten kiri-ke-kanan (03428E 
 - Panah navigasi (prev/next) SELALU menempel pada elemen konten yang benar-benar berubah saat navigasi terjadi (foto/card/slide) — BUKAN pada strip selector/tab terpisah yang punya jalan pintas klik sendiri.
 - Mobile (<768px): panah navigasi pindah ke BAWAH konten (sejajar horizontal kiri-kanan), bukan di samping kiri-kanan seperti desktop — mencegah panah hilang/terpotong saat ruang horizontal sempit.
 - Contoh penerapan: Corporate Growth Roadmap Carousel (§4a, Tentang Kami), Milestone Carousel (§6 Varian B, Tentang Kami & EFM), Overlay Card Carousel (§14, Tentang Kami).
+- **Carousel foto galeri (maks beberapa foto per item, mis. carousel foto Detail Artikel)**: navigasi manual (klik panah) WAJIB **wrap-around** (di slide terakhir, "next" lompat ke slide pertama, dan sebaliknya) — BEDA dari carousel representasi linimasa (Milestone/Roadmap) yang BOUNDED (disabled di ujung). Alasan: galeri foto tidak punya urutan kronologis yang berarti "berhenti", jadi wrap adalah perilaku yang diharapkan pengguna. Exception: kalau total item cuma 1, sembunyikan navigasi & dot sepenuhnya (tidak relevan untuk 1 slide).
+
+---
+
+## §Eyebrow Label — Aturan Penulisan (REVISI ATURAN PERMANEN — 2026-08-11)
+
+Berlaku untuk SEMUA section yang punya label kecil uppercase di atas heading, di seluruh situs — termasuk §0 Page Header (Kontak, Berita, Video), §3 Grid kartu, §4/§4a Roadmap, dan §8 CTA penutup. Menggantikan pendekatan lama "ditentukan bebas saat editing di Claude Design" yang terbukti menghasilkan duplikasi kata tanpa disadari (kasus: eyebrow "VIDEO" di atas heading "Video BNJ").
+
+**Aturan wajib:**
+
+1. Maksimal 2 kata, singkat dan tegas.
+2. **Dilarang duplikasi kata kunci** dengan heading besar (H1/H2) tepat di bawahnya dalam section yang sama. Contoh pelanggaran: eyebrow "VIDEO" + heading "Video BNJ"; eyebrow "ROADMAP PENGEMBANGAN" + heading yang juga menyebut "Roadmap". Eyebrow harus menambah konteks baru, bukan mengulang kata yang sudah ada di heading.
+3. Pilihan kata berdasarkan sifat section:
+   - Histori/fakta yang sudah terjadi → pola "PERJALANAN [kata kunci]"
+   - Rencana/proyeksi masa depan → "ARAH" atau "VISI"
+   - Program aktif berjalan sekarang → "PROGRAM AKTIF"
+   - Konten dokumenter/behind-the-scenes (mis. halaman Video) → boleh campuran ID/EN asal tetap singkat & tidak kaku, mis. "INSIDE BNJ", "BEHIND THE SCENES", "DI BALIK LAYAR".
+4. Bila dua section berurutan sama-sama bertema "masa depan", boleh eyebrow sama persis ATAU dibedakan tipis sesuai konteks — cek per kasus, bukan aturan kaku.
+5. Nama brand ("BNJ", "EFM", dll.) TIDAK dihitung sebagai kata kunci terlarang untuk aturan poin 2 — boleh muncul di eyebrow maupun heading sekaligus, karena berfungsi sebagai identitas, bukan deskripsi konten yang bisa redundan.

@@ -1,24 +1,31 @@
 import type { Metadata } from "next";
+import Hero from "@/components/portofolio/Hero";
+import IntroBanner from "@/components/portofolio/IntroBanner";
+import FilterContent from "@/components/portofolio/FilterContent";
+import CompanyProfile from "@/components/portofolio/CompanyProfile";
+import VideoTerbaru from "@/components/portofolio/VideoTerbaru";
+import ClosingCta from "@/components/ClosingCta";
 
 export const metadata: Metadata = {
-  title: "Klien & Mitra | CV Bugar Nusantara Jaya",
+  title: "Portofolio & Klien | CV Bugar Nusantara Jaya",
   description:
-    "Halaman portofolio klien dan mitra CV Bugar Nusantara Jaya sedang dalam pengembangan.",
+    "Rekam jejak dokumentasi lima ekosistem bisnis BNJ: Essential Fitness Management, BNJ Digital Labs, Brand Incubation, BNJ Investment Ventures, dan ECA Aspire.",
 };
 
+// /portofolio — halaman hub (tier Flagship, sama seperti Home/Tentang
+// Kami/Berita) sehingga CTA penutup WAJIB reuse ClosingCta bersama, bukan
+// implementasi lokal (lihat CLAUDE.md "CTA Flagship tier"). Halaman ini
+// tidak pakai Page Header §0 terpisah — Hero "Rekam Jejak BNJ" langsung
+// berperan sebagai H1 utama.
 export default function PortofolioPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-white px-6 py-24 text-center">
-      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#03428E]">
-        Klien &amp; Mitra
-      </p>
-      <h1 className="mt-4 text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-        Halaman Ini Sedang Dalam Pengembangan
-      </h1>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-neutral-600">
-        Daftar lengkap klien dan mitra strategis CV Bugar Nusantara Jaya akan
-        segera hadir di halaman ini.
-      </p>
+    <main>
+      <Hero />
+      <IntroBanner />
+      <FilterContent />
+      <CompanyProfile />
+      <VideoTerbaru />
+      <ClosingCta />
     </main>
   );
 }

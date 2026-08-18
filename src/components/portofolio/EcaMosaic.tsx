@@ -23,6 +23,8 @@ export default function EcaMosaic() {
         {...summerCamp}
         className="h-[454px] w-[260px] shrink-0"
         labelClassName="text-sm"
+        contentPadding="p-4"
+        imageSizes="800px"
       />
       <MosaicCard {...fieldTrip} className="h-[220px] w-[270px] shrink-0 self-start" />
     </MosaicCarousel>

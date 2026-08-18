@@ -22,6 +22,8 @@ export default function SemuaMosaic() {
         {...brandIncubation}
         className="h-[454px] w-[260px] shrink-0"
         labelClassName="text-sm"
+        contentPadding="p-4"
+        imageSizes="800px"
       />
       <div className="flex w-[260px] shrink-0 flex-col gap-3.5">
         <MosaicCard {...eca} className="flex-1" />

@@ -5,7 +5,7 @@ import FilterTabs from "./FilterTabs";
 import SemuaMosaic from "./SemuaMosaic";
 import EfmMosaic from "./EfmMosaic";
 import EcaMosaic from "./EcaMosaic";
-import ComingSoonSection from "./ComingSoonSection";
+import PillarComingSoonMosaic from "./PillarComingSoonMosaic";
 import TrustBar from "./TrustBar";
 import PostinganTerbaru from "./PostinganTerbaru";
 import type { Category } from "./data";
@@ -26,13 +26,13 @@ export default function FilterContent() {
           (active === "Semua" ? <SemuaMosaic /> : <EfmMosaic />)}
         {active === "ECA Aspire" && <EcaMosaic />}
         {active === "BNJ Digital Labs" && (
-          <ComingSoonSection tab="BNJ Digital Labs" />
+          <PillarComingSoonMosaic tab="BNJ Digital Labs" />
         )}
         {active === "Brand Incubation" && (
-          <ComingSoonSection tab="Brand Incubation" />
+          <PillarComingSoonMosaic tab="Brand Incubation" />
         )}
         {active === "BNJ Investment Ventures" && (
-          <ComingSoonSection tab="BNJ Investment Ventures" />
+          <PillarComingSoonMosaic tab="BNJ Investment Ventures" />
         )}
 
         <TrustBar />

@@ -25,22 +25,23 @@ export type Category = (typeof CATEGORIES)[number];
 // ---------------------------------------------------------------------
 // Panel biru (heading + body) per tab. "Semua" & tab pilar EFM/ECA berbagi
 // 1 komponen mosaic (MosaicSection) dengan konten berbeda; Digital Labs /
-// Brand Incubation / Investment Ventures pakai ComingSoonSection.
+// Brand Incubation / Investment Ventures pakai PillarComingSoonMosaic
+// (mosaic blur+grayscale statis, sesuai file desain Claude Design).
 // ---------------------------------------------------------------------
 export const SEMUA_PANEL = {
   heading: "Lima Ekosistem Bisnis, Satu Komitmen Pertumbuhan",
-  body: "Dari fitness, teknologi, edukasi, hingga investasi, setiap unit bisnis BNJ terdokumentasi nyata sebagai bukti kontribusi ke klien dan mitra.",
+  body: "Bukti nyata kontribusi BNJ ke klien dan mitra, dari fitness, teknologi, edukasi, hingga investasi.",
 };
 
 export const EFM_PANEL = {
   heading: "Essential Fitness Management",
-  body: "Essential Fitness Management (EFM) adalah unit bisnis inti BNJ yang telah beroperasi sejak 2017, mengelola lebih dari 200 klien personal training, korporat, dan event.",
+  body: "Unit bisnis inti BNJ, beroperasi sejak 2017, mengelola lebih dari 200 klien personal training, korporat, dan event.",
   href: "/ekosistem-bisnis/efm",
 };
 
 export const ECA_PANEL = {
   heading: "ECA Aspire",
-  body: "ECA Aspire adalah unit pendidikan BNJ yang menghadirkan 45+ program ekstrakurikuler lintas olahraga, robotik, seni, musik, dan bahasa, melalui kemitraan strategis dengan Sampoerna Academy dan sekolah mitra lainnya.",
+  body: "Unit pendidikan BNJ, 45+ program ekstrakurikuler lintas olahraga, robotik, seni, musik, dan bahasa, lewat kemitraan strategis dengan Sampoerna Academy dan sekolah mitra lainnya.",
   // Rute nyata halaman ECA Aspire masih memakai nama folder lama
   // "educational-alliance" (belum di-rename) — JANGAN pakai "/eca-aspire"
   // seperti draf desain, itu akan 404. Cross-check ke Navbar.tsx.
@@ -51,35 +52,35 @@ export const ECA_PANEL = {
 export const SEMUA_CARDS = [
   {
     label: "Essential Fitness Management",
-    img: "/images/portofolio-mosaic-efm.png",
+    img: "/images/Page-Portofolio/portofolio-mosaic-efm.png",
     doc: "12 Dokumentasi",
     href: "/ekosistem-bisnis/efm",
     comingSoon: false,
   },
   {
     label: "BNJ Digital Labs",
-    img: "/images/portofolio-mosaic-digital-labs.png",
+    img: "/images/Page-Portofolio/portofolio-mosaic-digital-labs.png",
     doc: null,
     href: "/ekosistem-bisnis/digital-labs",
     comingSoon: true,
   },
   {
     label: "Brand Incubation",
-    img: "/images/portofolio-mosaic-brand-incubation.png",
+    img: "/images/Page-Portofolio/portofolio-mosaic-brand-incubation.png",
     doc: null,
     href: "/ekosistem-bisnis/brand-incubation",
     comingSoon: true,
   },
   {
     label: "ECA Aspire",
-    img: "/images/portofolio-mosaic-eca-aspire.png",
+    img: "/images/Page-Portofolio/portofolio-mosaic-eca-aspire.png",
     doc: "5 Dokumentasi",
     href: "/ekosistem-bisnis/educational-alliance",
     comingSoon: false,
   },
   {
     label: "BNJ Investment Ventures",
-    img: "/images/portofolio-mosaic-investment-ventures.png",
+    img: "/images/Page-Portofolio/portofolio-mosaic-investment-ventures.png",
     doc: null,
     href: "/ekosistem-bisnis/investment-ventures",
     comingSoon: true,
@@ -91,25 +92,25 @@ export const SEMUA_CARDS = [
 export const EFM_CARDS = [
   {
     label: "Private Program",
-    img: "/images/portofolio-efm-private-program.png",
+    img: "/images/Page-Portofolio/portofolio-efm-private-program.png",
     doc: "12 Dokumentasi",
     href: "/portofolio/efm-private-program",
   },
   {
     label: "B2B Management",
-    img: "/images/portofolio-efm-b2b-management.png",
+    img: "/images/Page-Portofolio/portofolio-efm-b2b-management.png",
     doc: "9 Dokumentasi",
     href: "/portofolio/efm-b2b-management",
   },
   {
     label: "B2B Event",
-    img: "/images/portofolio-efm-b2b-event.jpeg",
+    img: "/images/Page-Portofolio/portofolio-efm-b2b-event.jpeg",
     doc: "15 Dokumentasi",
     href: "/portofolio/efm-b2b-event",
   },
   {
     label: "Essential Community Hub",
-    img: "/images/portofolio-efm-community-hub.jpg",
+    img: "/images/Page-Portofolio/portofolio-efm-community-hub.jpg",
     doc: "5 Dokumentasi",
     href: "/portofolio/efm-community-hub",
   },
@@ -119,59 +120,77 @@ export const EFM_CARDS = [
 export const ECA_CARDS = [
   {
     label: "Basic School Program",
-    img: "/images/portofolio-eca-basic.png",
+    img: "/images/Page-Portofolio/portofolio-eca-basic.png",
     doc: "6 Dokumentasi",
     href: "/portofolio/eca-basic-school-program",
   },
   {
     label: "Advanced School Program",
-    img: "/images/portofolio-eca-advanced.png",
+    img: "/images/Page-Portofolio/portofolio-eca-advanced.png",
     doc: "4 Dokumentasi",
     href: "/portofolio/eca-advanced-school-program",
   },
   {
     label: "Summer Camp",
-    img: "/images/portofolio-eca-summercamp.png",
+    img: "/images/Page-Portofolio/portofolio-eca-summercamp.png",
     doc: "10 Dokumentasi",
     href: "/portofolio/eca-summer-camp",
   },
   {
     label: "Field Trip",
-    img: "/images/portofolio-eca-field-trip.png",
+    img: "/images/Page-Portofolio/portofolio-eca-field-trip.png",
     doc: "5 Dokumentasi",
     href: "/portofolio/eca-field-trip",
   },
 ] as const;
 
-// Tab coming-soon: Digital Labs, Brand Incubation, Investment Ventures.
-// Foto TETAP dummy blur (belum ada dokumentasi nyata) — lihat CLAUDE.md
-// TUGAS 6, foto-foto ini SENGAJA tidak diganti.
-export const COMING_SOON_TABS: Record<
+// Tab pilar individual diklik langsung: Digital Labs, Brand Incubation,
+// Investment Ventures. Foto TETAP dummy blur (belum ada dokumentasi nyata)
+// — lihat CLAUDE.md TUGAS 6, foto-foto ini SENGAJA tidak diganti. Semua
+// kartu (termasuk kartu pertama Digital Labs) tanpa label teks, badge
+// "Segera Hadir" di tengah foto — seragam dengan kartu dummy lain.
+export const PILLAR_COMING_SOON_TABS: Record<
   "BNJ Digital Labs" | "Brand Incubation" | "BNJ Investment Ventures",
   {
     heading: string;
     body: string;
     href: string;
-    photos: [string, string, string];
+    cards: { img: string; alt: string; label?: string; href?: string }[];
   }
 > = {
   "BNJ Digital Labs": {
     heading: "BNJ Digital Labs",
-    body: "BNJ Digital Labs adalah unit inovasi teknologi BNJ yang sedang membangun fondasi produk digital untuk mendukung operasional dan pengalaman klien di seluruh ekosistem bisnis, dimulai dari kemitraan dengan rumah sakit, klinik, dan fisioterapi.",
+    body: "Unit inovasi teknologi BNJ, membangun fondasi produk digital untuk ekosistem bisnis, dimulai dari kemitraan rumah sakit, klinik, dan fisioterapi.",
     href: "/ekosistem-bisnis/digital-labs",
-    photos: [genericPhoto(2), genericPhoto(5), genericPhoto(8)],
+    cards: [
+      {
+        img: genericPhoto(2),
+        alt: "Ilustrasi BNJ Vitality Intelligence",
+        href: "/ekosistem-bisnis/digital-labs",
+      },
+      { img: genericPhoto(5), alt: "Ilustrasi pengembangan produk" },
+      { img: genericPhoto(8), alt: "Ilustrasi pengembangan produk" },
+    ],
   },
   "Brand Incubation": {
     heading: "Brand Incubation & Business Acceleration",
-    body: "Brand Incubation & Business Acceleration adalah unit BNJ yang mengakselerasi pertumbuhan brand pihak ketiga di bidang fitness, sport, dan wellness. Saat ini masih dalam fase perencanaan, dengan eksekusi akselerasi brand pertama direncanakan mulai 2028.",
+    body: "Unit akselerasi brand pihak ketiga BNJ di bidang fitness, sport, dan wellness, eksekusi akselerasi brand pertama direncanakan mulai 2028.",
     href: "/ekosistem-bisnis/brand-incubation",
-    photos: [genericPhoto(3), genericPhoto(7), genericPhoto(8)],
+    cards: [
+      { img: genericPhoto(3), alt: "Ilustrasi pengembangan produk" },
+      { img: genericPhoto(7), alt: "Ilustrasi pengembangan produk" },
+      { img: genericPhoto(8), alt: "Ilustrasi pengembangan produk" },
+    ],
   },
   "BNJ Investment Ventures": {
     heading: "BNJ Investment Ventures",
-    body: "BNJ Investment Ventures adalah unit BNJ yang berinvestasi pada fasilitas fitness, sport, dan wellness untuk memperluas portofolio bisnis jangka panjang. Direncanakan mulai beroperasi pada 2028, diawali investasi mandiri BNJ.",
+    body: "Unit investasi BNJ pada fasilitas fitness, sport, dan wellness, direncanakan beroperasi 2028 diawali investasi mandiri.",
     href: "/ekosistem-bisnis/investment-ventures",
-    photos: [genericPhoto(4), genericPhoto(6), genericPhoto(1)],
+    cards: [
+      { img: genericPhoto(4), alt: "Ilustrasi pengembangan produk" },
+      { img: genericPhoto(6), alt: "Ilustrasi pengembangan produk" },
+      { img: genericPhoto(1), alt: "Ilustrasi pengembangan produk" },
+    ],
   },
 };
 
@@ -201,19 +220,19 @@ export const TRUST_POINTS = [
 export const POSTINGAN_TERBARU = [
   {
     title: "Essential Community Hub",
-    img: "/images/portofolio-efm-community-hub.jpg",
+    img: "/images/Page-Portofolio/portofolio-efm-community-hub.jpg",
     doc: "7 Dokumentasi",
     href: "/portofolio/efm-community-hub",
   },
   {
     title: "Summer Camp",
-    img: "/images/portofolio-eca-summercamp.png",
+    img: "/images/Page-Portofolio/portofolio-eca-summercamp.png",
     doc: "10 Dokumentasi",
     href: "/portofolio/eca-summer-camp",
   },
   {
     title: "B2B Event",
-    img: "/images/portofolio-efm-b2b-event.jpeg",
+    img: "/images/Page-Portofolio/portofolio-efm-b2b-event.jpeg",
     doc: "15 Dokumentasi",
     href: "/portofolio/efm-b2b-event",
   },
